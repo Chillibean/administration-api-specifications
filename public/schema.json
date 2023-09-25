@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "0.0.0",
+    "version": "1.0.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -11,7 +11,7 @@
   },
   "tags": [
     {
-      "name": "Example",
+      "name": "Administration",
       "description": "Example endpoints"
     }
   ],
@@ -26,9 +26,9 @@
     }
   ],
   "paths": {
-    "/example": {
+    "/accounts/{account_id}/administration/chapter_definitions": {
       "get": {
-        "summary": "Example endpoint",
+        "summary": "Get all chapter definitions for account",
         "security": [
           {
             "userSessionKey": []
@@ -37,27 +37,30 @@
             "chillipharmSession": []
           }
         ],
-        "operationId": "getExample",
-        "description": "This is an example endpoint",
+        "operationId": "getChapterDefinitions",
+        "description": "Get all chapter definitions for account",
         "parameters": [
           {
-            "name": "example",
-            "in": "query",
-            "description": "Example parameter",
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           }
         ],
-        "tags": ["Example"],
+        "tags": [
+          "Administration"
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExampleResponse"
+                  "$ref": "#/components/schemas/ChapterDefinitions"
                 }
               }
             }
@@ -94,11 +97,36 @@
       }
     },
     "schemas": {
-      "ExampleResponse": {
+      "ChapterDefinitions": {
+        "description": "ChapterDefinitions description",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ChapterDefinition"
+        }
+      },
+      "ChapterDefinition": {
+        "description": "ChapterDefinition description",
         "type": "object",
         "properties": {
-          "example": {
-            "type": "string"
+          "id": {
+            "type": "number",
+            "description": "The id of chapter definition",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of chapter definition",
+            "example": "pre"
+          },
+          "color": {
+            "type": "string",
+            "description": "The color of chapter definition",
+            "example": "#ccc"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The date of chapter definition",
+            "example": "2020-01-01T00:00:00.000Z"
           }
         }
       },
