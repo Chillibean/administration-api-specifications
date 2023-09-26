@@ -51,13 +51,7 @@
             }
           }
         ],
-<<<<<<< Updated upstream
-        "tags": [
-          "Administration"
-        ],
-=======
         "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -127,13 +121,7 @@
             }
           }
         ],
-<<<<<<< Updated upstream
-        "tags": [
-          "Administration"
-        ],
-=======
         "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -195,13 +183,7 @@
             }
           }
         ],
-<<<<<<< Updated upstream
-        "tags": [
-          "Administration"
-        ],
-=======
         "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -281,13 +263,7 @@
             }
           }
         ],
-<<<<<<< Updated upstream
-        "tags": [
-          "Administration"
-        ],
-=======
         "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -347,13 +323,7 @@
             }
           }
         ],
-<<<<<<< Updated upstream
-        "tags": [
-          "Administration"
-        ],
-=======
         "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
