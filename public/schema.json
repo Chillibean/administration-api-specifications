@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -51,7 +51,9 @@
             }
           }
         ],
-        "tags": ["Administration"],
+        "tags": [
+          "Administration"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -121,7 +123,9 @@
             }
           }
         ],
-        "tags": ["Administration"],
+        "tags": [
+          "Administration"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -183,7 +187,9 @@
             }
           }
         ],
-        "tags": ["Administration"],
+        "tags": [
+          "Administration"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -263,7 +269,9 @@
             }
           }
         ],
-        "tags": ["Administration"],
+        "tags": [
+          "Administration"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -323,7 +331,9 @@
             }
           }
         ],
-        "tags": ["Administration"],
+        "tags": [
+          "Administration"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -399,7 +409,12 @@
             "example": "2020-01-01T00:00:00.000Z"
           }
         },
-        "required": ["id", "name", "color", "created_at"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "created_at"
+        ]
       },
       "Error": {
         "description": "An error",
