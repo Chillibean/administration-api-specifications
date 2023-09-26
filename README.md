@@ -170,8 +170,3 @@ Make sure to enable these settings inside the repository:
 - Set GitHub Pages visibility to public.
 - Source: deploy from a branch.
 - Branch: **`gh-pages`** from the root **`/`**.
-
-**Secrets and Variables Tab** (Actions)
-
-- Generate a new PAT (Personal Access Token) with the following permissions: *repo, workflow, write:packages*. See **[GitHub's documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)** for details.
-- In Actions, create a new Repository secret and set **`API_CLIENT_SDK_SECRET`** to the new secret. This secret is used in the GitHub workflows.
