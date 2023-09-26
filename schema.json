@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -51,13 +51,9 @@
             }
           }
         ],
-<<<<<<< Updated upstream
         "tags": [
-          "Administration"
+          "Chapter Definitions"
         ],
-=======
-        "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -127,13 +123,9 @@
             }
           }
         ],
-<<<<<<< Updated upstream
         "tags": [
-          "Administration"
+          "Chapter Definitions"
         ],
-=======
-        "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -195,13 +187,9 @@
             }
           }
         ],
-<<<<<<< Updated upstream
         "tags": [
-          "Administration"
+          "Chapter Definitions"
         ],
-=======
-        "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -281,13 +269,9 @@
             }
           }
         ],
-<<<<<<< Updated upstream
         "tags": [
-          "Administration"
+          "Chapter Definitions"
         ],
-=======
-        "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
@@ -347,13 +331,9 @@
             }
           }
         ],
-<<<<<<< Updated upstream
         "tags": [
-          "Administration"
+          "Chapter Definitions"
         ],
-=======
-        "tags": ["Chapter Definitions"],
->>>>>>> Stashed changes
         "responses": {
           "200": {
             "description": "OK",
