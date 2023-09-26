@@ -75,7 +75,7 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/Chillibean/administration-api-client-sdk/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.API_CLIENT_SDK_SECRET }} \
+          -u ${{ secrets.API_SPEC_PAT_TOKEN }} \
           --data '{"event_type": "trigger_workflow", "client_payload": { "version": "${{ needs.generate-release.outputs.version }}" }}'
       - uses: actions/checkout@v3
   
