@@ -51,9 +51,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -91,6 +89,29 @@
         ],
         "operationId": "postChapterDefinition",
         "description": "Create a chapter definition for account",
+        "requestBody": {
+          "description": "Chapter definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Chapter definition object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of chapter definition",
+                    "example": "pre"
+                  },
+                  "color": {
+                    "type": "string",
+                    "description": "The color of chapter definition",
+                    "example": "#ccc"
+                  }
+                }
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "name": "account_id",
@@ -101,31 +122,9 @@
               "type": "string",
               "example": "1"
             }
-          },
-          {
-            "name": "color",
-            "in": "query",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "description": "The chapter definition id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -187,9 +186,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -227,6 +224,29 @@
         ],
         "operationId": "putChapterDefinition",
         "description": "Update a chapter definition for account",
+        "requestBody": {
+          "description": "Chapter definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Chapter definition object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of chapter definition",
+                    "example": "pre"
+                  },
+                  "color": {
+                    "type": "string",
+                    "description": "The color of chapter definition",
+                    "example": "#ccc"
+                  }
+                }
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "name": "account_id",
@@ -247,31 +267,9 @@
               "type": "string",
               "example": "1"
             }
-          },
-          {
-            "name": "color",
-            "in": "query",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "description": "The chapter definition id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -331,9 +329,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -409,12 +405,7 @@
             "example": "2020-01-01T00:00:00.000Z"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "color",
-          "created_at"
-        ]
+        "required": ["id", "name", "color", "created_at"]
       },
       "Error": {
         "description": "An error",
