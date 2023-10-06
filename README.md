@@ -49,7 +49,10 @@ npm version [<newversion> | major | minor | patch]
 
 ```
 
-To set a new version for the release, run **`npm version patch`**.
+The version works as follows:
+- **`major`**: A major release, which includes breaking changes. (example: removing an endpoint)
+- **`minor`**: A minor release, which includes new features. (example: adding an endpoint)
+- **`patch`**: A patch release, which includes bug fixes. (example: fixing an endpoint)
 
 For a new alpha version, use **`npm version [version_number]-alpha.0`**. Setting an alpha version generates a pre-release that updates and publishes an alpha version of the Client SDK.
 
