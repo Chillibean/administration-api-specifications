@@ -108,6 +108,11 @@
                     "type": "string",
                     "description": "The color of chapter definition",
                     "example": "#ccc"
+                  },
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
                   }
                 }
               }
@@ -247,6 +252,11 @@
                     "type": "string",
                     "description": "The color of chapter definition",
                     "example": "#ccc"
+                  },
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
                   }
                 }
               }
@@ -315,6 +325,24 @@
         ],
         "operationId": "deleteChapterDefinition",
         "description": "Delete a chapter definition for account",
+        "requestBody": {
+          "description": "Authenticity token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Authenticity token",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  }
+                }
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "name": "account_id",
