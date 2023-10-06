@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.1.1",
+    "version": "1.1.2",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -51,7 +51,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -129,7 +131,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -191,7 +195,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -279,7 +285,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -357,7 +365,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -433,7 +443,12 @@
             "example": "2020-01-01T00:00:00.000Z"
           }
         },
-        "required": ["id", "name", "color", "created_at"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "created_at"
+        ]
       },
       "Error": {
         "description": "An error",
