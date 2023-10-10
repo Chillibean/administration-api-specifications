@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.1.3",
+    "version": "1.2.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -393,6 +393,101 @@
           }
         }
       }
+    },
+    "/accounts/{account_id}/administration/chapter_definitions/update_positions": {
+      "post": {
+        "summary": "Update chapter definitions positions for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "postChapterDefinitionsUpdatePositions",
+        "description": "Update chapter definitions positions for account",
+        "requestBody": {
+          "description": "Chapter definitions positions object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Chapter definitions positions object",
+                "properties": {
+                  "chapter_definitions": {
+                    "type": "array",
+                    "description": "Chapter definitions positions",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "description": "The id of chapter definition",
+                          "example": 1
+                        },
+                        "position": {
+                          "type": "number",
+                          "description": "The position of chapter definition",
+                          "example": 1
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "position"
+                      ]
+                    }
+                  },
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "tags": [
+          "Chapter Definitions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterDefinitions"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -412,14 +507,14 @@
     },
     "schemas": {
       "ChapterDefinitions": {
-        "description": "ChapterDefinitions description",
+        "description": "A list of chapter definitions ordered by position",
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/ChapterDefinition"
         }
       },
       "ChapterDefinition": {
-        "description": "ChapterDefinition description",
+        "description": "A chapter definition",
         "type": "object",
         "properties": {
           "id": {
