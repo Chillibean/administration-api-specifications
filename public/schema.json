@@ -114,7 +114,13 @@
                     "description": "The asset authenticity token",
                     "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
                   }
-                }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -258,7 +264,13 @@
                     "description": "The asset authenticity token",
                     "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
                   }
-                }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -338,7 +350,11 @@
                     "description": "The asset authenticity token",
                     "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
                   }
-                }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -443,7 +459,12 @@
                     "description": "The asset authenticity token",
                     "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
                   }
-                }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "chapter_definitions",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -538,6 +559,7 @@
             "example": 1
           }
         },
+        "additionalProperties": false,
         "required": [
           "id",
           "name",
