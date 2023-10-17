@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.1.0",
+    "version": "2.1.1",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -51,7 +51,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -129,7 +131,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -191,7 +195,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -279,7 +285,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -357,7 +365,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -422,7 +432,10 @@
                           "example": 1
                         }
                       },
-                      "required": ["id", "position"]
+                      "required": [
+                        "id",
+                        "position"
+                      ]
                     }
                   },
                   "authenticity_token": {
@@ -447,7 +460,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -523,7 +538,12 @@
             "example": 1
           }
         },
-        "required": ["id", "name", "color", "created_at"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "created_at"
+        ]
       },
       "Error": {
         "description": "An error",
