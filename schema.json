@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.1.2",
+    "version": "2.1.3",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -60,7 +60,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChapterDefinitions"
+                  "$ref": "#/components/schemas/ChapterDefinitionsWithPositions"
                 }
               }
             }
@@ -146,7 +146,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChapterDefinition"
+                  "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
                 }
               }
             }
@@ -210,7 +210,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChapterDefinition"
+                  "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
                 }
               }
             }
@@ -306,7 +306,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChapterDefinition"
+                  "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
                 }
               }
             }
@@ -490,7 +490,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChapterDefinitions"
+                  "$ref": "#/components/schemas/ChapterDefinitionsWithPositions"
                 }
               }
             }
@@ -527,15 +527,35 @@
       }
     },
     "schemas": {
-      "ChapterDefinitions": {
-        "description": "A list of chapter definitions ordered by position",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ChapterDefinition"
-        }
-      },
       "ChapterDefinition": {
         "description": "A chapter definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of chapter definition",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of chapter definition",
+            "example": "pre"
+          },
+          "color": {
+            "type": "string",
+            "description": "The color of chapter definition",
+            "example": "#ccc"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "color"
+        ]
+      },
+      "ChapterDefinitionWithPosition": {
+        "description": "A chapter definition with position",
         "type": "object",
         "properties": {
           "id": {
@@ -566,6 +586,13 @@
           "color",
           "position"
         ]
+      },
+      "ChapterDefinitionsWithPositions": {
+        "description": "A list of chapter definitions with positions",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
+        }
       },
       "Error": {
         "description": "An error",
