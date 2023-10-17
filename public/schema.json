@@ -51,9 +51,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -131,9 +129,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -195,9 +191,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -285,9 +279,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -365,9 +357,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -432,10 +422,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -460,9 +447,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -532,18 +517,13 @@
             "description": "The color of chapter definition",
             "example": "#ccc"
           },
-          "created_at": {
-            "type": "string",
-            "description": "The date of chapter definition",
-            "example": "2020-01-01T00:00:00.000Z"
+          "position": {
+            "type": "number",
+            "description": "The position of chapter definition",
+            "example": 1
           }
         },
-        "required": [
-          "id",
-          "name",
-          "color",
-          "created_at"
-        ]
+        "required": ["id", "name", "color", "created_at"]
       },
       "Error": {
         "description": "An error",
