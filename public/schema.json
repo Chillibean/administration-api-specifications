@@ -564,7 +564,7 @@
           "id",
           "name",
           "color",
-          "created_at"
+          "position"
         ]
       },
       "Error": {
