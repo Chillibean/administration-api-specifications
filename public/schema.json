@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.1.0",
+    "version": "2.1.1",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -532,10 +532,10 @@
             "description": "The color of chapter definition",
             "example": "#ccc"
           },
-          "created_at": {
-            "type": "string",
-            "description": "The date of chapter definition",
-            "example": "2020-01-01T00:00:00.000Z"
+          "position": {
+            "type": "number",
+            "description": "The position of chapter definition",
+            "example": 1
           }
         },
         "required": [
