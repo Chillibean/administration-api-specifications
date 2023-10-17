@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.1.2",
+    "version": "2.1.3",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -51,7 +51,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -114,7 +116,11 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["name", "color", "authenticity_token"]
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -131,7 +137,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -193,7 +201,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -256,7 +266,11 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["name", "color", "authenticity_token"]
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -283,7 +297,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -336,7 +352,9 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["authenticity_token"]
+                "required": [
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -363,7 +381,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -428,7 +448,10 @@
                           "example": 1
                         }
                       },
-                      "required": ["id", "position"]
+                      "required": [
+                        "id",
+                        "position"
+                      ]
                     }
                   },
                   "authenticity_token": {
@@ -438,7 +461,10 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["chapter_definitions", "authenticity_token"]
+                "required": [
+                  "chapter_definitions",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -455,7 +481,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -520,7 +548,11 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "name", "color"]
+        "required": [
+          "id",
+          "name",
+          "color"
+        ]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -548,7 +580,12 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "name", "color", "position"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "position"
+        ]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
