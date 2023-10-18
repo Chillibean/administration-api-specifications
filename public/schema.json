@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.2.0-alpha.0",
+    "version": "2.2.0-alpha.1",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
