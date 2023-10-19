@@ -624,7 +624,8 @@
         },
         "required": [
           "error"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "responses": {
@@ -657,7 +658,8 @@
               },
               "required": [
                 "error"
-              ]
+              ],
+              "additionalProperties": false
             }
           }
         }
@@ -681,7 +683,8 @@
               },
               "required": [
                 "error"
-              ]
+              ],
+              "additionalProperties": false
             }
           }
         }
