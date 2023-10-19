@@ -69,7 +69,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorized"
+            "$ref": "#/components/responses/Unauthorised"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -158,7 +158,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorized"
+            "$ref": "#/components/responses/Unauthorised"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -225,7 +225,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorized"
+            "$ref": "#/components/responses/Unauthorised"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -324,7 +324,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorized"
+            "$ref": "#/components/responses/Unauthorised"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -411,10 +411,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+            "$ref": "#/components/responses/Unauthorised"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -517,7 +514,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorized"
+            "$ref": "#/components/responses/Unauthorised"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -641,7 +638,7 @@
           }
         }
       },
-      "Unauthorized": {
+      "Unauthorised": {
         "description": "Unauthorised. Missing or invalid authentication credentials.",
         "content": {
           "application/json": {
@@ -652,8 +649,10 @@
                 "error": {
                   "type": "string",
                   "description": "The error message",
-                  "example": "Bad request. Missing or invalid input parameters.",
-                  "default": "Unauthorised"
+                  "example": "Unauthorised",
+                  "enum": [
+                    "Unauthorised"
+                  ]
                 }
               },
               "required": [
@@ -674,8 +673,10 @@
                 "error": {
                   "type": "string",
                   "description": "The error message",
-                  "example": "Bad request. Missing or invalid input parameters.",
-                  "default": "Not found"
+                  "example": "Not found",
+                  "enum": [
+                    "Not found"
+                  ]
                 }
               },
               "required": [
