@@ -1,7 +1,7 @@
 {
   "name": "administration-api-specifications",
   "private": true,
-  "version": "2.1.5-alpha.1",
+  "version": "2.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
