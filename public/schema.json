@@ -504,7 +504,7 @@
         }
       }
     },
-    "/api/v1/accounts/{account_id}/administration/form_templates": {
+    "/accounts/{account_id}/administration/form_templates": {
       "get": {
         "summary": "Get all form templates for account",
         "security": [
@@ -570,6 +570,79 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "postFormTemplate",
+        "description": "Create a form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Form template object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "$ref": "#/components/schemas/FormTemplateBodyData"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
                 }
               }
             }
@@ -731,6 +804,55 @@
           }
         }
       },
+      "FormTemplateBodyData": {
+        "type": "object",
+        "description": "Form template body data object",
+        "properties": {
+          "created_by": {
+            "type": "object",
+            "description": "The created by of form template version",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of created by",
+                "example": 1
+              },
+              "email": {
+                "type": "string",
+                "description": "The email of created by",
+                "example": "test@chillipharm.com"
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of form template",
+            "example": "Test"
+          },
+          "fields": {
+            "type": "array",
+            "description": "The fields of form template version",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersionField"
+            }
+          },
+          "reason_for_change": {
+            "type": "string",
+            "description": "The reason for change of form template version",
+            "example": "Version 1"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template version",
+            "example": "Version 1"
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of form template",
+            "example": 1
+          }
+        }
+      },
       "TrialContainer": {
         "description": "A trial container",
         "type": "object",
@@ -884,7 +1006,6 @@
           "enabled",
           "validations",
           "options",
-          "persisted",
           "other_enabled"
         ]
       },
