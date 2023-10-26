@@ -504,7 +504,7 @@
         }
       }
     },
-    "/api/v1/accounts/:account_id/administration/form_templates": {
+    "/api/v1/accounts/{account_id}/administration/form_templates": {
       "get": {
         "summary": "Get all form templates for account",
         "security": [
@@ -560,6 +560,13 @@
                             "$ref": "#/components/schemas/FormTemplateVersion"
                           }
                         }
+                      }
+                    },
+                    "form_templates": {
+                      "type": "array",
+                      "description": "Form templates",
+                      "items": {
+                        "$ref": "#/components/schemas/FormTemplate"
                       }
                     }
                   }
@@ -660,6 +667,70 @@
           "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
         }
       },
+      "FormTemplate": {
+        "description": "A form template",
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "The active status of form template",
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of form template",
+            "example": "2020-01-01T00:00:00.000Z"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of form template",
+            "example": "Test"
+          },
+          "id": {
+            "type": "number",
+            "description": "The id of form template",
+            "example": 1
+          },
+          "number_of_forms": {
+            "type": "number",
+            "description": "The number of forms of form template",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template",
+            "example": "Test"
+          },
+          "trial_containers": {
+            "type": "array",
+            "description": "The trial containers of form template",
+            "items": {
+              "$ref": "#/components/schemas/TrialContainer"
+            }
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of form template",
+            "example": 1
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersion"
+            }
+          },
+          "workflow_definition_id": {
+            "type": "number",
+            "description": "The workflow definition id of form template",
+            "example": 1
+          },
+          "workflow_definition_name": {
+            "type": "string",
+            "description": "The workflow definition name of form template",
+            "example": "Test"
+          }
+        }
+      },
       "TrialContainer": {
         "description": "A trial container",
         "type": "object",
@@ -735,7 +806,14 @@
           }
         },
         "additionalProperties": false,
-        "required": ["version_number", "title", "description", "reason_for_change", "fields", "created_by"]
+        "required": [
+          "version_number",
+          "title",
+          "description",
+          "reason_for_change",
+          "fields",
+          "created_by"
+        ]
       },
       "FormTemplateVersionField": {
         "description": "A form template version field",
@@ -798,7 +876,17 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "title", "field_type", "position", "enabled", "validations", "options", "persisted", "other_enabled"]
+        "required": [
+          "id",
+          "title",
+          "field_type",
+          "position",
+          "enabled",
+          "validations",
+          "options",
+          "persisted",
+          "other_enabled"
+        ]
       },
       "FormTemplateVersionFieldValidations": {
         "description": "A form template version field validations",
