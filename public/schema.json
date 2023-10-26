@@ -17,6 +17,10 @@
     {
       "name": "Form Templates",
       "description": "Endpoints for form templates"
+    },
+    {
+      "name": "TO BE REFACTORED",
+      "description": "Endpoints that need to be refactored"
     }
   ],
   "servers": [
@@ -529,7 +533,7 @@
             }
           }
         ],
-        "tags": ["Form Templates"],
+        "tags": ["TO BE REFACTORED", "Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -635,7 +639,7 @@
             }
           }
         },
-        "tags": ["Form Templates"],
+        "tags": ["TO BE REFACTORED", "Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -725,7 +729,196 @@
             }
           }
         },
-        "tags": ["Form Templates"],
+        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/trial_containers": {
+      "post": {
+        "summary": "Add trial containers to form template",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "postFormTemplateTrialContainers",
+        "description": "Add trial containers to form template",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "trialContainers": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/active": {
+      "put": {
+        "summary": "Set active form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "putFormTemplateActive",
+        "description": "Set active form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "active": {
+                        "type": "boolean",
+                        "description": "The active status of form template",
+                        "example": true
+                      },
+                      "reason_for_change": {
+                        "type": "string",
+                        "description": "The reason for change of form template version",
+                        "example": "Version 1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["TO BE REFACTORED", "Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
