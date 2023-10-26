@@ -853,7 +853,7 @@
       }
     },
     "/accounts/{account_id}/administration/form_templates/{id}/active": {
-      "put": {
+      "post": {
         "summary": "Set active form template for account",
         "security": [
           {
@@ -863,7 +863,7 @@
             "chillipharmSession": []
           }
         ],
-        "operationId": "putFormTemplateActive",
+        "operationId": "postFormTemplateActive",
         "description": "Set active form template for account",
         "parameters": [
           {
