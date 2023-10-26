@@ -13,6 +13,10 @@
     {
       "name": "Chapter Definitions",
       "description": "Endpoints for chapter definitions"
+    },
+    {
+      "name": "Form Templates",
+      "description": "Endpoints for form templates"
     }
   ],
   "servers": [
@@ -51,9 +55,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -119,11 +121,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -140,9 +138,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -207,9 +203,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -275,11 +269,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -306,9 +296,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -364,9 +352,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
+                "required": ["authenticity_token"]
               }
             }
           }
@@ -393,9 +379,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -463,10 +447,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -476,10 +457,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "chapter_definitions",
-                  "authenticity_token"
-                ]
+                "required": ["chapter_definitions", "authenticity_token"]
               }
             }
           }
@@ -496,9 +474,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -506,6 +482,87 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ChapterDefinitionsWithPositions"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/v1/accounts/:account_id/administration/form_templates": {
+      "get": {
+        "summary": "Get all form templates for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "getFormTemplates",
+        "description": "Get all form templates for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Form templates response object",
+                  "properties": {
+                    "default_form_template": {
+                      "type": "object",
+                      "description": "Default form template",
+                      "properties": {
+                        "active": {
+                          "type": "boolean",
+                          "description": "The active status of default form template",
+                          "example": true
+                        },
+                        "trial_containers": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/TrialContainer"
+                          }
+                        },
+                        "versions": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/FormTemplateVersion"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -566,11 +623,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color"
-        ]
+        "required": ["id", "name", "color"]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -598,12 +651,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color",
-          "position"
-        ]
+        "required": ["id", "name", "color", "position"]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -611,6 +659,177 @@
         "items": {
           "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
         }
+      },
+      "TrialContainer": {
+        "description": "A trial container",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of trial container",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of trial container",
+            "example": "pre"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of trial container",
+            "example": "Library"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country of trial container",
+            "example": "UK"
+          }
+        }
+      },
+      "FormTemplateVersion": {
+        "description": "A form template version",
+        "type": "object",
+        "properties": {
+          "version_number": {
+            "type": "number",
+            "description": "The version number of form template version",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template version",
+            "example": "Version 1"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of form template version",
+            "example": "Version 1"
+          },
+          "reason_for_change": {
+            "type": "string",
+            "description": "The reason for change of form template version",
+            "example": "Version 1"
+          },
+          "fields": {
+            "type": "array",
+            "description": "The fields of form template version",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersionField"
+            }
+          },
+          "created_by": {
+            "type": "object",
+            "description": "The created by of form template version",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of created by",
+                "example": 1
+              },
+              "email": {
+                "type": "string",
+                "description": "The email of created by",
+                "example": "test@chillipharm.com"
+              }
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": ["version_number", "title", "description", "reason_for_change", "fields", "created_by"]
+      },
+      "FormTemplateVersionField": {
+        "description": "A form template version field",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id of form template version field",
+            "example": "ee8e24-1ca4-ee06-04ed-285b4b02ed70"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template version field",
+            "example": "Test 1"
+          },
+          "field_type": {
+            "type": "string",
+            "description": "The field type of form template version field",
+            "example": "single_line"
+          },
+          "input_guidance": {
+            "type": "string",
+            "description": "The input guidance of form template version field",
+            "example": ""
+          },
+          "position": {
+            "type": "number",
+            "description": "The position of form template version field",
+            "example": 1
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "The enabled status of form template version field",
+            "example": true
+          },
+          "validations": {
+            "type": "array",
+            "description": "The validations of form template version field",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersionFieldValidations"
+            }
+          },
+          "options": {
+            "type": "array",
+            "description": "The options of form template version field",
+            "items": {
+              "type": "string",
+              "example": "Option 1"
+            }
+          },
+          "persisted": {
+            "type": "boolean",
+            "description": "The persisted status of form template version field",
+            "example": true
+          },
+          "other_enabled": {
+            "type": "boolean",
+            "description": "The other enabled status of form template version field",
+            "example": false
+          }
+        },
+        "additionalProperties": false,
+        "required": ["id", "title", "field_type", "position", "enabled", "validations", "options", "persisted", "other_enabled"]
+      },
+      "FormTemplateVersionFieldValidations": {
+        "description": "A form template version field validations",
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean",
+            "description": "The required status of form template version field validations",
+            "example": true
+          },
+          "input_format": {
+            "type": "string",
+            "description": "The input format of form template version field validations",
+            "example": "email",
+            "nullable": true
+          },
+          "character_limit": {
+            "type": "number",
+            "description": "The character limit of form template version field validations",
+            "example": 100,
+            "nullable": true
+          },
+          "character_restriction": {
+            "type": "string",
+            "description": "The character restriction of form template version field validations",
+            "example": "letters",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "required": ["required"]
       },
       "Error": {
         "description": "An error",
@@ -622,9 +841,7 @@
             "example": "Bad request. Missing or invalid input parameters."
           }
         },
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "additionalProperties": false
       }
     },
@@ -651,14 +868,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
+                  "enum": ["Unauthorised"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
@@ -676,14 +889,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": [
-                    "Not found"
-                  ]
+                  "enum": ["Not found"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
