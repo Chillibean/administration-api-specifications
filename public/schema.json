@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.4.0",
+    "version": "2.5.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -59,7 +59,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -125,7 +127,11 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["name", "color", "authenticity_token"]
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -142,7 +148,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -207,7 +215,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -273,7 +283,11 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["name", "color", "authenticity_token"]
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -300,7 +314,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -356,7 +372,9 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["authenticity_token"]
+                "required": [
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -383,7 +401,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -451,7 +471,10 @@
                           "example": 1
                         }
                       },
-                      "required": ["id", "position"]
+                      "required": [
+                        "id",
+                        "position"
+                      ]
                     }
                   },
                   "authenticity_token": {
@@ -461,7 +484,10 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["chapter_definitions", "authenticity_token"]
+                "required": [
+                  "chapter_definitions",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -478,7 +504,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -533,7 +561,10 @@
             }
           }
         ],
-        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "tags": [
+          "TO BE REFACTORED",
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -639,7 +670,10 @@
             }
           }
         },
-        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "tags": [
+          "TO BE REFACTORED",
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -729,7 +763,10 @@
             }
           }
         },
-        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "tags": [
+          "TO BE REFACTORED",
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -822,7 +859,10 @@
             }
           }
         },
-        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "tags": [
+          "TO BE REFACTORED",
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -918,7 +958,10 @@
             }
           }
         },
-        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "tags": [
+          "TO BE REFACTORED",
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -959,7 +1002,10 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "tags": [
+          "TO BE REFACTORED",
+          "Form Templates"
+        ],
         "operationId": "postFormTemplateDuplicate",
         "description": "Duplicate a form template for account",
         "parameters": [
@@ -1067,7 +1113,11 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "name", "color"]
+        "required": [
+          "id",
+          "name",
+          "color"
+        ]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -1095,7 +1145,12 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "name", "color", "position"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "position"
+        ]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -1402,7 +1457,9 @@
           }
         },
         "additionalProperties": false,
-        "required": ["required"]
+        "required": [
+          "required"
+        ]
       },
       "Error": {
         "description": "An error",
@@ -1414,7 +1471,9 @@
             "example": "Bad request. Missing or invalid input parameters."
           }
         },
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "additionalProperties": false
       }
     },
@@ -1441,10 +1500,14 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": ["Unauthorised"]
+                  "enum": [
+                    "Unauthorised"
+                  ]
                 }
               },
-              "required": ["error"],
+              "required": [
+                "error"
+              ],
               "additionalProperties": false
             }
           }
@@ -1462,10 +1525,14 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": ["Not found"]
+                  "enum": [
+                    "Not found"
+                  ]
                 }
               },
-              "required": ["error"],
+              "required": [
+                "error"
+              ],
               "additionalProperties": false
             }
           }
