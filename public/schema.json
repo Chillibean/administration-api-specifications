@@ -853,7 +853,7 @@
       }
     },
     "/accounts/{account_id}/administration/form_templates/{id}/active": {
-      "post": {
+      "put": {
         "summary": "Set active form template for account",
         "security": [
           {
@@ -863,7 +863,7 @@
             "chillipharmSession": []
           }
         ],
-        "operationId": "postFormTemplateActive",
+        "operationId": "putFormTemplateActive",
         "description": "Set active form template for account",
         "parameters": [
           {
@@ -919,6 +919,87 @@
           }
         },
         "tags": ["TO BE REFACTORED", "Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["TO BE REFACTORED", "Form Templates"],
+        "operationId": "postFormTemplateDuplicate",
+        "description": "Duplicate a form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
