@@ -588,7 +588,11 @@
               },
               "fields": {
                 "description": "The error fields",
-                "type": "object"
+                "type": "object",
+                "example": {
+                  "name": ["can't be blank"],
+                  "color": ["can't be blank"]
+                }
               }
             }
           }
