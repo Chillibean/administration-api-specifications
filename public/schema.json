@@ -51,9 +51,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -119,11 +117,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -140,9 +134,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -207,9 +199,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -275,11 +265,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -306,9 +292,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -364,9 +348,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
+                "required": ["authenticity_token"]
               }
             }
           }
@@ -393,9 +375,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -463,10 +443,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -476,10 +453,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "chapter_definitions",
-                  "authenticity_token"
-                ]
+                "required": ["chapter_definitions", "authenticity_token"]
               }
             }
           }
@@ -496,9 +470,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -566,11 +538,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color"
-        ]
+        "required": ["id", "name", "color"]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -598,12 +566,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color",
-          "position"
-        ]
+        "required": ["id", "name", "color", "position"]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -625,15 +588,12 @@
               },
               "fields": {
                 "description": "The error fields",
-                "type": "object",
-                "additionalProperties": true
+                "type": "object"
               }
             }
           }
         },
-        "required": [
-          "error"
-        ],
+        "required": ["errors"],
         "additionalProperties": false
       }
     },
@@ -660,14 +620,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
+                  "enum": ["Unauthorised"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
@@ -685,14 +641,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": [
-                    "Not found"
-                  ]
+                  "enum": ["Not found"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
