@@ -17,10 +17,6 @@
     {
       "name": "Form Templates",
       "description": "Endpoints for form templates"
-    },
-    {
-      "name": "TO BE REFACTORED",
-      "description": "Endpoints that need to be refactored"
     }
   ],
   "servers": [
@@ -533,10 +529,7 @@
             }
           }
         ],
-        "tags": [
-          "TO BE REFACTORED",
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -642,10 +635,7 @@
             }
           }
         },
-        "tags": [
-          "TO BE REFACTORED",
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -735,10 +725,7 @@
             }
           }
         },
-        "tags": [
-          "TO BE REFACTORED",
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -831,10 +818,7 @@
             }
           }
         },
-        "tags": [
-          "TO BE REFACTORED",
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -930,10 +914,7 @@
             }
           }
         },
-        "tags": [
-          "TO BE REFACTORED",
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -974,10 +955,7 @@
             "chillipharmSession": []
           }
         ],
-        "tags": [
-          "TO BE REFACTORED",
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "operationId": "postFormTemplateDuplicate",
         "description": "Duplicate a form template for account",
         "parameters": [
@@ -1354,11 +1332,7 @@
             "example": true
           },
           "validations": {
-            "type": "array",
-            "description": "The validations of form template version field",
-            "items": {
-              "$ref": "#/components/schemas/FormTemplateVersionFieldValidations"
-            }
+            "$ref": "#/components/schemas/FormTemplateVersionFieldValidations"
           },
           "options": {
             "type": "array",
@@ -1420,9 +1394,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "required"
-        ]
+        "required": ["required"]
       },
       "Error": {
         "description": "An error",
