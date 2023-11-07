@@ -1243,6 +1243,11 @@
         "description": "A form template version",
         "type": "object",
         "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of form template version",
+            "example": 1
+          },
           "version_number": {
             "type": "number",
             "description": "The version number of form template version",
@@ -1262,6 +1267,11 @@
             "type": "string",
             "description": "The reason for change of form template version",
             "example": "Version 1"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of form template version",
+            "example": "2020-01-01T00:00:00.000Z"
           },
           "fields": {
             "type": "array",
