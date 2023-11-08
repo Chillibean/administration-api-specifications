@@ -1401,6 +1401,12 @@
             "description": "The character restriction of form template version field validations",
             "example": "letters",
             "nullable": true
+          },
+          "date_restriction": {
+            "type": "string",
+            "description": "The date restriction of form template version field validations",
+            "example": "not_past_date",
+            "nullable": true
           }
         },
         "additionalProperties": false,
