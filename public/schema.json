@@ -55,9 +55,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -123,11 +121,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -144,9 +138,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -211,9 +203,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -279,11 +269,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -310,9 +296,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -368,9 +352,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
+                "required": ["authenticity_token"]
               }
             }
           }
@@ -397,9 +379,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -467,10 +447,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -480,10 +457,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "chapter_definitions",
-                  "authenticity_token"
-                ]
+                "required": ["chapter_definitions", "authenticity_token"]
               }
             }
           }
@@ -500,9 +474,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -557,9 +529,7 @@
             }
           }
         ],
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -605,7 +575,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -614,10 +584,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/Conflict"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "500": {
-            "$ref": "#/components/responses/InternalServerError"
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       },
@@ -665,9 +635,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -680,7 +648,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -689,10 +657,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/Conflict"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "500": {
-            "$ref": "#/components/responses/InternalServerError"
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       }
@@ -757,9 +725,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -772,7 +738,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -781,10 +747,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/Conflict"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "500": {
-            "$ref": "#/components/responses/InternalServerError"
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       }
@@ -852,9 +818,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -867,7 +831,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -876,10 +840,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/Conflict"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "500": {
-            "$ref": "#/components/responses/InternalServerError"
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       }
@@ -950,9 +914,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -965,7 +927,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -974,10 +936,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/Conflict"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "500": {
-            "$ref": "#/components/responses/InternalServerError"
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       }
@@ -993,9 +955,7 @@
             "chillipharmSession": []
           }
         ],
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "operationId": "postFormTemplateDuplicate",
         "description": "Duplicate a form template for account",
         "parameters": [
@@ -1048,7 +1008,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -1057,10 +1017,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/Conflict"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "500": {
-            "$ref": "#/components/responses/InternalServerError"
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       }
@@ -1103,11 +1063,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color"
-        ]
+        "required": ["id", "name", "color"]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -1135,12 +1091,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color",
-          "position"
-        ]
+        "required": ["id", "name", "color", "position"]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -1453,9 +1404,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "required"
-        ]
+        "required": ["required"]
       },
       "Error": {
         "description": "An error",
@@ -1472,21 +1421,28 @@
                 "description": "The error fields",
                 "type": "object",
                 "example": {
-                  "name": [
-                    "can't be blank"
-                  ],
-                  "color": [
-                    "can't be blank"
-                  ]
+                  "name": ["can't be blank"],
+                  "color": ["can't be blank"]
                 }
               }
             }
           }
         },
-        "required": [
-          "errors"
-        ],
+        "required": ["errors"],
         "additionalProperties": false
+      },
+      "LegacyError": {
+        "description": "A legacy error",
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "The error message",
+            "example": "Bad request. Missing or invalid input parameters."
+          }
+        },
+        "additionalProperties": false,
+        "required": ["error"]
       }
     },
     "responses": {
@@ -1496,6 +1452,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "LegacyBadRequest": {
+        "description": "Bad request. Missing or invalid input parameters.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/LegacyError"
             }
           }
         }
@@ -1512,14 +1478,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
+                  "enum": ["Unauthorised"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
@@ -1537,14 +1499,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": [
-                    "Not found"
-                  ]
+                  "enum": ["Not found"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
