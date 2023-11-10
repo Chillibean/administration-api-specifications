@@ -635,7 +635,12 @@
                   ]
                 }
               }
-            }
+            },
+            "required": [
+              "message",
+              "fields"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
