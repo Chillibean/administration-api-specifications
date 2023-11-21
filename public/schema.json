@@ -1402,7 +1402,6 @@
         },
         "additionalProperties": false,
         "required": [
-          "id",
           "title",
           "field_type",
           "position",
