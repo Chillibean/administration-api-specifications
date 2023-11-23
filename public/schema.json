@@ -17,6 +17,10 @@
     {
       "name": "Form Templates",
       "description": "Endpoints for form templates"
+    },
+    {
+      "name": "Workflow Definitions",
+      "description": "Endpoints for workflow definitions"
     }
   ],
   "servers": [
@@ -55,9 +59,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -123,11 +125,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -144,9 +142,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -211,9 +207,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -279,11 +273,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -310,9 +300,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -368,9 +356,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
+                "required": ["authenticity_token"]
               }
             }
           }
@@ -397,9 +383,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -467,10 +451,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -480,10 +461,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "chapter_definitions",
-                  "authenticity_token"
-                ]
+                "required": ["chapter_definitions", "authenticity_token"]
               }
             }
           }
@@ -500,9 +478,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -1052,6 +1028,160 @@
           }
         }
       }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/workflow_definitions": {
+      "put": {
+        "summary": "Update workflow definitions for form template",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Form Templates"],
+        "operationId": "putFormTemplateWorkflowDefinitions",
+        "description": "Update workflow definitions for form template",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "workflow_definition_id": {
+                        "type": "integer",
+                        "description": "The workflow definition id of form template",
+                        "example": 1
+                      }
+                    }
+                  },
+                  "reason_for_change": {
+                    "type": "string",
+                    "description": "The reason for change of form template version",
+                    "example": "Version 1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/workflow_definitions": {
+      "get": {
+        "summary": "Get all workflow definitions for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Workflow Definitions"],
+        "operationId": "getWorkflowDefinitions",
+        "description": "Get all workflow definitions for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkflowDefinition"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1070,6 +1200,32 @@
       }
     },
     "schemas": {
+      "WorkflowDefinition": {
+        "description": "A workflow definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of workflow definition",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of workflow definition",
+            "example": "Standard Workflow"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of workflow definition",
+            "example": "No signature required"
+          },
+          "with_signature": {
+            "type": "boolean",
+            "description": "The with signature status of workflow definition",
+            "example": false
+          }
+        }
+      },
       "ChapterDefinition": {
         "description": "A chapter definition",
         "type": "object",
@@ -1091,11 +1247,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color"
-        ]
+        "required": ["id", "name", "color"]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -1123,12 +1275,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color",
-          "position"
-        ]
+        "required": ["id", "name", "color", "position"]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -1463,25 +1610,16 @@
                 "description": "The error fields",
                 "type": "object",
                 "example": {
-                  "name": [
-                    "can't be blank"
-                  ],
-                  "color": [
-                    "can't be blank"
-                  ]
+                  "name": ["can't be blank"],
+                  "color": ["can't be blank"]
                 }
               }
             },
-            "required": [
-              "message",
-              "fields"
-            ],
+            "required": ["message", "fields"],
             "additionalProperties": false
           }
         },
-        "required": [
-          "errors"
-        ],
+        "required": ["errors"],
         "additionalProperties": false
       },
       "LegacyError": {
@@ -1531,14 +1669,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
+                  "enum": ["Unauthorised"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
@@ -1556,14 +1690,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": [
-                    "Not found"
-                  ]
+                  "enum": ["Not found"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
