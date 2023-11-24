@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.5.1",
+    "version": "2.6.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -13,6 +13,14 @@
     {
       "name": "Chapter Definitions",
       "description": "Endpoints for chapter definitions"
+    },
+    {
+      "name": "Form Templates",
+      "description": "Endpoints for form templates"
+    },
+    {
+      "name": "Workflow Definitions",
+      "description": "Endpoints for workflow definitions"
     }
   ],
   "servers": [
@@ -51,9 +59,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -119,11 +125,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -140,9 +142,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -207,9 +207,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -275,11 +273,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -306,9 +300,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -364,9 +356,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
+                "required": ["authenticity_token"]
               }
             }
           }
@@ -393,9 +383,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -463,10 +451,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -476,10 +461,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "chapter_definitions",
-                  "authenticity_token"
-                ]
+                "required": ["chapter_definitions", "authenticity_token"]
               }
             }
           }
@@ -496,9 +478,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -527,6 +507,681 @@
           }
         }
       }
+    },
+    "/accounts/{account_id}/administration/form_templates": {
+      "get": {
+        "summary": "Get all form templates for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "getFormTemplates",
+        "description": "Get all form templates for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Form templates response object",
+                  "properties": {
+                    "default_form_template": {
+                      "type": "object",
+                      "description": "Default form template",
+                      "properties": {
+                        "active": {
+                          "type": "boolean",
+                          "description": "The active status of default form template",
+                          "example": true
+                        },
+                        "trial_containers": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/TrialContainer"
+                          }
+                        },
+                        "versions": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/FormTemplateVersion"
+                          }
+                        }
+                      }
+                    },
+                    "form_templates": {
+                      "type": "array",
+                      "description": "Form templates",
+                      "items": {
+                        "$ref": "#/components/schemas/FormTemplate"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "postFormTemplate",
+        "description": "Create a form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Form template object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "$ref": "#/components/schemas/FormTemplateBodyData"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}": {
+      "put": {
+        "summary": "Put a form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "putFormTemplate",
+        "description": "Update a form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Form template object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "$ref": "#/components/schemas/FormTemplateBodyData"
+                  },
+                  "reason_for_change": {
+                    "type": "string",
+                    "description": "The reason for change of form template version",
+                    "example": "Version 1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/trial_containers": {
+      "post": {
+        "summary": "Add trial containers to form template",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "postFormTemplateTrialContainers",
+        "description": "Add trial containers to form template",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "trialContainers": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/active": {
+      "put": {
+        "summary": "Set active form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "operationId": "putFormTemplateActive",
+        "description": "Set active form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "active": {
+                        "type": "boolean",
+                        "description": "The active status of form template",
+                        "example": true
+                      },
+                      "reason_for_change": {
+                        "type": "string",
+                        "description": "The reason for change of form template version",
+                        "example": "Version 1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Form Templates"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a form template for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Form Templates"],
+        "operationId": "postFormTemplateDuplicate",
+        "description": "Duplicate a form template for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{id}/workflow_definitions": {
+      "put": {
+        "summary": "Update workflow definitions for form template",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Form Templates"],
+        "operationId": "putFormTemplateWorkflowDefinitions",
+        "description": "Update workflow definitions for form template",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "workflow_definition_id": {
+                        "type": "integer",
+                        "description": "The workflow definition id of form template",
+                        "example": 1
+                      }
+                    }
+                  },
+                  "reason_for_change": {
+                    "type": "string",
+                    "description": "The reason for change of form template version",
+                    "example": "Version 1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/workflow_definitions": {
+      "get": {
+        "summary": "Get all workflow definitions for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Workflow Definitions"],
+        "operationId": "getWorkflowDefinitions",
+        "description": "Get all workflow definitions for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkflowDefinition"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -545,6 +1200,32 @@
       }
     },
     "schemas": {
+      "WorkflowDefinition": {
+        "description": "A workflow definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of workflow definition",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of workflow definition",
+            "example": "Standard Workflow"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of workflow definition",
+            "example": "No signature required"
+          },
+          "with_signature": {
+            "type": "boolean",
+            "description": "The with signature status of workflow definition",
+            "example": false
+          }
+        }
+      },
       "ChapterDefinition": {
         "description": "A chapter definition",
         "type": "object",
@@ -566,11 +1247,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color"
-        ]
+        "required": ["id", "name", "color"]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -598,12 +1275,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color",
-          "position"
-        ]
+        "required": ["id", "name", "color", "position"]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -611,6 +1283,317 @@
         "items": {
           "$ref": "#/components/schemas/ChapterDefinitionWithPosition"
         }
+      },
+      "FormTemplate": {
+        "description": "A form template",
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "The active status of form template",
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of form template",
+            "example": "2020-01-01T00:00:00.000Z"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of form template",
+            "example": "Test"
+          },
+          "id": {
+            "type": "number",
+            "description": "The id of form template",
+            "example": 1
+          },
+          "number_of_forms": {
+            "type": "number",
+            "description": "The number of forms of form template",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template",
+            "example": "Test"
+          },
+          "trial_containers": {
+            "type": "array",
+            "description": "The trial containers of form template",
+            "items": {
+              "$ref": "#/components/schemas/TrialContainer"
+            }
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of form template",
+            "example": 1
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersion"
+            }
+          },
+          "workflow_definition_id": {
+            "type": "number",
+            "description": "The workflow definition id of form template",
+            "example": 1
+          },
+          "workflow_definition_name": {
+            "type": "string",
+            "description": "The workflow definition name of form template",
+            "example": "Test"
+          }
+        }
+      },
+      "FormTemplateBodyData": {
+        "type": "object",
+        "description": "Form template body data object",
+        "properties": {
+          "created_by": {
+            "type": "object",
+            "description": "The created by of form template version",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of created by",
+                "example": 1
+              },
+              "email": {
+                "type": "string",
+                "description": "The email of created by",
+                "example": "test@chillipharm.com"
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of form template",
+            "example": "Test"
+          },
+          "fields": {
+            "type": "array",
+            "description": "The fields of form template version",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersionField"
+            }
+          },
+          "reason_for_change": {
+            "type": "string",
+            "description": "The reason for change of form template version",
+            "example": "Version 1"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template version",
+            "example": "Version 1"
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of form template",
+            "example": 1
+          }
+        }
+      },
+      "TrialContainer": {
+        "description": "A trial container",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of trial container",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of trial container",
+            "example": "pre"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of trial container",
+            "example": "Library"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country of trial container",
+            "example": "UK"
+          }
+        }
+      },
+      "FormTemplateVersion": {
+        "description": "A form template version",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of form template version",
+            "example": 1
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of form template version",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template version",
+            "example": "Version 1"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of form template version",
+            "example": "Version 1"
+          },
+          "reason_for_change": {
+            "type": "string",
+            "description": "The reason for change of form template version",
+            "example": "Version 1"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of form template version",
+            "example": "2020-01-01T00:00:00.000Z"
+          },
+          "fields": {
+            "type": "array",
+            "description": "The fields of form template version",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersionField"
+            }
+          },
+          "created_by": {
+            "type": "object",
+            "description": "The created by of form template version",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of created by",
+                "example": 1
+              },
+              "email": {
+                "type": "string",
+                "description": "The email of created by",
+                "example": "test@chillipharm.com"
+              }
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version_number",
+          "title",
+          "description",
+          "reason_for_change",
+          "fields",
+          "created_by"
+        ]
+      },
+      "FormTemplateVersionField": {
+        "description": "A form template version field",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id of form template version field",
+            "example": "ee8e24-1ca4-ee06-04ed-285b4b02ed70"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of form template version field",
+            "example": "Test 1"
+          },
+          "field_type": {
+            "type": "string",
+            "description": "The field type of form template version field",
+            "example": "single_line"
+          },
+          "input_guidance": {
+            "type": "string",
+            "description": "The input guidance of form template version field",
+            "example": ""
+          },
+          "position": {
+            "type": "number",
+            "description": "The position of form template version field",
+            "example": 1
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "The enabled status of form template version field",
+            "example": true
+          },
+          "validations": {
+            "$ref": "#/components/schemas/FormTemplateVersionFieldValidations"
+          },
+          "options": {
+            "type": "array",
+            "description": "The options of form template version field",
+            "items": {
+              "type": "string",
+              "example": "Option 1"
+            }
+          },
+          "persisted": {
+            "type": "boolean",
+            "description": "The persisted status of form template version field",
+            "example": true
+          },
+          "other_enabled": {
+            "type": "boolean",
+            "description": "The other enabled status of form template version field",
+            "example": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "field_type",
+          "position",
+          "enabled",
+          "validations",
+          "options",
+          "other_enabled"
+        ]
+      },
+      "FormTemplateVersionFieldValidations": {
+        "description": "A form template version field validations",
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean",
+            "description": "The required status of form template version field validations",
+            "example": true
+          },
+          "input_format": {
+            "type": "string",
+            "description": "The input format of form template version field validations",
+            "example": "email",
+            "nullable": true
+          },
+          "character_limit": {
+            "type": "number",
+            "description": "The character limit of form template version field validations",
+            "example": 100,
+            "nullable": true
+          },
+          "character_restriction": {
+            "type": "string",
+            "description": "The character restriction of form template version field validations",
+            "example": "letters",
+            "nullable": true
+          },
+          "date_restriction": {
+            "type": "string",
+            "description": "The date restriction of form template version field validations",
+            "example": "not_past_date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "required": ["required"]
       },
       "Error": {
         "description": "An error",
@@ -627,26 +1610,30 @@
                 "description": "The error fields",
                 "type": "object",
                 "example": {
-                  "name": [
-                    "can't be blank"
-                  ],
-                  "color": [
-                    "can't be blank"
-                  ]
+                  "name": ["can't be blank"],
+                  "color": ["can't be blank"]
                 }
               }
             },
-            "required": [
-              "message",
-              "fields"
-            ],
+            "required": ["message", "fields"],
             "additionalProperties": false
           }
         },
-        "required": [
-          "errors"
-        ],
+        "required": ["errors"],
         "additionalProperties": false
+      },
+      "LegacyError": {
+        "description": "A legacy error",
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "The error message",
+            "example": "Bad request. Missing or invalid input parameters."
+          }
+        },
+        "additionalProperties": false,
+        "required": ["error"]
       }
     },
     "responses": {
@@ -656,6 +1643,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "LegacyBadRequest": {
+        "description": "Bad request. Missing or invalid input parameters.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/LegacyError"
             }
           }
         }
@@ -672,14 +1669,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
+                  "enum": ["Unauthorised"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
@@ -697,14 +1690,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": [
-                    "Not found"
-                  ]
+                  "enum": ["Not found"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
