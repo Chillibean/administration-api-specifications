@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.6.1",
+    "version": "2.6.2",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -1478,6 +1478,9 @@
             "type": "string",
             "description": "The country of trial container",
             "example": "UK"
+          },
+          "study_protocol": {
+            "$ref": "#/components/schemas/StudyProtocol"
           }
         },
         "required": [
@@ -1485,6 +1488,61 @@
           "name",
           "type",
           "country"
+        ],
+        "additionalProperties": false
+      },
+      "StudyProtocol": {
+        "description": "A study protocol",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study protocol",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of study protocol",
+            "example": "My Protocol"
+          },
+          "study_event_display_name": {
+            "type": "object",
+            "description": "The study event display name of study protocol",
+            "properties": {
+              "plural": {
+                "type": "string",
+                "description": "The plural of study event display name",
+                "example": "visits"
+              },
+              "singular": {
+                "type": "string",
+                "description": "The singular of study event display name",
+                "example": "visit"
+              }
+            }
+          },
+          "study_procedure_display_name": {
+            "type": "object",
+            "description": "The study procedure display name of study protocol",
+            "properties": {
+              "plural": {
+                "type": "string",
+                "description": "The plural of study procedure display name",
+                "example": "assessments"
+              },
+              "singular": {
+                "type": "string",
+                "description": "The singular of study procedure display name",
+                "example": "assessment"
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "study_event_display_name",
+          "study_procedure_display_name"
         ],
         "additionalProperties": false
       },
