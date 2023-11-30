@@ -1411,6 +1411,11 @@
             "description": "The name of trial container",
             "example": "pre"
           },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier of trial container",
+            "example": "pre"
+          },
           "type": {
             "type": "string",
             "description": "The type of trial container",
@@ -1421,7 +1426,9 @@
             "description": "The country of trial container",
             "example": "UK"
           }
-        }
+        },
+        "required": ["id", "name", "type", "country"],
+        "additionalProperties": false
       },
       "FormTemplateVersion": {
         "description": "A form template version",
