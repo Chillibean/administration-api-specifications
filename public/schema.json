@@ -1556,7 +1556,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/duplicate": {
+    "/accounts/{account_id}/administration/study_protocols/{id}/duplicate": {
       "post": {
         "summary": "Duplicate a study protocol for account",
         "security": [
@@ -1582,7 +1582,7 @@
             }
           },
           {
-            "name": "study_protocol_id",
+            "name": "id",
             "in": "path",
             "description": "The study protocol id",
             "required": true,
