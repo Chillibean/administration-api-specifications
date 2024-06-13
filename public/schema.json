@@ -2557,36 +2557,27 @@
         "description": "An error",
         "type": "object",
         "properties": {
-          "errors": {
+          "message": {
+            "type": "string",
+            "description": "The error message",
+            "example": "Bad request. Missing or invalid input parameters."
+          },
+          "fields": {
             "type": "object",
-            "patternProperties": {
+            "description": "The error fields",
+            "properties": {
               "^.*$": {
                 "type": "array",
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "The error message",
-                      "example": "blank"
-                    }
-                  },
-                  "required": ["error"],
-                  "additionalProperties": false
+                  "type": "string"
+                },
+                "example": {
+                  "name": ["can't be blank"]
                 }
               }
-            },
-            "required": ["message", "fields"],
-            "additionalProperties": false
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of error",
-            "example": "fields"
+            }
           }
-        },
-        "required": ["errors"],
-        "additionalProperties": false
+        }
       },
       "LegacyError": {
         "description": "A legacy error",
