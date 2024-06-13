@@ -2559,22 +2559,30 @@
         "properties": {
           "errors": {
             "type": "object",
-            "properties": {
-              "message": {
-                "description": "The error message",
-                "example": "Bad request. Missing or invalid input parameters."
-              },
-              "fields": {
-                "description": "The error fields",
-                "type": "object",
-                "example": {
-                  "name": ["can't be blank"],
-                  "color": ["can't be blank"]
+            "patternProperties": {
+              "^[a-z]+$": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "The error message",
+                      "example": "blank"
+                    }
+                  },
+                  "required": ["error"],
+                  "additionalProperties": false
                 }
               }
             },
             "required": ["message", "fields"],
             "additionalProperties": false
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of error",
+            "example": "fields"
           }
         },
         "required": ["errors"],
