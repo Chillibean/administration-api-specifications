@@ -2560,7 +2560,7 @@
           "errors": {
             "type": "object",
             "patternProperties": {
-              "^[a-z]+$": {
+              "^.*$": {
                 "type": "array",
                 "items": {
                   "type": "object",
