@@ -1303,7 +1303,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -1457,7 +1457,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -1539,7 +1539,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
@@ -1620,7 +1620,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorised"
