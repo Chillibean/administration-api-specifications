@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.6.6",
+    "version": "2.7.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -59,9 +59,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -127,11 +125,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -148,9 +142,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -215,9 +207,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -283,11 +273,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "name",
-                  "color",
-                  "authenticity_token"
-                ]
+                "required": ["name", "color", "authenticity_token"]
               }
             }
           }
@@ -314,9 +300,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -372,9 +356,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
+                "required": ["authenticity_token"]
               }
             }
           }
@@ -401,9 +383,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -471,10 +451,7 @@
                           "example": 1
                         }
                       },
-                      "required": [
-                        "id",
-                        "position"
-                      ]
+                      "required": ["id", "position"]
                     }
                   },
                   "authenticity_token": {
@@ -484,10 +461,7 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": [
-                  "chapter_definitions",
-                  "authenticity_token"
-                ]
+                "required": ["chapter_definitions", "authenticity_token"]
               }
             }
           }
@@ -504,9 +478,7 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "tags": ["Chapter Definitions"],
         "responses": {
           "200": {
             "description": "OK",
@@ -561,9 +533,7 @@
             }
           }
         ],
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -669,9 +639,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -761,9 +729,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -856,9 +822,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -954,9 +918,7 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "responses": {
           "200": {
             "description": "OK",
@@ -997,9 +959,7 @@
             "chillipharmSession": []
           }
         ],
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "operationId": "postFormTemplateDuplicate",
         "description": "Duplicate a form template for account",
         "parameters": [
@@ -1080,9 +1040,7 @@
             "chillipharmSession": []
           }
         ],
-        "tags": [
-          "Form Templates"
-        ],
+        "tags": ["Form Templates"],
         "operationId": "putFormTemplateWorkflowDefinitions",
         "description": "Update workflow definitions for form template",
         "parameters": [
@@ -1178,9 +1136,7 @@
             "chillipharmSession": []
           }
         ],
-        "tags": [
-          "Workflow Definitions"
-        ],
+        "tags": ["Workflow Definitions"],
         "operationId": "getWorkflowDefinitions",
         "description": "Get all workflow definitions for account",
         "parameters": [
@@ -1226,6 +1182,460 @@
           }
         }
       }
+    },
+    "/accounts/{account_id}/administration/study_protocols": {
+      "get": {
+        "summary": "Get all study protocols for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Study Protocols"],
+        "operationId": "getStudyProtocols",
+        "description": "Get all study protocols for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudyProtocol"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Study Protocols"],
+        "operationId": "postStudyProtocol",
+        "description": "Create a study protocol for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "issue_date": {
+                    "type": "string",
+                    "description": "The issue date of study protocol",
+                    "example": "2024-06-12"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of study protocol",
+                    "example": "Ghost Protocol copy (1)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{id}": {
+      "get": {
+        "summary": "Get a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Study Protocols"],
+        "operationId": "getStudyProtocol",
+        "description": "Get a study protocol for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "put": {
+        "summary": "Put a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Study Protocols"],
+        "operationId": "putStudyProtocol",
+        "description": "Update a study protocol for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  },
+                  "issue_date": {
+                    "type": "string",
+                    "description": "The issue date of study protocol",
+                    "example": "2024-06-12"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of study protocol",
+                    "example": "Ghost Protocol copy (1)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{id}/update_sites": {
+      "put": {
+        "description": "Update sites for study protocol",
+        "operationId": "putStudyProtocolUpdateSites",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sites": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  },
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Study Protocols"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Site"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Study Protocols"],
+        "operationId": "postStudyProtocolDuplicate",
+        "description": "Duplicate a study protocol for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "type": "string",
+                    "description": "The asset authenticity token",
+                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1244,6 +1654,445 @@
       }
     },
     "schemas": {
+      "Site": {
+        "description": "A site",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "The country of site",
+            "example": "United Kingdom"
+          },
+          "go_live_date": {
+            "type": "string",
+            "description": "The go live date of site",
+            "example": "2024-06-10"
+          },
+          "id": {
+            "type": "number",
+            "description": "The id of site",
+            "example": 7
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier of site",
+            "example": "BEACONHILL"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of site",
+            "example": "Beacon Hill Medical Center"
+          },
+          "study_protocol": {
+            "type": "object",
+            "description": "The study protocol of site",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of study protocol",
+                "example": 2
+              },
+              "locked": {
+                "type": "boolean",
+                "description": "The locked status of study protocol",
+                "example": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of study protocol",
+                "example": "Alpha Protocol"
+              }
+            }
+          }
+        }
+      },
+      "StudyProtocol": {
+        "description": "A study protocol",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study protocol",
+            "example": 1
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of study protocol",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of study protocol",
+            "example": "Ghost Protocol copy (1)"
+          },
+          "issue_date": {
+            "type": "string",
+            "description": "The issue date of study protocol",
+            "example": "2024-06-12"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of study protocol",
+            "example": "2024-06-12T14:19:40.127Z"
+          },
+          "locked": {
+            "type": "boolean",
+            "description": "The locked status of study protocol",
+            "example": false
+          },
+          "table": {
+            "type": "object",
+            "properties": {
+              "study_event_definitions": {
+                "type": "array",
+                "description": "The study event definitions of study protocol",
+                "items": {
+                  "$ref": "#/components/schemas/StudyEventDefinition"
+                }
+              },
+              "study_procedure_definitions": {
+                "type": "array",
+                "description": "The study procedure definitions of study protocol",
+                "items": {
+                  "$ref": "#/components/schemas/StudyProcedureDefinition"
+                }
+              },
+              "study_event_procedures": {
+                "type": "array",
+                "description": "The study event procedures of study protocol",
+                "items": {
+                  "$ref": "#/components/schemas/StudyEventProcedure"
+                }
+              },
+              "positions": {
+                "type": "array",
+                "description": "The positions of study protocol",
+                "items": {
+                  "$ref": "#/components/schemas/Position"
+                }
+              }
+            }
+          },
+          "study_arms": {
+            "type": "array",
+            "description": "The study arms of study protocol",
+            "items": {
+              "$ref": "#/components/schemas/StudyArm"
+            }
+          },
+          "study_event_display_name": {
+            "type": "object",
+            "description": "The study event display name of study protocol",
+            "properties": {
+              "singular": {
+                "type": "string",
+                "description": "The singular of study event display name",
+                "example": "visit"
+              },
+              "plural": {
+                "type": "string",
+                "description": "The plural of study event display name",
+                "example": "visits"
+              }
+            }
+          },
+          "study_procedure_display_name": {
+            "type": "object",
+            "description": "The study procedure display name of study protocol",
+            "properties": {
+              "singular": {
+                "type": "string",
+                "description": "The singular of study procedure display name",
+                "example": "assessment"
+              },
+              "plural": {
+                "type": "string",
+                "description": "The plural of study procedure display name",
+                "example": "assessments"
+              }
+            }
+          },
+          "study_procedure_role_definitions": {
+            "type": "array",
+            "description": "The study procedure role definitions of study protocol",
+            "items": {
+              "$ref": "#/components/schemas/StudyProcedureRoleDefinition"
+            }
+          },
+          "study_procedure_task_definitions": {
+            "type": "array",
+            "description": "The study procedure task definitions of study protocol",
+            "items": {
+              "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
+            }
+          },
+          "study_events_persisted": {
+            "type": "boolean",
+            "description": "The study events persisted status of study protocol",
+            "example": false
+          }
+        }
+      },
+      "StudyEventDefinition": {
+        "description": "A study event definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study event definition",
+            "example": 1
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier of study event definition",
+            "example": "DAY1"
+          },
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study event definition",
+            "example": "Day 1"
+          },
+          "position": {
+            "type": "object",
+            "description": "The position of study event definition",
+            "properties": {
+              "position": {
+                "type": "number",
+                "description": "The position of study event definition",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of study event definition",
+                "example": "1"
+              }
+            }
+          }
+        }
+      },
+      "StudyProcedureDefinition": {
+        "description": "A study procedure definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study procedure definition",
+            "example": 1
+          },
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study procedure definition",
+            "example": "Six Minute Walk Test"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier of study procedure definition",
+            "example": "SIXWALK"
+          },
+          "required_form_templates": {
+            "type": "array",
+            "description": "The required form templates of study procedure definition",
+            "items": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        }
+      },
+      "StudyEventProcedure": {
+        "description": "A study event procedure",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study event procedure",
+            "example": 1
+          },
+          "study_event_definition_id": {
+            "type": "number",
+            "description": "The study event definition id of study event procedure",
+            "example": 1
+          },
+          "study_procedure_definition_id": {
+            "type": "number",
+            "description": "The study procedure definition id of study event procedure",
+            "example": 1
+          }
+        }
+      },
+      "Position": {
+        "description": "A position",
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "number",
+            "description": "The position",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name",
+            "example": "1"
+          }
+        }
+      },
+      "StudyArm": {
+        "description": "A study arm",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study arm",
+            "example": 1
+          },
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study arm",
+            "example": "Ghost"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of study arm",
+            "example": "2024-06-12T14:37:37.582Z"
+          },
+          "study_protocol_id": {
+            "type": "number",
+            "description": "The study protocol id of study arm",
+            "example": 1
+          },
+          "subjects": {
+            "type": "array",
+            "description": "The subjects of study arm",
+            "items": {
+              "$ref": "#/components/schemas/Subject"
+            }
+          }
+        }
+      },
+      "Subject": {
+        "description": "A subject",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of subject",
+            "example": 1
+          },
+          "subject_number": {
+            "type": "string",
+            "description": "The subject number",
+            "example": "E0001001"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of subject",
+            "example": "2024-06-12T14:37:37.582Z"
+          },
+          "current_study_event": {
+            "type": "string",
+            "description": "The current study event of subject",
+            "example": "DAY1"
+          },
+          "study_arm": {
+            "type": "string",
+            "description": "The study arm of subject",
+            "example": "A"
+          },
+          "created_by": {
+            "type": "string",
+            "description": "The created by of subject",
+            "example": "Mon Admin1"
+          },
+          "creator": {
+            "type": "object",
+            "description": "The creator of subject",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of creator",
+                "example": 1
+              },
+              "email": {
+                "type": "string",
+                "description": "The email of creator",
+                "example": "example@gmail.com",
+                "format": "email"
+              },
+              "uuid": {
+                "type": "string",
+                "description": "The uuid of creator",
+                "example": "8b5dc7c6-a87d-4988-98fb-93213c126d0d"
+              },
+              "first_name": {
+                "type": "string",
+                "description": "The first name of creator",
+                "example": "John"
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The last name of creator",
+                "example": "Doe"
+              }
+            }
+          }
+        }
+      },
+      "StudyProcedureRoleDefinition": {
+        "description": "A study procedure role definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study procedure role definition",
+            "example": 1
+          },
+          "notify": {
+            "type": "boolean",
+            "description": "The notify status of study procedure role definition",
+            "example": false
+          },
+          "role": {
+            "type": "object",
+            "description": "The role of study procedure role definition",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of role",
+                "example": 4
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of role",
+                "example": "Power User"
+              }
+            }
+          }
+        }
+      },
+      "StudyProcedureTaskDefinition": {
+        "description": "A study procedure task definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of study procedure task definition",
+            "example": 1
+          },
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study procedure task definition",
+            "example": "Please complete something first"
+          },
+          "role_ids": {
+            "type": "array",
+            "description": "The role ids of study procedure task definition",
+            "items": {
+              "type": "number",
+              "example": 4
+            }
+          }
+        }
+      },
       "WorkflowDefinition": {
         "description": "A workflow definition",
         "type": "object",
@@ -1291,11 +2140,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color"
-        ]
+        "required": ["id", "name", "color"]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -1323,12 +2168,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "id",
-          "name",
-          "color",
-          "position"
-        ]
+        "required": ["id", "name", "color", "position"]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -1480,18 +2320,13 @@
             "example": "UK"
           },
           "study_protocol": {
-            "$ref": "#/components/schemas/StudyProtocol"
+            "$ref": "#/components/schemas/StudyProtocolShort"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "type",
-          "country"
-        ],
+        "required": ["id", "name", "type", "country"],
         "additionalProperties": false
       },
-      "StudyProtocol": {
+      "StudyProtocolShort": {
         "description": "A study protocol",
         "type": "object",
         "properties": {
@@ -1716,45 +2551,33 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "required"
-        ]
+        "required": ["required"]
       },
       "Error": {
         "description": "An error",
         "type": "object",
         "properties": {
-          "errors": {
+          "message": {
+            "type": "string",
+            "description": "The error message",
+            "example": "Bad request. Missing or invalid input parameters."
+          },
+          "fields": {
             "type": "object",
+            "description": "The error fields",
             "properties": {
-              "message": {
-                "description": "The error message",
-                "example": "Bad request. Missing or invalid input parameters."
-              },
-              "fields": {
-                "description": "The error fields",
-                "type": "object",
+              "^.*$": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
                 "example": {
-                  "name": [
-                    "can't be blank"
-                  ],
-                  "color": [
-                    "can't be blank"
-                  ]
+                  "name": ["can't be blank"]
                 }
               }
-            },
-            "required": [
-              "message",
-              "fields"
-            ],
-            "additionalProperties": false
+            }
           }
-        },
-        "required": [
-          "errors"
-        ],
-        "additionalProperties": false
+        }
       },
       "LegacyError": {
         "description": "A legacy error",
@@ -1767,9 +2590,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "error"
-        ]
+        "required": ["error"]
       }
     },
     "responses": {
@@ -1805,14 +2626,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
+                  "enum": ["Unauthorised"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
@@ -1830,14 +2647,10 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": [
-                    "Not found"
-                  ]
+                  "enum": ["Not found"]
                 }
               },
-              "required": [
-                "error"
-              ],
+              "required": ["error"],
               "additionalProperties": false
             }
           }
