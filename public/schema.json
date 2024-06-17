@@ -19,6 +19,10 @@
       "description": "Endpoints for form templates"
     },
     {
+      "name": "Study Protocols",
+      "description": "Endpoints for study protocols"
+    },
+    {
       "name": "Workflow Definitions",
       "description": "Endpoints for workflow definitions"
     }
@@ -1497,6 +1501,69 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorised"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": []
+          },
+          {
+            "chillipharmSession": []
+          }
+        ],
+        "tags": ["Study Protocols"],
+        "operationId": "deleteStudyProtocol",
+        "description": "Delete a study protocol for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
