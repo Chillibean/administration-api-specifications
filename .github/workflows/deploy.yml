@@ -78,7 +78,7 @@ jobs:
           -u ${{ secrets.API_SPEC_PAT_TOKEN }} \
           --data '{"event_type": "trigger_workflow", "client_payload": { "version": "${{ needs.generate-release.outputs.version }}" }}'
       - uses: actions/checkout@v3
-  
+
   publish-to-swagger-hub:
     runs-on: ubuntu-latest
     steps:
@@ -90,3 +90,9 @@ jobs:
           -H "Authorization: ${{ secrets.SWAGGER_API_KEY }}" \
           -H "Content-Type: application/json" \
           --data-binary "@./public/schema.json"
+      - name: Make API Private
+        run: |
+          curl -X PATCH "https://api.swaggerhub.com/apis/chillibean/administration-api/settings/default" \
+          -H "Authorization: ${{ secrets.SWAGGER_API_KEY }}" \
+          -H "Content-Type: application/json" \
+          -d '{"private": true}'
