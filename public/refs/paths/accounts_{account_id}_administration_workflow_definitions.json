@@ -1,0 +1,60 @@
+{
+  "get": {
+    "summary": "Get all workflow definitions for account",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "tags": [
+      "Workflow Definitions"
+    ],
+    "operationId": "getWorkflowDefinitions",
+    "description": "Get all workflow definitions for account",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "../components/schemas/WorkflowDefinition.json"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}

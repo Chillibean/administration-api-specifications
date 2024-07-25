@@ -1,0 +1,26 @@
+{
+  "description": "A workflow definition",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "The id of workflow definition",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of workflow definition",
+      "example": "Standard Workflow"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of workflow definition",
+      "example": "No signature required"
+    },
+    "with_signature": {
+      "type": "boolean",
+      "description": "The with signature status of workflow definition",
+      "example": false
+    }
+  }
+}

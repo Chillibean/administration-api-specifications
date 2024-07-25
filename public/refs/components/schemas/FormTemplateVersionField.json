@@ -1,0 +1,67 @@
+{
+  "description": "A form template version field",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of form template version field",
+      "example": "ee8e24-1ca4-ee06-04ed-285b4b02ed70"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of form template version field",
+      "example": "Test 1"
+    },
+    "field_type": {
+      "type": "string",
+      "description": "The field type of form template version field",
+      "example": "single_line"
+    },
+    "input_guidance": {
+      "type": "string",
+      "description": "The input guidance of form template version field",
+      "example": ""
+    },
+    "position": {
+      "type": "number",
+      "description": "The position of form template version field",
+      "example": 1
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "The enabled status of form template version field",
+      "example": true
+    },
+    "validations": {
+      "$ref": "./FormTemplateVersionFieldValidations.json"
+    },
+    "options": {
+      "type": "array",
+      "description": "The options of form template version field",
+      "items": {
+        "type": "string",
+        "example": "Option 1"
+      }
+    },
+    "persisted": {
+      "type": "boolean",
+      "description": "The persisted status of form template version field",
+      "example": true
+    },
+    "other_enabled": {
+      "type": "boolean",
+      "description": "The other enabled status of form template version field",
+      "example": false
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "field_type",
+    "position",
+    "enabled",
+    "validations",
+    "options",
+    "other_enabled"
+  ]
+}

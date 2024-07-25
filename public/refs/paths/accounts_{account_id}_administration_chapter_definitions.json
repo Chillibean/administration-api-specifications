@@ -1,0 +1,146 @@
+{
+  "get": {
+    "summary": "Get all chapter definitions for account",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "operationId": "getChapterDefinitions",
+    "description": "Get all chapter definitions for account",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "tags": [
+      "Chapter Definitions"
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ChapterDefinitionsWithPositions.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/Conflict.json"
+      },
+      "500": {
+        "$ref": "../components/responses/InternalServerError.json"
+      }
+    }
+  },
+  "post": {
+    "summary": "Create a chapter definition for account",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "operationId": "postChapterDefinition",
+    "description": "Create a chapter definition for account",
+    "requestBody": {
+      "description": "Chapter definition object",
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "description": "Chapter definition object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of chapter definition",
+                "example": "pre"
+              },
+              "color": {
+                "type": "string",
+                "description": "The color of chapter definition",
+                "example": "#ccc"
+              },
+              "authenticity_token": {
+                "type": "string",
+                "description": "The asset authenticity token",
+                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "color",
+              "authenticity_token"
+            ]
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "tags": [
+      "Chapter Definitions"
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/ChapterDefinitionWithPosition.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/Conflict.json"
+      },
+      "500": {
+        "$ref": "../components/responses/InternalServerError.json"
+      }
+    }
+  }
+}
