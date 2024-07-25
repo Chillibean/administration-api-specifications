@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "2.8.7",
+    "version": "3.0.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -63,7 +63,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -129,7 +131,11 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["name", "color", "authenticity_token"]
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -146,7 +152,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -211,7 +219,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -277,7 +287,11 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["name", "color", "authenticity_token"]
+                "required": [
+                  "name",
+                  "color",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -304,7 +318,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -360,7 +376,9 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["authenticity_token"]
+                "required": [
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -387,7 +405,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -455,7 +475,10 @@
                           "example": 1
                         }
                       },
-                      "required": ["id", "position"]
+                      "required": [
+                        "id",
+                        "position"
+                      ]
                     }
                   },
                   "authenticity_token": {
@@ -465,7 +488,10 @@
                   }
                 },
                 "additionalProperties": false,
-                "required": ["chapter_definitions", "authenticity_token"]
+                "required": [
+                  "chapter_definitions",
+                  "authenticity_token"
+                ]
               }
             }
           }
@@ -482,7 +508,9 @@
             }
           }
         ],
-        "tags": ["Chapter Definitions"],
+        "tags": [
+          "Chapter Definitions"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -537,7 +565,9 @@
             }
           }
         ],
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -643,7 +673,9 @@
             }
           }
         },
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -733,7 +765,9 @@
             }
           }
         },
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -826,7 +860,9 @@
             }
           }
         },
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -922,7 +958,9 @@
             }
           }
         },
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -963,7 +1001,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "operationId": "postFormTemplateDuplicate",
         "description": "Duplicate a form template for account",
         "parameters": [
@@ -1044,7 +1084,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Form Templates"],
+        "tags": [
+          "Form Templates"
+        ],
         "operationId": "putFormTemplateWorkflowDefinitions",
         "description": "Update workflow definitions for form template",
         "parameters": [
@@ -1140,7 +1182,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Workflow Definitions"],
+        "tags": [
+          "Workflow Definitions"
+        ],
         "operationId": "getWorkflowDefinitions",
         "description": "Get all workflow definitions for account",
         "parameters": [
@@ -1198,7 +1242,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "operationId": "getStudyProtocols",
         "description": "Get all study protocols for account",
         "parameters": [
@@ -1254,7 +1300,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "operationId": "postStudyProtocol",
         "description": "Create a study protocol for account",
         "parameters": [
@@ -1335,7 +1383,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "operationId": "getStudyProtocol",
         "description": "Get a study protocol for account",
         "parameters": [
@@ -1398,7 +1448,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "operationId": "putStudyProtocol",
         "description": "Update a study protocol for account",
         "parameters": [
@@ -1487,7 +1539,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "operationId": "deleteStudyProtocol",
         "description": "Delete a study protocol for account",
         "parameters": [
@@ -1590,7 +1644,9 @@
             }
           }
         },
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1634,7 +1690,9 @@
             "chillipharmSession": []
           }
         ],
-        "tags": ["Study Protocols"],
+        "tags": [
+          "Study Protocols"
+        ],
         "operationId": "postStudyProtocolDuplicate",
         "description": "Duplicate a study protocol for account",
         "parameters": [
@@ -2208,7 +2266,11 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "name", "color"]
+        "required": [
+          "id",
+          "name",
+          "color"
+        ]
       },
       "ChapterDefinitionWithPosition": {
         "description": "A chapter definition with position",
@@ -2236,7 +2298,12 @@
           }
         },
         "additionalProperties": false,
-        "required": ["id", "name", "color", "position"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "position"
+        ]
       },
       "ChapterDefinitionsWithPositions": {
         "description": "A list of chapter definitions with positions",
@@ -2391,7 +2458,12 @@
             "$ref": "#/components/schemas/StudyProtocolShort"
           }
         },
-        "required": ["id", "name", "type", "country"],
+        "required": [
+          "id",
+          "name",
+          "type",
+          "country"
+        ],
         "additionalProperties": false
       },
       "StudyProtocolShort": {
@@ -2619,7 +2691,9 @@
           }
         },
         "additionalProperties": false,
-        "required": ["required"]
+        "required": [
+          "required"
+        ]
       },
       "Error": {
         "description": "An error",
@@ -2640,7 +2714,9 @@
                   "type": "string"
                 },
                 "example": {
-                  "name": ["can't be blank"]
+                  "name": [
+                    "can't be blank"
+                  ]
                 }
               }
             }
@@ -2658,7 +2734,9 @@
           }
         },
         "additionalProperties": false,
-        "required": ["error"]
+        "required": [
+          "error"
+        ]
       }
     },
     "responses": {
@@ -2694,10 +2772,14 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Unauthorised",
-                  "enum": ["Unauthorised"]
+                  "enum": [
+                    "Unauthorised"
+                  ]
                 }
               },
-              "required": ["error"],
+              "required": [
+                "error"
+              ],
               "additionalProperties": false
             }
           }
@@ -2715,10 +2797,14 @@
                   "type": "string",
                   "description": "The error message",
                   "example": "Not found",
-                  "enum": ["Not found"]
+                  "enum": [
+                    "Not found"
+                  ]
                 }
               },
-              "required": ["error"],
+              "required": [
+                "error"
+              ],
               "additionalProperties": false
             }
           }
