@@ -1,0 +1,7 @@
+{
+  "description": "A list of chapter definitions with positions",
+  "type": "array",
+  "items": {
+    "$ref": "./ChapterDefinitionWithPosition.json"
+  }
+}

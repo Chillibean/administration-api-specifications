@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "description": "Form template body data object",
+  "properties": {
+    "created_by": {
+      "type": "object",
+      "description": "The created by of form template version",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The id of created by",
+          "example": 1
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of created by",
+          "example": "test@chillipharm.com"
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of form template",
+      "example": "Test"
+    },
+    "fields": {
+      "type": "array",
+      "description": "The fields of form template version",
+      "items": {
+        "$ref": "./FormTemplateVersionField.json"
+      }
+    },
+    "reason_for_change": {
+      "type": "string",
+      "description": "The reason for change of form template version",
+      "example": "Version 1"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of form template version",
+      "example": "Version 1"
+    },
+    "version_number": {
+      "type": "number",
+      "description": "The version number of form template",
+      "example": 1
+    }
+  }
+}

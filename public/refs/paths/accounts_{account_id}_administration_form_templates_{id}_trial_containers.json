@@ -1,0 +1,95 @@
+{
+  "post": {
+    "summary": "Add trial containers to form template",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "operationId": "postFormTemplateTrialContainers",
+    "description": "Add trial containers to form template",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      },
+      {
+        "name": "id",
+        "in": "path",
+        "description": "The form template id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "authenticity_token": {
+                "type": "string",
+                "description": "The asset authenticity token",
+                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+              },
+              "formTemplateData": {
+                "type": "object",
+                "properties": {
+                  "trialContainers": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Form Templates"
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/FormTemplate.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}

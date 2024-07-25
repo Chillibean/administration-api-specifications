@@ -1,0 +1,223 @@
+{
+  "get": {
+    "summary": "Get a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "tags": [
+      "Study Protocols"
+    ],
+    "operationId": "getStudyProtocol",
+    "description": "Get a study protocol for account",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      },
+      {
+        "name": "id",
+        "in": "path",
+        "description": "The study protocol id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/StudyProtocol.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  },
+  "put": {
+    "summary": "Put a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "tags": [
+      "Study Protocols"
+    ],
+    "operationId": "putStudyProtocol",
+    "description": "Update a study protocol for account",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      },
+      {
+        "name": "id",
+        "in": "path",
+        "description": "The study protocol id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "authenticity_token": {
+                "type": "string",
+                "description": "The asset authenticity token",
+                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+              },
+              "issue_date": {
+                "type": "string",
+                "description": "The issue date of study protocol",
+                "example": "2024-06-12"
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of study protocol",
+                "example": "Ghost Protocol copy (1)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/StudyProtocol.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  },
+  "delete": {
+    "summary": "Delete a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "tags": [
+      "Study Protocols"
+    ],
+    "operationId": "deleteStudyProtocol",
+    "description": "Delete a study protocol for account",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      },
+      {
+        "name": "id",
+        "in": "path",
+        "description": "The study protocol id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/StudyProtocol.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}
