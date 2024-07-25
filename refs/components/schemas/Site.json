@@ -1,0 +1,53 @@
+{
+  "description": "A site",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string",
+      "description": "The country of site",
+      "example": "United Kingdom"
+    },
+    "go_live_date": {
+      "type": "string",
+      "description": "The go live date of site",
+      "example": "2024-06-10"
+    },
+    "id": {
+      "type": "number",
+      "description": "The id of site",
+      "example": 7
+    },
+    "identifier": {
+      "type": "string",
+      "description": "The identifier of site",
+      "example": "BEACONHILL"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of site",
+      "example": "Beacon Hill Medical Center"
+    },
+    "study_protocol": {
+      "type": "object",
+      "description": "The study protocol of site",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The id of study protocol",
+          "example": 2
+        },
+        "locked": {
+          "type": "boolean",
+          "description": "The locked status of study protocol",
+          "example": true
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of study protocol",
+          "example": "Alpha Protocol"
+        }
+      },
+      "nullable": true
+    }
+  }
+}

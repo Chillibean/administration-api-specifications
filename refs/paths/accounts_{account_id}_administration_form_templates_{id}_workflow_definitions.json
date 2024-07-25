@@ -1,0 +1,98 @@
+{
+  "put": {
+    "summary": "Update workflow definitions for form template",
+    "security": [
+      {
+        "userSessionKey": []
+      },
+      {
+        "chillipharmSession": []
+      }
+    ],
+    "tags": [
+      "Form Templates"
+    ],
+    "operationId": "putFormTemplateWorkflowDefinitions",
+    "description": "Update workflow definitions for form template",
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      },
+      {
+        "name": "id",
+        "in": "path",
+        "description": "The form template id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "authenticity_token": {
+                "type": "string",
+                "description": "The asset authenticity token",
+                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+              },
+              "formTemplateData": {
+                "type": "object",
+                "properties": {
+                  "workflow_definition_id": {
+                    "type": "integer",
+                    "description": "The workflow definition id of form template",
+                    "example": 1
+                  }
+                }
+              },
+              "reason_for_change": {
+                "type": "string",
+                "description": "The reason for change of form template version",
+                "example": "Version 1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/FormTemplate.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorised.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}

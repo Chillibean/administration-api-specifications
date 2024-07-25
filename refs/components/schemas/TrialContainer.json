@@ -1,0 +1,41 @@
+{
+  "description": "A trial container",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "The id of trial container",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of trial container",
+      "example": "pre"
+    },
+    "identifier": {
+      "type": "string",
+      "description": "The identifier of trial container",
+      "example": "pre"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of trial container",
+      "example": "Library"
+    },
+    "country": {
+      "type": "string",
+      "description": "The country of trial container",
+      "example": "UK"
+    },
+    "study_protocol": {
+      "$ref": "./StudyProtocolShort.json"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "type",
+    "country"
+  ],
+  "additionalProperties": false
+}

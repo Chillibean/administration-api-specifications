@@ -1,0 +1,27 @@
+{
+  "description": "A chapter definition",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "The id of chapter definition",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of chapter definition",
+      "example": "pre"
+    },
+    "color": {
+      "type": "string",
+      "description": "The color of chapter definition",
+      "example": "#ccc"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "color"
+  ]
+}

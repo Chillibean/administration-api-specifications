@@ -1,0 +1,68 @@
+{
+  "description": "A subject",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "The id of subject",
+      "example": 1
+    },
+    "subject_number": {
+      "type": "string",
+      "description": "The subject number",
+      "example": "E0001001"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The created at of subject",
+      "example": "2024-06-12T14:37:37.582Z"
+    },
+    "current_study_event": {
+      "type": "string",
+      "description": "The current study event of subject",
+      "example": "DAY1"
+    },
+    "study_arm": {
+      "type": "string",
+      "description": "The study arm of subject",
+      "example": "A"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "The created by of subject",
+      "example": "Mon Admin1"
+    },
+    "creator": {
+      "type": "object",
+      "description": "The creator of subject",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "The id of creator",
+          "example": 1
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of creator",
+          "example": "example@gmail.com",
+          "format": "email"
+        },
+        "uuid": {
+          "type": "string",
+          "description": "The uuid of creator",
+          "example": "8b5dc7c6-a87d-4988-98fb-93213c126d0d"
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of creator",
+          "example": "John"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of creator",
+          "example": "Doe"
+        }
+      }
+    }
+  }
+}

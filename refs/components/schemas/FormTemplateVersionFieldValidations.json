@@ -1,0 +1,39 @@
+{
+  "description": "A form template version field validations",
+  "type": "object",
+  "properties": {
+    "required": {
+      "type": "boolean",
+      "description": "The required status of form template version field validations",
+      "example": true
+    },
+    "input_format": {
+      "type": "string",
+      "description": "The input format of form template version field validations",
+      "example": "email",
+      "nullable": true
+    },
+    "character_limit": {
+      "type": "number",
+      "description": "The character limit of form template version field validations",
+      "example": 100,
+      "nullable": true
+    },
+    "character_restriction": {
+      "type": "string",
+      "description": "The character restriction of form template version field validations",
+      "example": "letters",
+      "nullable": true
+    },
+    "date_restriction": {
+      "type": "string",
+      "description": "The date restriction of form template version field validations",
+      "example": "not_past_date",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "required"
+  ]
+}

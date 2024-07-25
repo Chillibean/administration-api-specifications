@@ -1,0 +1,21 @@
+{
+  "description": "A study event procedure",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "The id of study event procedure",
+      "example": 1
+    },
+    "study_event_definition_id": {
+      "type": "number",
+      "description": "The study event definition id of study event procedure",
+      "example": 1
+    },
+    "study_procedure_definition_id": {
+      "type": "number",
+      "description": "The study procedure definition id of study event procedure",
+      "example": 1
+    }
+  }
+}
