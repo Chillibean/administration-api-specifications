@@ -17,7 +17,7 @@ The most critical file here is **`/public/schema.json`**. This file serves as th
 1. Clone the repository:
     
     ```bash
-    git clone <https://github.com/Chillibean/administration-api>}-specifications.git
+    git clone https://github.com/Chillibean/administration-api-specifications.git
     ```
     
 2. Install all dependencies by running:
