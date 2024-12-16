@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "3.0.2",
+    "version": "3.0.3",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -2088,6 +2088,11 @@
             "type": "boolean",
             "description": "The other enabled status of form template version field",
             "example": false
+          },
+          "other_field": {
+            "type": "string",
+            "description": "The other field of form template version field",
+            "example": "Other"
           }
         },
         "additionalProperties": false,
@@ -2098,7 +2103,8 @@
           "enabled",
           "validations",
           "options",
-          "other_enabled"
+          "other_enabled",
+          "other_field"
         ]
       },
       "FormTemplateVersionFieldValidations": {
