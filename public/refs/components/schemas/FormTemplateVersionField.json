@@ -52,6 +52,11 @@
       "type": "boolean",
       "description": "The other enabled status of form template version field",
       "example": false
+    },
+    "other_field": {
+      "type": "string",
+      "description": "The other field of form template version field",
+      "example": "Other"
     }
   },
   "additionalProperties": false,
@@ -62,6 +67,7 @@
     "enabled",
     "validations",
     "options",
-    "other_enabled"
+    "other_enabled",
+    "other_field"
   ]
 }
