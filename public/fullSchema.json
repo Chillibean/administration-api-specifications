@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "3.0.3",
+    "version": "4.0.0",
     "title": "Administration API",
-    "description": "Administration API",
+    "description": "This is the api specifications for all things related to account administration.",
     "contact": {
       "name": "ChilliPharm",
       "url": "https://www.chillipharm.com"
@@ -13,6 +13,18 @@
     {
       "url": "http://chillipharm.test:3000/api/v1",
       "description": "Local development"
+    },
+    {
+      "url": "https://qa.chillipharm.dev/api/v1",
+      "description": "QA"
+    },
+    {
+      "url": "https://chillipharm-staging.com/api/v1",
+      "description": "Staging"
+    },
+    {
+      "url": "https://chillipharm-uat.com/api/v1",
+      "description": "UAT"
     },
     {
       "url": "https://www.chillipharm.com/api/v1",
@@ -41,16 +53,17 @@
     "/accounts/{account_id}/administration/chapter_definitions": {
       "get": {
         "summary": "Get all chapter definitions for account",
+        "description": "Get all chapter definitions for account",
+        "operationId": "getChapterDefinitions",
+        "tags": [
+          "Chapter Definitions"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "getChapterDefinitions",
-        "description": "Get all chapter definitions for account",
         "parameters": [
           {
             "name": "account_id",
@@ -62,9 +75,6 @@
               "example": "1"
             }
           }
-        ],
-        "tags": [
-          "Chapter Definitions"
         ],
         "responses": {
           "200": {
@@ -81,7 +91,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -96,16 +106,29 @@
       },
       "post": {
         "summary": "Create a chapter definition for account",
+        "description": "Create a chapter definition for account",
+        "operationId": "createChapterDefinition",
+        "tags": [
+          "Chapter Definitions"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "postChapterDefinition",
-        "description": "Create a chapter definition for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Chapter definition object",
           "content": {
@@ -125,9 +148,7 @@
                     "example": "#ccc"
                   },
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   }
                 },
                 "additionalProperties": false,
@@ -140,21 +161,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          }
-        ],
-        "tags": [
-          "Chapter Definitions"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -170,7 +176,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -184,19 +190,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/chapter_definitions/{id}": {
+    "/accounts/{account_id}/administration/chapter_definitions/{chapter_definition_id}": {
       "get": {
         "summary": "Get a chapter definition for account",
+        "description": "Get a chapter definition for account",
+        "operationId": "getChapterDefinition",
+        "tags": [
+          "Chapter Definitions"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "getChapterDefinition",
-        "description": "Get a chapter definition for account",
         "parameters": [
           {
             "name": "account_id",
@@ -209,7 +216,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "chapter_definition_id",
             "in": "path",
             "description": "The chapter definition id",
             "required": true,
@@ -218,9 +225,6 @@
               "example": "1"
             }
           }
-        ],
-        "tags": [
-          "Chapter Definitions"
         ],
         "responses": {
           "200": {
@@ -237,7 +241,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -252,16 +256,39 @@
       },
       "put": {
         "summary": "Update a chapter definition for account",
+        "description": "Update a chapter definition for account",
+        "operationId": "updateChapterDefinition",
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "putChapterDefinition",
-        "description": "Update a chapter definition for account",
+        "tags": [
+          "Chapter Definitions"
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "chapter_definition_id",
+            "in": "path",
+            "description": "The chapter definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Chapter definition object",
           "content": {
@@ -281,9 +308,7 @@
                     "example": "#ccc"
                   },
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   }
                 },
                 "additionalProperties": false,
@@ -296,31 +321,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The chapter definition id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          }
-        ],
-        "tags": [
-          "Chapter Definitions"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -336,7 +336,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -351,38 +351,17 @@
       },
       "delete": {
         "summary": "Delete a chapter definition for account",
+        "description": "Delete a chapter definition for account",
+        "operationId": "deleteChapterDefinition",
+        "tags": [
+          "Chapter Definitions"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "deleteChapterDefinition",
-        "description": "Delete a chapter definition for account",
-        "requestBody": {
-          "description": "Authenticity token",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "description": "Authenticity token",
-                "properties": {
-                  "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
-                  }
-                },
-                "additionalProperties": false,
-                "required": [
-                  "authenticity_token"
-                ]
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "name": "account_id",
@@ -395,7 +374,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "chapter_definition_id",
             "in": "path",
             "description": "The chapter definition id",
             "required": true,
@@ -405,9 +384,26 @@
             }
           }
         ],
-        "tags": [
-          "Chapter Definitions"
-        ],
+        "requestBody": {
+          "description": "Authenticity token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Authenticity token",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token"
+                ]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -423,7 +419,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -440,16 +436,29 @@
     "/accounts/{account_id}/administration/chapter_definitions/update_positions": {
       "post": {
         "summary": "Update chapter definitions positions for account",
+        "description": "Update chapter definitions positions for account",
+        "operationId": "updateChapterDefinitionsPositions",
+        "tags": [
+          "Chapter Definitions"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "postChapterDefinitionsUpdatePositions",
-        "description": "Update chapter definitions positions for account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Chapter definitions positions object",
           "content": {
@@ -482,9 +491,7 @@
                     }
                   },
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   }
                 },
                 "additionalProperties": false,
@@ -496,21 +503,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          }
-        ],
-        "tags": [
-          "Chapter Definitions"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -526,7 +518,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -543,16 +535,17 @@
     "/accounts/{account_id}/administration/form_templates": {
       "get": {
         "summary": "Get all form templates for account",
+        "description": "Get all form templates for account",
+        "operationId": "getFormTemplates",
+        "tags": [
+          "Form Templates"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "getFormTemplates",
-        "description": "Get all form templates for account",
         "parameters": [
           {
             "name": "account_id",
@@ -565,9 +558,6 @@
             }
           }
         ],
-        "tags": [
-          "Form Templates"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -575,7 +565,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Form templates response object",
                   "properties": {
                     "default_form_template": {
                       "type": "object",
@@ -616,7 +605,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -631,16 +620,17 @@
       },
       "post": {
         "summary": "Create a form template for account",
+        "description": "Create a form template for account",
+        "operationId": "createFormTemplate",
+        "tags": [
+          "Form Templates"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "postFormTemplate",
-        "description": "Create a form template for account",
         "parameters": [
           {
             "name": "account_id",
@@ -658,12 +648,9 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Form template object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "formTemplateData": {
                     "$ref": "#/components/schemas/FormTemplateBodyData"
@@ -673,9 +660,6 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -691,7 +675,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -705,19 +689,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/form_templates/{id}": {
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}": {
       "put": {
-        "summary": "Put a form template for account",
+        "summary": "Update a form template for account",
+        "description": "Update a form template for account",
+        "operationId": "updateFormTemplate",
+        "tags": [
+          "Form Templates"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "putFormTemplate",
-        "description": "Update a form template for account",
         "parameters": [
           {
             "name": "account_id",
@@ -730,7 +715,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "form_template_id",
             "in": "path",
             "description": "The form template id",
             "required": true,
@@ -745,12 +730,9 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Form template object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "formTemplateData": {
                     "$ref": "#/components/schemas/FormTemplateBodyData"
@@ -765,9 +747,6 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -783,7 +762,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -797,114 +776,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/trial_containers": {
-      "post": {
-        "summary": "Add trial containers to form template",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
-        "operationId": "postFormTemplateTrialContainers",
-        "description": "Add trial containers to form template",
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The form template id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "1"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
-                  },
-                  "formTemplateData": {
-                    "type": "object",
-                    "properties": {
-                      "trialContainers": {
-                        "type": "array",
-                        "items": {
-                          "type": "integer",
-                          "example": 1
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Form Templates"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormTemplate"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorised"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          }
-        }
-      }
-    },
-    "/accounts/{account_id}/administration/form_templates/{id}/active": {
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/active": {
       "put": {
         "summary": "Set active form template for account",
+        "description": "Set active form template for account",
+        "operationId": "updateFormTemplateActive",
+        "tags": [
+          "Form Templates"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "operationId": "putFormTemplateActive",
-        "description": "Set active form template for account",
         "parameters": [
           {
             "name": "account_id",
@@ -912,18 +797,18 @@
             "description": "The account id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "example": 1
+              "type": "string",
+              "example": "1"
             }
           },
           {
-            "name": "id",
+            "name": "form_template_id",
             "in": "path",
             "description": "The form template id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "example": 1
+              "type": "string",
+              "example": "1"
             }
           }
         ],
@@ -934,9 +819,7 @@
                 "type": "object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "formTemplateData": {
                     "type": "object",
@@ -958,9 +841,6 @@
             }
           }
         },
-        "tags": [
-          "Form Templates"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -976,7 +856,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -990,22 +870,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/duplicate": {
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/duplicate": {
       "post": {
         "summary": "Duplicate a form template for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Duplicate a form template for account",
+        "operationId": "duplicateFormTemplate",
         "tags": [
           "Form Templates"
         ],
-        "operationId": "postFormTemplateDuplicate",
-        "description": "Duplicate a form template for account",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1018,7 +896,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "form_template_id",
             "in": "path",
             "description": "The form template id",
             "required": true,
@@ -1035,9 +913,7 @@
                 "type": "object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   }
                 }
               }
@@ -1059,7 +935,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1073,22 +949,111 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/workflow_definitions": {
-      "put": {
-        "summary": "Update workflow definitions for form template",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/trial_containers": {
+      "post": {
+        "summary": "Add trial containers to form template",
+        "description": "Add trial containers to form template",
+        "operationId": "updateFormTemplateTrialContainers",
         "tags": [
           "Form Templates"
         ],
-        "operationId": "putFormTemplateWorkflowDefinitions",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "form_template_id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "formTemplateData": {
+                    "type": "object",
+                    "properties": {
+                      "trialContainers": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplate"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/workflow_definitions": {
+      "put": {
+        "summary": "Update workflow definitions for form template",
         "description": "Update workflow definitions for form template",
+        "operationId": "updateFormTemplateWorkflowDefinitions",
+        "tags": [
+          "Form Templates"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1101,7 +1066,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "form_template_id",
             "in": "path",
             "description": "The form template id",
             "required": true,
@@ -1118,9 +1083,7 @@
                 "type": "object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "formTemplateData": {
                     "type": "object",
@@ -1157,67 +1120,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          }
-        }
-      }
-    },
-    "/accounts/{account_id}/administration/workflow_definitions": {
-      "get": {
-        "summary": "Get all workflow definitions for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
-        "tags": [
-          "Workflow Definitions"
-        ],
-        "operationId": "getWorkflowDefinitions",
-        "description": "Get all workflow definitions for account",
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorkflowDefinition"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1234,19 +1137,17 @@
     "/accounts/{account_id}/administration/study_protocols": {
       "get": {
         "summary": "Get all study protocols for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Get all study protocols for account",
+        "operationId": "getStudyProtocols",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "getStudyProtocols",
-        "description": "Get all study protocols for account",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1277,7 +1178,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1292,19 +1193,17 @@
       },
       "post": {
         "summary": "Create a study protocol for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Create a study protocol for account",
+        "operationId": "createStudyProtocol",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "postStudyProtocol",
-        "description": "Create a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1324,9 +1223,7 @@
                 "type": "object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "issue_date": {
                     "type": "string",
@@ -1336,7 +1233,7 @@
                   "name": {
                     "type": "string",
                     "description": "The name of study protocol",
-                    "example": "Ghost Protocol copy (1)"
+                    "example": "Ghost Protocol"
                   }
                 }
               }
@@ -1358,7 +1255,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1372,22 +1269,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{id}": {
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}": {
       "get": {
         "summary": "Get a study protocol for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Get a study protocol for account",
+        "operationId": "getStudyProtocol",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "getStudyProtocol",
-        "description": "Get a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1400,7 +1295,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "study_protocol_id",
             "in": "path",
             "description": "The study protocol id",
             "required": true,
@@ -1425,7 +1320,7 @@
             "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1439,20 +1334,18 @@
         }
       },
       "put": {
-        "summary": "Put a study protocol for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "summary": "Update a study protocol for account",
+        "description": "Update a study protocol for account",
+        "operationId": "updateStudyProtocol",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "putStudyProtocol",
-        "description": "Update a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1465,7 +1358,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "study_protocol_id",
             "in": "path",
             "description": "The study protocol id",
             "required": true,
@@ -1482,9 +1375,7 @@
                 "type": "object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "issue_date": {
                     "type": "string",
@@ -1494,7 +1385,7 @@
                   "name": {
                     "type": "string",
                     "description": "The name of study protocol",
-                    "example": "Ghost Protocol copy (1)"
+                    "example": "Ghost Protocol"
                   }
                 }
               }
@@ -1516,7 +1407,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1531,19 +1422,17 @@
       },
       "delete": {
         "summary": "Delete a study protocol for account",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Delete a study protocol for account",
+        "operationId": "deleteStudyProtocol",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "deleteStudyProtocol",
-        "description": "Delete a study protocol for account",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1556,7 +1445,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "study_protocol_id",
             "in": "path",
             "description": "The study protocol id",
             "required": true,
@@ -1581,7 +1470,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1595,19 +1484,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{id}/update_sites": {
-      "put": {
-        "summary": "Update sites for study protocol",
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a study protocol for account",
+        "description": "Duplicate a study protocol for account",
+        "operationId": "duplicateStudyProtocol",
+        "tags": [
+          "Study Protocols"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "description": "Update sites for study protocol",
-        "operationId": "putStudyProtocolUpdateSites",
         "parameters": [
           {
             "name": "account_id",
@@ -1620,7 +1510,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "study_protocol_id",
             "in": "path",
             "description": "The study protocol id",
             "required": true,
@@ -1636,26 +1526,100 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "sites": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "example": 1
-                    }
-                  },
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   }
                 }
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
+      "put": {
+        "summary": "Update sites for study protocol",
+        "description": "Update sites for study protocol",
+        "operationId": "updateStudyProtocolSites",
         "tags": [
           "Study Protocols"
         ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "sites": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -1674,7 +1638,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1688,22 +1652,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{id}/duplicate": {
-      "post": {
-        "summary": "Duplicate a study protocol for account",
+    "/accounts/{account_id}/administration/workflow_definitions": {
+      "get": {
+        "summary": "Get all workflow definitions for account",
+        "description": "Get all workflow definitions for account",
+        "operationId": "getWorkflowDefinitions",
+        "tags": [
+          "Workflow Definitions"
+        ],
         "security": [
           {
-            "userSessionKey": []
-          },
-          {
+            "userSessionKey": [],
             "chillipharmSession": []
           }
         ],
-        "tags": [
-          "Study Protocols"
-        ],
-        "operationId": "postStudyProtocolDuplicate",
-        "description": "Duplicate a study protocol for account",
         "parameters": [
           {
             "name": "account_id",
@@ -1714,50 +1676,27 @@
               "example": "1",
               "type": "string"
             }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The study protocol id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
-            }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "authenticity_token": {
-                    "type": "string",
-                    "description": "The asset authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
-                  }
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StudyProtocol"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkflowDefinition"
+                  }
                 }
               }
             }
           },
           "400": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/Unauthorised"
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2755,6 +2694,11 @@
           "color",
           "position"
         ]
+      },
+      "AuthenticityToken": {
+        "description": "The authenticity token",
+        "type": "string",
+        "example": "valid_token"
       }
     },
     "responses": {
@@ -2768,27 +2712,12 @@
           }
         }
       },
-      "Unauthorised": {
-        "description": "Unauthorised. Missing or invalid authentication credentials.",
+      "Unauthorized": {
+        "description": "Unauthorized. Missing or invalid authentication credentials.",
         "content": {
           "application/json": {
             "schema": {
-              "description": "An error",
-              "type": "object",
-              "properties": {
-                "error": {
-                  "type": "string",
-                  "description": "The error message",
-                  "example": "Unauthorised",
-                  "enum": [
-                    "Unauthorised"
-                  ]
-                }
-              },
-              "required": [
-                "error"
-              ],
-              "additionalProperties": false
+              "$ref": "#/components/schemas/Error"
             }
           }
         }

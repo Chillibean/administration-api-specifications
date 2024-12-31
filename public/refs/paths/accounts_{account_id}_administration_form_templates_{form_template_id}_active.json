@@ -1,16 +1,17 @@
 {
   "put": {
     "summary": "Set active form template for account",
+    "description": "Set active form template for account",
+    "operationId": "updateFormTemplateActive",
+    "tags": [
+      "Form Templates"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "operationId": "putFormTemplateActive",
-    "description": "Set active form template for account",
     "parameters": [
       {
         "name": "account_id",
@@ -18,18 +19,18 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "type": "integer",
-          "example": 1
+          "type": "string",
+          "example": "1"
         }
       },
       {
-        "name": "id",
+        "name": "form_template_id",
         "in": "path",
         "description": "The form template id",
         "required": true,
         "schema": {
-          "type": "integer",
-          "example": 1
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -40,9 +41,7 @@
             "type": "object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "formTemplateData": {
                 "type": "object",
@@ -64,9 +63,6 @@
         }
       }
     },
-    "tags": [
-      "Form Templates"
-    ],
     "responses": {
       "200": {
         "description": "OK",
@@ -82,7 +78,7 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
