@@ -1727,6 +1727,11 @@
       }
     },
     "schemas": {
+      "AuthenticityToken": {
+        "description": "The authenticity token",
+        "type": "string",
+        "example": "valid_token"
+      },
       "ChapterDefinition": {
         "description": "A chapter definition",
         "type": "object",
@@ -2694,11 +2699,6 @@
           "color",
           "position"
         ]
-      },
-      "AuthenticityToken": {
-        "description": "The authenticity token",
-        "type": "string",
-        "example": "valid_token"
       }
     },
     "responses": {

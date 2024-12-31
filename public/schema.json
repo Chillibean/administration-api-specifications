@@ -109,6 +109,9 @@
       }
     },
     "schemas": {
+      "AuthenticityToken": {
+        "$ref": "refs/components/schemas/AuthenticityToken.json"
+      },
       "ChapterDefinition": {
         "$ref": "refs/components/schemas/ChapterDefinition.json"
       },
