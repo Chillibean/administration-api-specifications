@@ -1771,7 +1771,7 @@
         }
       }
     },
-    "/api/v1/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
       "post": {
         "summary": "Create a study procedure definition for study protocol",
         "security": [
@@ -1877,7 +1877,7 @@
         }
       }
     },
-    "/api/v1/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{id}": {
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{id}": {
       "put": {
         "summary": "Update a study procedure definition for study protocol",
         "security": [
