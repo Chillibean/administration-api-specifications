@@ -79,6 +79,12 @@
     },
     "/accounts/{account_id}/administration/study_protocols/{id}/duplicate": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{id}_duplicate.json"
+    },
+    "/api/v1/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions.json"
+    },
+    "/api/v1/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{id}.json"
     }
   },
   "components": {
