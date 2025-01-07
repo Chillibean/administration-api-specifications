@@ -2660,37 +2660,41 @@
             "example": "SIXWALK"
           },
           "required_form_templates": {
-            "type": "object",
+            "type": "array",
             "description": "The required form templates of study procedure definition",
-            "properties": {
-              "id": {
-                "type": "number",
-                "description": "The id of form template",
-                "example": 1
+            "items": {
+              "type": "object",
+              "description": "The required form templates of study procedure definition",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "The id of form template",
+                  "example": 1
+                },
+                "title": {
+                  "type": "string",
+                  "description": "The title of form template",
+                  "example": "Patient Assessment 1"
+                },
+                "version_number": {
+                  "type": "number",
+                  "description": "The version number of form template",
+                  "example": 1
+                },
+                "workflow_definition_name": {
+                  "type": "string",
+                  "description": "The workflow definition name of form template",
+                  "example": "Standard Workflow"
+                }
               },
-              "title": {
-                "type": "string",
-                "description": "The title of form template",
-                "example": "Patient Assessment 1"
-              },
-              "version_number": {
-                "type": "number",
-                "description": "The version number of form template",
-                "example": 1
-              },
-              "workflow_definition_name": {
-                "type": "string",
-                "description": "The workflow definition name of form template",
-                "example": "Standard Workflow"
-              }
-            },
-            "required": [
-              "id",
-              "title",
-              "version_number",
-              "workflow_definition_name"
-            ],
-            "additionalProperties": false
+              "required": [
+                "id",
+                "title",
+                "version_number",
+                "workflow_definition_name"
+              ],
+              "additionalProperties": false
+            }
           }
         }
       },
