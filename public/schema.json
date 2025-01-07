@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "3.0.3",
+    "version": "3.1.0",
     "title": "Administration API",
     "description": "Administration API",
     "contact": {
@@ -79,6 +79,12 @@
     },
     "/accounts/{account_id}/administration/study_protocols/{id}/duplicate": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{id}_duplicate.json"
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions.json"
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{id}.json"
     }
   },
   "components": {
