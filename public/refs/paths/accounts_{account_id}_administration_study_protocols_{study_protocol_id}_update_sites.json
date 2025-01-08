@@ -1,16 +1,17 @@
 {
   "put": {
     "summary": "Update sites for study protocol",
+    "description": "Update sites for study protocol",
+    "operationId": "updateStudyProtocolSites",
+    "tags": [
+      "Study Protocols"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "description": "Update sites for study protocol",
-    "operationId": "putStudyProtocolUpdateSites",
     "parameters": [
       {
         "name": "account_id",
@@ -23,7 +24,7 @@
         }
       },
       {
-        "name": "id",
+        "name": "study_protocol_id",
         "in": "path",
         "description": "The study protocol id",
         "required": true,
@@ -39,24 +40,21 @@
           "schema": {
             "type": "object",
             "properties": {
+              "authenticity_token": {
+                "$ref": "../components/schemas/AuthenticityToken.json"
+              },
               "sites": {
                 "type": "array",
                 "items": {
                   "type": "integer",
                   "example": 1
                 }
-              },
-              "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
               }
             }
           }
         }
       }
     },
-    "tags": ["Study Protocols"],
     "responses": {
       "200": {
         "description": "OK",
@@ -75,7 +73,7 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"

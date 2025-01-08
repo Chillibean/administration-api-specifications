@@ -1,7 +1,7 @@
 {
   "name": "administration-api-specifications",
   "private": true,
-  "version": "3.0.3",
+  "version": "4.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
