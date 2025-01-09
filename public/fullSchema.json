@@ -1652,13 +1652,13 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/workflow_definitions": {
-      "get": {
-        "summary": "Get all workflow definitions for account",
-        "description": "Get all workflow definitions for account",
-        "operationId": "getWorkflowDefinitions",
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
+      "post": {
+        "summary": "Create a study procedure definition for study protocol",
+        "description": "Create a study procedure definition for study protocol",
+        "operationId": "createStudyProcedureDefinition",
         "tags": [
-          "Workflow Definitions"
+          "Study Protocols"
         ],
         "security": [
           {
@@ -1673,68 +1673,8 @@
             "description": "The account id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorkflowDefinition"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          }
-        }
-      }
-    },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
-      "post": {
-        "summary": "Create a study procedure definition for study protocol",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
-        "tags": [
-          "Study Protocols"
-        ],
-        "operationId": "postStudyProcedureDefinition",
-        "description": "Create a study procedure definition for study protocol",
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           },
           {
@@ -1743,8 +1683,8 @@
             "description": "The study protocol id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           }
         ],
@@ -1757,9 +1697,7 @@
                 "description": "Study procedure definition object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "display_name": {
                     "type": "string",
@@ -1816,22 +1754,20 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{id}": {
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
       "put": {
         "summary": "Update a study procedure definition for study protocol",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Update a study procedure definition for study protocol",
+        "operationId": "updateStudyProcedureDefinition",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "putStudyProcedureDefinition",
-        "description": "Update a study procedure definition for study protocol",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1839,8 +1775,8 @@
             "description": "The account id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           },
           {
@@ -1849,18 +1785,18 @@
             "description": "The study protocol id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           },
           {
-            "name": "id",
+            "name": "study_procedure_definition_id",
             "in": "path",
             "description": "The study procedure definition id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           }
         ],
@@ -1873,9 +1809,7 @@
                 "description": "Study procedure definition object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   },
                   "display_name": {
                     "type": "string",
@@ -1933,19 +1867,17 @@
       },
       "delete": {
         "summary": "Delete a study procedure definition for study protocol",
-        "security": [
-          {
-            "userSessionKey": []
-          },
-          {
-            "chillipharmSession": []
-          }
-        ],
+        "description": "Delete a study procedure definition for study protocol",
+        "operationId": "deleteStudyProcedureDefinition",
         "tags": [
           "Study Protocols"
         ],
-        "operationId": "deleteStudyProcedureDefinition",
-        "description": "Delete a study procedure definition for study protocol",
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
         "parameters": [
           {
             "name": "account_id",
@@ -1953,8 +1885,8 @@
             "description": "The account id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           },
           {
@@ -1963,18 +1895,18 @@
             "description": "The study protocol id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           },
           {
-            "name": "id",
+            "name": "study_procedure_definition_id",
             "in": "path",
             "description": "The study procedure definition id",
             "required": true,
             "schema": {
-              "example": "1",
-              "type": "string"
+              "type": "string",
+              "example": "1"
             }
           }
         ],
@@ -1987,9 +1919,7 @@
                 "description": "Study procedure definition object",
                 "properties": {
                   "authenticity_token": {
-                    "type": "string",
-                    "description": "authenticity token",
-                    "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                    "$ref": "#/components/schemas/AuthenticityToken"
                   }
                 },
                 "additionalProperties": false,
@@ -2013,6 +1943,64 @@
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/workflow_definitions": {
+      "get": {
+        "summary": "Get all workflow definitions for account",
+        "description": "Get all workflow definitions for account",
+        "operationId": "getWorkflowDefinitions",
+        "tags": [
+          "Workflow Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkflowDefinition"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
