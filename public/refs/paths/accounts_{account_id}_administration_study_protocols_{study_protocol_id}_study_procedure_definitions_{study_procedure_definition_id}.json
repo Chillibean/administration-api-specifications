@@ -1,17 +1,17 @@
 {
   "put": {
     "summary": "Update a study procedure definition for study protocol",
+    "description": "Update a study procedure definition for study protocol",
+    "operationId": "updateStudyProcedureDefinition",
+    "tags": [
+      "Study Protocols"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "tags": ["Study Protocols"],
-    "operationId": "putStudyProcedureDefinition",
-    "description": "Update a study procedure definition for study protocol",
     "parameters": [
       {
         "name": "account_id",
@@ -19,8 +19,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       },
       {
@@ -29,18 +29,18 @@
         "description": "The study protocol id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       },
       {
-        "name": "id",
+        "name": "study_procedure_definition_id",
         "in": "path",
         "description": "The study procedure definition id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -53,9 +53,7 @@
             "description": "Study procedure definition object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "display_name": {
                 "type": "string",
@@ -74,7 +72,11 @@
               }
             },
             "additionalProperties": false,
-            "required": ["authenticity_token", "display_name", "identifier"]
+            "required": [
+              "authenticity_token",
+              "display_name",
+              "identifier"
+            ]
           }
         }
       }
@@ -94,7 +96,7 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
@@ -109,17 +111,17 @@
   },
   "delete": {
     "summary": "Delete a study procedure definition for study protocol",
+    "description": "Delete a study procedure definition for study protocol",
+    "operationId": "deleteStudyProcedureDefinition",
+    "tags": [
+      "Study Protocols"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "tags": ["Study Protocols"],
-    "operationId": "deleteStudyProcedureDefinition",
-    "description": "Delete a study procedure definition for study protocol",
     "parameters": [
       {
         "name": "account_id",
@@ -127,8 +129,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       },
       {
@@ -137,18 +139,18 @@
         "description": "The study protocol id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       },
       {
-        "name": "id",
+        "name": "study_procedure_definition_id",
         "in": "path",
         "description": "The study procedure definition id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -161,13 +163,13 @@
             "description": "Study procedure definition object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               }
             },
             "additionalProperties": false,
-            "required": ["authenticity_token"]
+            "required": [
+              "authenticity_token"
+            ]
           }
         }
       }
@@ -187,7 +189,7 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"

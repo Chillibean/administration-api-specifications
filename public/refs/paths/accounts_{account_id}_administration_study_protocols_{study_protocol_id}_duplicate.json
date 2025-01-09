@@ -1,19 +1,17 @@
 {
   "post": {
     "summary": "Duplicate a study protocol for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "description": "Duplicate a study protocol for account",
+    "operationId": "duplicateStudyProtocol",
     "tags": [
       "Study Protocols"
     ],
-    "operationId": "postStudyProtocolDuplicate",
-    "description": "Duplicate a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -26,7 +24,7 @@
         }
       },
       {
-        "name": "id",
+        "name": "study_protocol_id",
         "in": "path",
         "description": "The study protocol id",
         "required": true,
@@ -43,9 +41,7 @@
             "type": "object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               }
             }
           }
@@ -67,7 +63,7 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"

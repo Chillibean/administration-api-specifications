@@ -1,19 +1,17 @@
 {
   "get": {
     "summary": "Get a study protocol for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "description": "Get a study protocol for account",
+    "operationId": "getStudyProtocol",
     "tags": [
       "Study Protocols"
     ],
-    "operationId": "getStudyProtocol",
-    "description": "Get a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -26,7 +24,7 @@
         }
       },
       {
-        "name": "id",
+        "name": "study_protocol_id",
         "in": "path",
         "description": "The study protocol id",
         "required": true,
@@ -51,7 +49,7 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
@@ -65,20 +63,18 @@
     }
   },
   "put": {
-    "summary": "Put a study protocol for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "summary": "Update a study protocol for account",
+    "description": "Update a study protocol for account",
+    "operationId": "updateStudyProtocol",
     "tags": [
       "Study Protocols"
     ],
-    "operationId": "putStudyProtocol",
-    "description": "Update a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -91,7 +87,7 @@
         }
       },
       {
-        "name": "id",
+        "name": "study_protocol_id",
         "in": "path",
         "description": "The study protocol id",
         "required": true,
@@ -108,9 +104,7 @@
             "type": "object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "issue_date": {
                 "type": "string",
@@ -120,7 +114,7 @@
               "name": {
                 "type": "string",
                 "description": "The name of study protocol",
-                "example": "Ghost Protocol copy (1)"
+                "example": "Ghost Protocol"
               }
             }
           }
@@ -142,7 +136,7 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
@@ -157,19 +151,17 @@
   },
   "delete": {
     "summary": "Delete a study protocol for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "description": "Delete a study protocol for account",
+    "operationId": "deleteStudyProtocol",
     "tags": [
       "Study Protocols"
     ],
-    "operationId": "deleteStudyProtocol",
-    "description": "Delete a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -182,7 +174,7 @@
         }
       },
       {
-        "name": "id",
+        "name": "study_protocol_id",
         "in": "path",
         "description": "The study protocol id",
         "required": true,
@@ -207,7 +199,7 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"

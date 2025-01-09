@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "3.1.0",
+    "version": "4.0.0",
     "title": "Administration API",
-    "description": "Administration API",
+    "description": "This is the api specifications for all things related to account administration.",
     "contact": {
       "name": "ChilliPharm",
       "url": "https://www.chillipharm.com"
@@ -33,6 +33,18 @@
       "description": "Local development"
     },
     {
+      "url": "https://qa.chillipharm.dev/api/v1",
+      "description": "QA"
+    },
+    {
+      "url": "https://chillipharm-staging.com/api/v1",
+      "description": "Staging"
+    },
+    {
+      "url": "https://chillipharm-uat.com/api/v1",
+      "description": "UAT"
+    },
+    {
       "url": "https://www.chillipharm.com/api/v1",
       "description": "Production"
     }
@@ -41,8 +53,8 @@
     "/accounts/{account_id}/administration/chapter_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_chapter_definitions.json"
     },
-    "/accounts/{account_id}/administration/chapter_definitions/{id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_chapter_definitions_{id}.json"
+    "/accounts/{account_id}/administration/chapter_definitions/{chapter_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_chapter_definitions_{chapter_definition_id}.json"
     },
     "/accounts/{account_id}/administration/chapter_definitions/update_positions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_chapter_definitions_update_positions.json"
@@ -50,41 +62,41 @@
     "/accounts/{account_id}/administration/form_templates": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates.json"
     },
-    "/accounts/{account_id}/administration/form_templates/{id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{id}.json"
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}.json"
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/trial_containers": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{id}_trial_containers.json"
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/active": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_active.json"
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/active": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{id}_active.json"
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/duplicate": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_duplicate.json"
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/duplicate": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{id}_duplicate.json"
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/trial_containers": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_trial_containers.json"
     },
-    "/accounts/{account_id}/administration/form_templates/{id}/workflow_definitions": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{id}_workflow_definitions.json"
-    },
-    "/accounts/{account_id}/administration/workflow_definitions": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_workflow_definitions.json"
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/workflow_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_workflow_definitions.json"
     },
     "/accounts/{account_id}/administration/study_protocols": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{id}.json"
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{id}/update_sites": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{id}_update_sites.json"
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/duplicate": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_duplicate.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{id}/duplicate": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{id}_duplicate.json"
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_update_sites.json"
     },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{id}.json"
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{study_procedure_definition_id}.json"
+    },
+    "/accounts/{account_id}/administration/workflow_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_workflow_definitions.json"
     }
   },
   "components": {
@@ -103,6 +115,9 @@
       }
     },
     "schemas": {
+      "AuthenticityToken": {
+        "$ref": "refs/components/schemas/AuthenticityToken.json"
+      },
       "ChapterDefinition": {
         "$ref": "refs/components/schemas/ChapterDefinition.json"
       },
