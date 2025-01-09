@@ -1652,6 +1652,313 @@
         }
       }
     },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
+      "post": {
+        "summary": "Create a study procedure definition for study protocol",
+        "description": "Create a study procedure definition for study protocol",
+        "operationId": "createStudyProcedureDefinition",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Study procedure definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Study procedure definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study procedure definition",
+                    "example": "Study Procedure Definition"
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "description": "The identifier of study procedure definition",
+                    "example": "SPD"
+                  },
+                  "required_form_templates": {
+                    "type": "integer",
+                    "description": "The required form templates of study procedure definition",
+                    "example": 1
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token",
+                  "display_name",
+                  "identifier"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
+      "put": {
+        "summary": "Update a study procedure definition for study protocol",
+        "description": "Update a study procedure definition for study protocol",
+        "operationId": "updateStudyProcedureDefinition",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_procedure_definition_id",
+            "in": "path",
+            "description": "The study procedure definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Study procedure definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Study procedure definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study procedure definition",
+                    "example": "Study Procedure Definition"
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "description": "The identifier of study procedure definition",
+                    "example": "SPD"
+                  },
+                  "required_form_templates": {
+                    "type": "integer",
+                    "description": "The required form templates of study procedure definition",
+                    "example": 1
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token",
+                  "display_name",
+                  "identifier"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a study procedure definition for study protocol",
+        "description": "Delete a study procedure definition for study protocol",
+        "operationId": "deleteStudyProcedureDefinition",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_procedure_definition_id",
+            "in": "path",
+            "description": "The study procedure definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Study procedure definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Study procedure definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
     "/accounts/{account_id}/administration/workflow_definitions": {
       "get": {
         "summary": "Get all workflow definitions for account",
@@ -2288,8 +2595,37 @@
             "type": "array",
             "description": "The required form templates of study procedure definition",
             "items": {
-              "type": "number",
-              "example": 1
+              "type": "object",
+              "description": "The required form templates of study procedure definition",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "The id of form template",
+                  "example": 1
+                },
+                "title": {
+                  "type": "string",
+                  "description": "The title of form template",
+                  "example": "Patient Assessment 1"
+                },
+                "version_number": {
+                  "type": "number",
+                  "description": "The version number of form template",
+                  "example": 1
+                },
+                "workflow_definition_name": {
+                  "type": "string",
+                  "description": "The workflow definition name of form template",
+                  "example": "Standard Workflow"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "version_number",
+                "workflow_definition_name"
+              ],
+              "additionalProperties": false
             }
           }
         }
