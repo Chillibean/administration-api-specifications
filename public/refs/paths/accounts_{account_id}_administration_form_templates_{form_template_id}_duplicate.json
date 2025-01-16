@@ -1,16 +1,17 @@
 {
   "post": {
-    "summary": "Add trial containers to form template",
+    "summary": "Duplicate a form template for account",
+    "description": "Duplicate a form template for account",
+    "operationId": "duplicateFormTemplate",
+    "tags": [
+      "Form Templates"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "operationId": "postFormTemplateTrialContainers",
-    "description": "Add trial containers to form template",
     "parameters": [
       {
         "name": "account_id",
@@ -18,18 +19,18 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1"
+          "example": "1",
+          "type": "string"
         }
       },
       {
-        "name": "id",
+        "name": "form_template_id",
         "in": "path",
         "description": "The form template id",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1"
+          "example": "1",
+          "type": "string"
         }
       }
     ],
@@ -40,30 +41,13 @@
             "type": "object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
-              },
-              "formTemplateData": {
-                "type": "object",
-                "properties": {
-                  "trialContainers": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "example": 1
-                    }
-                  }
-                }
+                "$ref": "../components/schemas/AuthenticityToken.json"
               }
             }
           }
         }
       }
     },
-    "tags": [
-      "Form Templates"
-    ],
     "responses": {
       "200": {
         "description": "OK",
@@ -79,7 +63,10 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
