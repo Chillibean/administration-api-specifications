@@ -702,6 +702,9 @@
           "401": {
             "$ref": "#/components/responses/Unauthorized"
           },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
@@ -2014,6 +2017,9 @@
           "401": {
             "$ref": "#/components/responses/Unauthorized"
           },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
@@ -2947,7 +2953,7 @@
             "description": "The id of subject",
             "example": 1
           },
-          "subject_number": {
+          "number": {
             "type": "string",
             "description": "The subject number",
             "example": "E0001001"
