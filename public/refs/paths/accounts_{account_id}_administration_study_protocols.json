@@ -1,19 +1,17 @@
 {
   "get": {
     "summary": "Get all study protocols for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "description": "Get all study protocols for account",
+    "operationId": "getStudyProtocols",
     "tags": [
       "Study Protocols"
     ],
-    "operationId": "getStudyProtocols",
-    "description": "Get all study protocols for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -44,7 +42,10 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
@@ -59,19 +60,17 @@
   },
   "post": {
     "summary": "Create a study protocol for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "description": "Create a study protocol for account",
+    "operationId": "createStudyProtocol",
     "tags": [
       "Study Protocols"
     ],
-    "operationId": "postStudyProtocol",
-    "description": "Create a study protocol for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -91,9 +90,7 @@
             "type": "object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "issue_date": {
                 "type": "string",
@@ -103,7 +100,7 @@
               "name": {
                 "type": "string",
                 "description": "The name of study protocol",
-                "example": "Ghost Protocol copy (1)"
+                "example": "Ghost Protocol"
               }
             }
           }
@@ -111,8 +108,8 @@
       }
     },
     "responses": {
-      "200": {
-        "description": "OK",
+      "201": {
+        "description": "Created",
         "content": {
           "application/json": {
             "schema": {
@@ -125,7 +122,10 @@
         "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
