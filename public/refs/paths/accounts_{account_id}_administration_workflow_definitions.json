@@ -1,19 +1,17 @@
 {
   "get": {
     "summary": "Get all workflow definitions for account",
-    "security": [
-      {
-        "userSessionKey": []
-      },
-      {
-        "chillipharmSession": []
-      }
-    ],
+    "description": "Get all workflow definitions for account",
+    "operationId": "getWorkflowDefinitions",
     "tags": [
       "Workflow Definitions"
     ],
-    "operationId": "getWorkflowDefinitions",
-    "description": "Get all workflow definitions for account",
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
     "parameters": [
       {
         "name": "account_id",
@@ -44,7 +42,10 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"

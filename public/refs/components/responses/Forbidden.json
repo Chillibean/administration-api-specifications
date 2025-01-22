@@ -1,5 +1,5 @@
 {
-  "description": "Not found. The requested resource was not found.",
+  "description": "Forbidden. Insufficient permissions to perform the operation.",
   "content": {
     "application/json": {
       "schema": {
