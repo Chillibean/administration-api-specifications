@@ -7,7 +7,7 @@
       "description": "The id of subject",
       "example": 1
     },
-    "subject_number": {
+    "number": {
       "type": "string",
       "description": "The subject number",
       "example": "E0001001"
