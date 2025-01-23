@@ -1,16 +1,17 @@
 {
   "put": {
-    "summary": "Update sites for study protocol",
+    "summary": "Update a form template for account",
+    "description": "Update a form template for account",
+    "operationId": "updateFormTemplate",
+    "tags": [
+      "Form Templates"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "description": "Update sites for study protocol",
-    "operationId": "putStudyProtocolUpdateSites",
     "parameters": [
       {
         "name": "account_id",
@@ -18,18 +19,18 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       },
       {
-        "name": "id",
+        "name": "form_template_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The form template id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -39,43 +40,41 @@
           "schema": {
             "type": "object",
             "properties": {
-              "sites": {
-                "type": "array",
-                "items": {
-                  "type": "integer",
-                  "example": 1
-                }
-              },
               "authenticity_token": {
+                "$ref": "../components/schemas/AuthenticityToken.json"
+              },
+              "formTemplateData": {
+                "$ref": "../components/schemas/FormTemplateBodyData.json"
+              },
+              "reason_for_change": {
                 "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "description": "The reason for change of form template version",
+                "example": "Version 1"
               }
             }
           }
         }
       }
     },
-    "tags": ["Study Protocols"],
     "responses": {
       "200": {
         "description": "OK",
         "content": {
           "application/json": {
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "../components/schemas/Site.json"
-              }
+              "$ref": "../components/schemas/FormTemplate.json"
             }
           }
         }
       },
       "400": {
-        "$ref": "../components/responses/BadRequest.json"
+        "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"

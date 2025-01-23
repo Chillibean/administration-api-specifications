@@ -1,10 +1,10 @@
 {
   "get": {
-    "summary": "Get all workflow definitions for account",
-    "description": "Get all workflow definitions for account",
-    "operationId": "getWorkflowDefinitions",
+    "summary": "Get all trial containers for account",
+    "description": "Get all trial containers for account",
+    "operationId": "getTrialContainers",
     "tags": [
-      "Workflow Definitions"
+      "Trial Containers"
     ],
     "security": [
       {
@@ -32,7 +32,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "../components/schemas/WorkflowDefinition.json"
+                "$ref": "../components/schemas/TrialContainerBasic.json"
               }
             }
           }
