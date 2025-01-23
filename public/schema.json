@@ -27,6 +27,10 @@
       "description": "Endpoints for study protocols"
     },
     {
+      "name": "Trial Containers",
+      "description": "Endpoints for trial containers"
+    },
+    {
       "name": "Workflow Definitions",
       "description": "Endpoints for workflow definitions"
     }
@@ -98,6 +102,9 @@
     },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{study_procedure_definition_id}.json"
+    },
+    "/accounts/{account_id}/administration/trial_containers": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_containers.json"
     },
     "/accounts/{account_id}/administration/workflow_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_workflow_definitions.json"
@@ -187,6 +194,9 @@
       },
       "TrialContainer": {
         "$ref": "refs/components/schemas/TrialContainer.json"
+      },
+      "TrialContainerBasic": {
+        "$ref": "refs/components/schemas/TrialContainerBasic.json"
       },
       "WorkflowDefinition": {
         "$ref": "refs/components/schemas/WorkflowDefinition.json"

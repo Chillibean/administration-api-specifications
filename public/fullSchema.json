@@ -49,6 +49,10 @@
       "description": "Endpoints for study protocols"
     },
     {
+      "name": "Trial Containers",
+      "description": "Endpoints for trial containers"
+    },
+    {
       "name": "Workflow Definitions",
       "description": "Endpoints for workflow definitions"
     }
@@ -2032,6 +2036,67 @@
         }
       }
     },
+    "/accounts/{account_id}/administration/trial_containers": {
+      "get": {
+        "summary": "Get all trial containers for account",
+        "description": "Get all trial containers for account",
+        "operationId": "getTrialContainers",
+        "tags": [
+          "Trial Containers"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TrialContainerBasic"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
     "/accounts/{account_id}/administration/workflow_definitions": {
       "get": {
         "summary": "Get all workflow definitions for account",
@@ -3050,6 +3115,33 @@
           "name",
           "type",
           "country"
+        ],
+        "additionalProperties": false
+      },
+      "TrialContainerBasic": {
+        "description": "A basic trial container",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of trial container",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of trial container",
+            "example": "pre"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of trial container",
+            "example": "Library"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type"
         ],
         "additionalProperties": false
       },
