@@ -2221,7 +2221,7 @@
         },
         "responses": {
           "200": {
-            "description": "Deleted",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
