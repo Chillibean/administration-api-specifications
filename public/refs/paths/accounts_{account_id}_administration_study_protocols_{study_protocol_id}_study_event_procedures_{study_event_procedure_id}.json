@@ -61,8 +61,8 @@
       }
     },
     "responses": {
-      "201": {
-        "description": "Created",
+      "200": {
+        "description": "Deleted",
         "content": {
           "application/json": {
             "schema": {
