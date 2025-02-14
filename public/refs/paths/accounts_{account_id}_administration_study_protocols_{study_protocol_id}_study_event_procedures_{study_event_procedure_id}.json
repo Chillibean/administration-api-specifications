@@ -73,9 +73,9 @@
                   "$ref": "../components/schemas/StudyProtocol.json"
                 },
                 "id": {
-                  "type": "string",
+                  "type": "integer",
                   "description": "The id of study event procedure",
-                  "example": "1"
+                  "example": 1
                 }
               }
             }

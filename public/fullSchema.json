@@ -2123,9 +2123,9 @@
                       "$ref": "#/components/schemas/StudyProtocol"
                     },
                     "id": {
-                      "type": "string",
+                      "type": "integer",
                       "description": "The id of study event procedure",
-                      "example": "1"
+                      "example": 1
                     }
                   }
                 }
@@ -2232,9 +2232,9 @@
                       "$ref": "#/components/schemas/StudyProtocol"
                     },
                     "id": {
-                      "type": "string",
+                      "type": "integer",
                       "description": "The id of study event procedure",
-                      "example": "1"
+                      "example": 1
                     }
                   }
                 }
