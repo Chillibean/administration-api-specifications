@@ -1,19 +1,17 @@
 {
   "post": {
-    "summary": "Duplicate a form template for account",
+    "summary": "Duplicate a study protocol for account",
+    "description": "Duplicate a study protocol for account",
+    "operationId": "duplicateStudyProtocol",
+    "tags": [
+      "Study Protocols"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "tags": [
-      "Form Templates"
-    ],
-    "operationId": "postFormTemplateDuplicate",
-    "description": "Duplicate a form template for account",
     "parameters": [
       {
         "name": "account_id",
@@ -26,9 +24,9 @@
         }
       },
       {
-        "name": "id",
+        "name": "study_protocol_id",
         "in": "path",
-        "description": "The form template id",
+        "description": "The study protocol id",
         "required": true,
         "schema": {
           "example": "1",
@@ -43,9 +41,7 @@
             "type": "object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               }
             }
           }
@@ -58,16 +54,19 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/FormTemplate.json"
+              "$ref": "../components/schemas/StudyProtocol.json"
             }
           }
         }
       },
       "400": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
