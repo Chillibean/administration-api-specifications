@@ -1,16 +1,17 @@
 {
   "get": {
     "summary": "Get all form templates for account",
+    "description": "Get all form templates for account",
+    "operationId": "getFormTemplates",
+    "tags": [
+      "Form Templates"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "operationId": "getFormTemplates",
-    "description": "Get all form templates for account",
     "parameters": [
       {
         "name": "account_id",
@@ -23,9 +24,6 @@
         }
       }
     ],
-    "tags": [
-      "Form Templates"
-    ],
     "responses": {
       "200": {
         "description": "OK",
@@ -33,7 +31,6 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "description": "Form templates response object",
               "properties": {
                 "default_form_template": {
                   "type": "object",
@@ -74,7 +71,10 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
@@ -89,16 +89,17 @@
   },
   "post": {
     "summary": "Create a form template for account",
+    "description": "Create a form template for account",
+    "operationId": "createFormTemplate",
+    "tags": [
+      "Form Templates"
+    ],
     "security": [
       {
-        "userSessionKey": []
-      },
-      {
+        "userSessionKey": [],
         "chillipharmSession": []
       }
     ],
-    "operationId": "postFormTemplate",
-    "description": "Create a form template for account",
     "parameters": [
       {
         "name": "account_id",
@@ -116,12 +117,9 @@
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "Form template object",
             "properties": {
               "authenticity_token": {
-                "type": "string",
-                "description": "The asset authenticity token",
-                "example": "VjSSYLd24JWR7jTOKu8V61nODVwo1ZGCkx9UZKp5MC2J8+3e+gjg3p14CRIjKuNQ0Vn96GcS1oe4ne+aMnGuHw=="
+                "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "formTemplateData": {
                 "$ref": "../components/schemas/FormTemplateBodyData.json"
@@ -131,12 +129,9 @@
         }
       }
     },
-    "tags": [
-      "Form Templates"
-    ],
     "responses": {
-      "200": {
-        "description": "OK",
+      "201": {
+        "description": "Created",
         "content": {
           "application/json": {
             "schema": {
@@ -149,7 +144,10 @@
         "$ref": "../components/responses/LegacyBadRequest.json"
       },
       "401": {
-        "$ref": "../components/responses/Unauthorised.json"
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
       },
       "404": {
         "$ref": "../components/responses/NotFound.json"
