@@ -2699,6 +2699,142 @@
           }
         }
       }
+    },
+    "/accounts/{account_id}/administration/subject_requirements": {
+      "get": {
+        "summary": "Get subject requirements for account",
+        "description": "Get subject requirements for account",
+        "operationId": "getSubjectRequirements",
+        "tags": [
+          "Subject Requirements"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubjectRequirements"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/BadRequest"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update subject requirements for account",
+        "description": "Update subject requirements for account",
+        "operationId": "updateSubjectRequirements",
+        "tags": [
+          "Subject Requirements"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "include_site_prefix": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "number_of_characters": {
+                    "type": "integer",
+                    "example": 6
+                  },
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubjectRequirements"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/BadRequest"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3745,6 +3881,27 @@
           "color",
           "position"
         ]
+      },
+      "SubjectRequirements": {
+        "description": "Subject requirements for an account",
+        "type": "object",
+        "properties": {
+          "include_site_prefix": {
+            "type": "boolean",
+            "description": "Include site prefix",
+            "example": true
+          },
+          "number_of_characters": {
+            "type": "number",
+            "description": "Number of characters",
+            "example": 1
+          }
+        },
+        "required": [
+          "include_site_prefix",
+          "number_of_characters"
+        ],
+        "additionalProperties": false
       }
     },
     "responses": {

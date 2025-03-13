@@ -120,6 +120,9 @@
     },
     "/accounts/{account_id}/administration/workflow_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_workflow_definitions.json"
+    },
+    "/accounts/{account_id}/administration/subject_requirements": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_subject_requirements.json"
     }
   },
   "components": {
