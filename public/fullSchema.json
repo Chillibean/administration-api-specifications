@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "4.0.0",
+    "version": "4.1.0",
     "title": "Administration API",
     "description": "This is the api specifications for all things related to account administration.",
     "contact": {
@@ -1720,6 +1720,548 @@
         }
       }
     },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions": {
+      "post": {
+        "summary": "Create a study event definition for study protocol",
+        "description": "Create a study event definition for study protocol",
+        "operationId": "createStudyEventDefinition",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Study event definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Study event definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study event definition",
+                    "example": "Study Event Definition"
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "description": "The identifier of study event definition",
+                    "example": "SPD"
+                  },
+                  "study_arm_id": {
+                    "type": "string",
+                    "description": "The study arm id of study event definition",
+                    "example": "1"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token",
+                  "display_name",
+                  "identifier"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions/{study_event_definition_id}": {
+      "put": {
+        "summary": "Update a study event definition for study protocol",
+        "description": "Update a study event definition for study protocol",
+        "operationId": "updateStudyeventDefinition",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_event_definition_id",
+            "in": "path",
+            "description": "The study event definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Study event definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Study event definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study event definition",
+                    "example": "Study event Definition"
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "description": "The identifier of study event definition",
+                    "example": "SPD"
+                  },
+                  "study_arm_id": {
+                    "type": "string",
+                    "description": "The study arm id of study event definition",
+                    "example": "1"
+                  },
+                  "position": {
+                    "type": "integer",
+                    "description": "The position of study event definition",
+                    "example": 1
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token",
+                  "display_name",
+                  "identifier",
+                  "position"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a study event definition for study protocol",
+        "description": "Delete a study event definition for study protocol",
+        "operationId": "deleteStudyeventDefinition",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_event_definition_id",
+            "in": "path",
+            "description": "The study event definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Study event definition object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Study event definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures": {
+      "post": {
+        "summary": "Create a study event procedure for study protocol",
+        "description": "Create a study event procedure for study protocol",
+        "operationId": "createStudyEventProcedure",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "study event procedure object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "study event procedure object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "study_event_definition_id": {
+                    "type": "string",
+                    "description": "The study event definition id of study event procedure",
+                    "example": "1"
+                  },
+                  "study_procedure_definition_id": {
+                    "type": "string",
+                    "description": "The study procedure definition id of study event procedure",
+                    "example": "1"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token",
+                  "study_event_definition_id",
+                  "study_procedure_definition_id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Study protocol object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/StudyProtocol"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The id of study event procedure",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures/{study_event_procedure_id}": {
+      "delete": {
+        "summary": "Delete a study event procedure for study protocol",
+        "description": "Delete a study event procedure for study protocol",
+        "operationId": "deleteStudyEventProcedure",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_event_procedure_id",
+            "in": "path",
+            "description": "The study event procedure id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "study event procedure object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "study event procedure object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "authenticity_token"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Study protocol object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/StudyProtocol"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The id of study event procedure",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
       "post": {
         "summary": "Create a study procedure definition for study protocol",
@@ -2154,6 +2696,142 @@
           },
           "500": {
             "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/subject_requirements": {
+      "get": {
+        "summary": "Get subject requirements for account",
+        "description": "Get subject requirements for account",
+        "operationId": "getSubjectRequirements",
+        "tags": [
+          "Subject Requirements"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubjectRequirements"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/BadRequest"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update subject requirements for account",
+        "description": "Update subject requirements for account",
+        "operationId": "updateSubjectRequirements",
+        "tags": [
+          "Subject Requirements"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "include_site_prefix": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "number_of_characters": {
+                    "type": "integer",
+                    "example": 6
+                  },
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubjectRequirements"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/BadRequest"
           }
         }
       }
@@ -3203,6 +3881,27 @@
           "color",
           "position"
         ]
+      },
+      "SubjectRequirements": {
+        "description": "Subject requirements for an account",
+        "type": "object",
+        "properties": {
+          "include_site_prefix": {
+            "type": "boolean",
+            "description": "Include site prefix",
+            "example": true
+          },
+          "number_of_characters": {
+            "type": "number",
+            "description": "Number of characters",
+            "example": 1
+          }
+        },
+        "required": [
+          "include_site_prefix",
+          "number_of_characters"
+        ],
+        "additionalProperties": false
       }
     },
     "responses": {

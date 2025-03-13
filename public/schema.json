@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "4.0.0",
+    "version": "4.1.0",
     "title": "Administration API",
     "description": "This is the api specifications for all things related to account administration.",
     "contact": {
@@ -97,6 +97,18 @@
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_update_sites.json"
     },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_definitions.json"
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions/{study_event_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_definitions_{study_event_definition_id}.json"
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_procedures.json"
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures/{study_event_procedure_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_procedures_{study_event_procedure_id}.json"
+    },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions.json"
     },
@@ -108,6 +120,9 @@
     },
     "/accounts/{account_id}/administration/workflow_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_workflow_definitions.json"
+    },
+    "/accounts/{account_id}/administration/subject_requirements": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_subject_requirements.json"
     }
   },
   "components": {
