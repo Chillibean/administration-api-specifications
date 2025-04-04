@@ -1628,98 +1628,6 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
-      "put": {
-        "summary": "Update sites for study protocol",
-        "description": "Update sites for study protocol",
-        "operationId": "updateStudyProtocolSites",
-        "tags": [
-          "Study Protocols"
-        ],
-        "security": [
-          {
-            "userSessionKey": [],
-            "chillipharmSession": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
-            }
-          },
-          {
-            "name": "study_protocol_id",
-            "in": "path",
-            "description": "The study protocol id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "authenticity_token": {
-                    "$ref": "#/components/schemas/AuthenticityToken"
-                  },
-                  "sites": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "example": 1
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Site"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "403": {
-            "$ref": "#/components/responses/Forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          }
-        }
-      }
-    },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions": {
       "post": {
         "summary": "Create a study event definition for study protocol",
@@ -2553,6 +2461,98 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StudyProtocol"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
+      "put": {
+        "summary": "Update sites for study protocol",
+        "description": "Update sites for study protocol",
+        "operationId": "updateStudyProtocolSites",
+        "tags": [
+          "Study Protocols"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "study_protocol_id",
+            "in": "path",
+            "description": "The study protocol id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "sites": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Site"
+                  }
                 }
               }
             }

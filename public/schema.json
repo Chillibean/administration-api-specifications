@@ -94,9 +94,6 @@
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/duplicate": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_duplicate.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_update_sites.json"
-    },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_definitions.json"
     },
@@ -114,6 +111,9 @@
     },
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{study_procedure_definition_id}.json"
+    },
+    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_update_sites.json"
     },
     "/accounts/{account_id}/administration/trial_containers": {
       "$ref": "refs/paths/accounts_{account_id}_administration_trial_containers.json"
