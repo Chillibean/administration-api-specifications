@@ -115,14 +115,14 @@
     "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_update_sites.json"
     },
+    "/accounts/{account_id}/administration/subject_requirements": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_subject_requirements.json"
+    },
     "/accounts/{account_id}/administration/trial_containers": {
       "$ref": "refs/paths/accounts_{account_id}_administration_trial_containers.json"
     },
     "/accounts/{account_id}/administration/workflow_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_workflow_definitions.json"
-    },
-    "/accounts/{account_id}/administration/subject_requirements": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_subject_requirements.json"
     }
   },
   "components": {

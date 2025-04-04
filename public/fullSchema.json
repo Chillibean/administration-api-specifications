@@ -2578,128 +2578,6 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/trial_containers": {
-      "get": {
-        "summary": "Get all trial containers for account",
-        "description": "Get all trial containers for account",
-        "operationId": "getTrialContainers",
-        "tags": [
-          "Trial Containers"
-        ],
-        "security": [
-          {
-            "userSessionKey": [],
-            "chillipharmSession": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TrialContainerBasic"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "403": {
-            "$ref": "#/components/responses/Forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          }
-        }
-      }
-    },
-    "/accounts/{account_id}/administration/workflow_definitions": {
-      "get": {
-        "summary": "Get all workflow definitions for account",
-        "description": "Get all workflow definitions for account",
-        "operationId": "getWorkflowDefinitions",
-        "tags": [
-          "Workflow Definitions"
-        ],
-        "security": [
-          {
-            "userSessionKey": [],
-            "chillipharmSession": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "The account id",
-            "required": true,
-            "schema": {
-              "example": "1",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorkflowDefinition"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "403": {
-            "$ref": "#/components/responses/Forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
-          "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          }
-        }
-      }
-    },
     "/accounts/{account_id}/administration/subject_requirements": {
       "get": {
         "summary": "Get subject requirements for account",
@@ -2832,6 +2710,128 @@
           },
           "500": {
             "$ref": "#/components/responses/BadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/trial_containers": {
+      "get": {
+        "summary": "Get all trial containers for account",
+        "description": "Get all trial containers for account",
+        "operationId": "getTrialContainers",
+        "tags": [
+          "Trial Containers"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TrialContainerBasic"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/workflow_definitions": {
+      "get": {
+        "summary": "Get all workflow definitions for account",
+        "description": "Get all workflow definitions for account",
+        "operationId": "getWorkflowDefinitions",
+        "tags": [
+          "Workflow Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkflowDefinition"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
           }
         }
       }
