@@ -1,0 +1,18 @@
+{
+  "description": "Subject requirements for an account",
+  "type": "object",
+  "properties": {
+    "include_site_prefix": {
+      "type": "boolean",
+      "description": "Include site prefix",
+      "example": true
+    },
+    "number_of_characters": {
+      "type": "number",
+      "description": "Number of characters",
+      "example": 1
+    }
+  },
+  "required": ["include_site_prefix", "number_of_characters"],
+  "additionalProperties": false
+}
