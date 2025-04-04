@@ -1,0 +1,132 @@
+{
+  "get": {
+    "summary": "Get subject requirements for account",
+    "description": "Get subject requirements for account",
+    "operationId": "getSubjectRequirements",
+    "tags": ["Subject Requirements"],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/SubjectRequirements.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/BadRequest.json"
+      }
+    }
+  },
+  "post": {
+    "summary": "Update subject requirements for account",
+    "description": "Update subject requirements for account",
+    "operationId": "updateSubjectRequirements",
+    "tags": ["Subject Requirements"],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "include_site_prefix": {
+                "type": "boolean",
+                "example": true
+              },
+              "number_of_characters": {
+                "type": "integer",
+                "example": 6
+              },
+              "authenticity_token": {
+                "$ref": "../components/schemas/AuthenticityToken.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/SubjectRequirements.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/BadRequest.json"
+      }
+    }
+  }
+}
