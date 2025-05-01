@@ -3797,8 +3797,7 @@
           "id",
           "name",
           "type",
-          "country",
-          "number"
+          "country"
         ],
         "additionalProperties": false
       },

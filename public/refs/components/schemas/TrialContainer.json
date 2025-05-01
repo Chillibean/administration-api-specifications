@@ -36,6 +36,6 @@
       "$ref": "./StudyProtocolShort.json"
     }
   },
-  "required": ["id", "name", "type", "country", "number"],
+  "required": ["id", "name", "type", "country"],
   "additionalProperties": false
 }
