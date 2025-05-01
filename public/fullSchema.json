@@ -3774,6 +3774,11 @@
             "description": "The identifier of trial container",
             "example": "pre"
           },
+          "number": {
+            "type": "string",
+            "description": "The number of trial container",
+            "example": "PRE1"
+          },
           "type": {
             "type": "string",
             "description": "The type of trial container",
@@ -3792,7 +3797,8 @@
           "id",
           "name",
           "type",
-          "country"
+          "country",
+          "number"
         ],
         "additionalProperties": false
       },
