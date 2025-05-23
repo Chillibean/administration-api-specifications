@@ -17,6 +17,11 @@
       "description": "The identifier of trial container",
       "example": "pre"
     },
+    "number": {
+      "type": "string",
+      "description": "The number of trial container",
+      "example": "PRE1"
+    },
     "type": {
       "type": "string",
       "description": "The type of trial container",
@@ -31,11 +36,6 @@
       "$ref": "./StudyProtocolShort.json"
     }
   },
-  "required": [
-    "id",
-    "name",
-    "type",
-    "country"
-  ],
+  "required": ["id", "name", "type", "country"],
   "additionalProperties": false
 }
