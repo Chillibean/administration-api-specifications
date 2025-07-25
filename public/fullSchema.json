@@ -1181,6 +1181,74 @@
         }
       }
     },
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
+      "get": {
+        "summary": "Download JSON for form template",
+        "description": "Download JSON representation of the form template",
+        "operationId": "downloadFormTemplateJson",
+        "tags": [
+          "Form Templates"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "form_template_id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormTemplateDownload"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
     "/accounts/{account_id}/administration/study_protocols": {
       "get": {
         "summary": "Get all study protocols for account",
@@ -3886,6 +3954,84 @@
           "color",
           "position"
         ]
+      },
+      "FormTemplateDownload": {
+        "type": "object",
+        "description": "Form template download JSON representation",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the form template",
+            "example": "Patient Review Form Template COPY"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the form template",
+            "example": ""
+          },
+          "fields": {
+            "type": "array",
+            "description": "The fields of the form template",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "The title of the field",
+                  "example": "Video Number"
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether the field is enabled",
+                  "example": true
+                },
+                "options": {
+                  "type": "array",
+                  "description": "The options for the field",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": []
+                },
+                "position": {
+                  "type": "number",
+                  "description": "The position of the field",
+                  "example": 1
+                },
+                "field_type": {
+                  "type": "string",
+                  "description": "The type of the field",
+                  "example": "single_line"
+                },
+                "other_field": {
+                  "type": "string",
+                  "description": "The other field value",
+                  "example": "Other"
+                },
+                "validations": {
+                  "type": "object",
+                  "description": "The validation rules for the field",
+                  "additionalProperties": true
+                },
+                "other_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the other option is enabled",
+                  "example": false
+                },
+                "input_guidance": {
+                  "type": "string",
+                  "description": "The input guidance for the field",
+                  "example": ""
+                }
+              }
+            }
+          },
+          "workflow_definition_id": {
+            "type": "number",
+            "description": "The workflow definition ID associated with the form template",
+            "example": 1
+          }
+        }
       },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",
