@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "4.2.0",
+    "version": "5.1.0",
     "title": "Administration API",
     "description": "This is the api specifications for all things related to account administration.",
     "contact": {
@@ -791,7 +791,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -803,10 +803,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
