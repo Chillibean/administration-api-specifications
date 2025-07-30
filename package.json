@@ -1,7 +1,7 @@
 {
   "name": "administration-api-specifications",
   "private": true,
-  "version": "4.2.0",
+  "version": "5.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,6 +27,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
+    "@redocly/cli": "^1.26.1",
     "vite": "^4.4.5"
   }
 }
