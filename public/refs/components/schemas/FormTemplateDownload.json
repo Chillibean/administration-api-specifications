@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "description": "Form template download JSON representation",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The title of the form template",
+      "example": "Patient Review Form Template COPY"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the form template",
+      "example": ""
+    },
+    "fields": {
+      "type": "array",
+      "description": "The fields of the form template",
+      "items": {
+        "$ref": "./FormTemplateVersionField.json"
+      }
+    }
+  }
+}
