@@ -16,63 +16,9 @@
       "type": "array",
       "description": "The fields of the form template",
       "items": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "description": "The title of the field",
-            "example": "Video Number"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether the field is enabled",
-            "example": true
-          },
-          "options": {
-            "type": "array",
-            "description": "The options for the field",
-            "items": {
-              "type": "string"
-            },
-            "example": []
-          },
-          "position": {
-            "type": "number",
-            "description": "The position of the field",
-            "example": 1
-          },
-          "field_type": {
-            "type": "string",
-            "description": "The type of the field",
-            "example": "single_line"
-          },
-          "other_field": {
-            "type": "string",
-            "description": "The other field value",
-            "example": "Other"
-          },
-          "validations": {
-            "type": "object",
-            "description": "The validation rules for the field",
-            "additionalProperties": true
-          },
-          "other_enabled": {
-            "type": "boolean",
-            "description": "Whether the other option is enabled",
-            "example": false
-          },
-          "input_guidance": {
-            "type": "string",
-            "description": "The input guidance for the field",
-            "example": ""
-          }
-        }
+        "$ref": "./FormTemplateVersionField.json"
       }
-    },
-    "workflow_definition_id": {
-      "type": "number",
-      "description": "The workflow definition ID associated with the form template",
-      "example": 1
     }
   }
 }
+ 
