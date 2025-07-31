@@ -3959,7 +3959,7 @@
         "type": "object",
         "description": "Form template download JSON representation",
         "properties": {
-          "title": {
+          "name": {
             "type": "string",
             "description": "The title of the form template",
             "example": "Patient Review Form Template COPY"
