@@ -21,5 +21,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["title", "description", "fields"]
+  "required": ["name", "description", "fields"]
 }

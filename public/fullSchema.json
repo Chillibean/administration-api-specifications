@@ -3979,7 +3979,7 @@
         },
         "additionalProperties": false,
         "required": [
-          "title",
+          "name",
           "description",
           "fields"
         ]
