@@ -3976,7 +3976,13 @@
               "$ref": "#/components/schemas/FormTemplateVersionField"
             }
           }
-        }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "description",
+          "fields"
+        ]
       },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",

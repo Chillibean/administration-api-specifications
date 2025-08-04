@@ -16,10 +16,10 @@
       "type": "array",
       "description": "The fields of the form template",
       "items": {
-        "$ref": "./FormTemplateVersionField.json",
-        "additionalProperties": false,
-        "required": ["title", "description", "fields"]
+        "$ref": "./FormTemplateVersionField.json"
       }
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": ["title", "description", "fields"]
 }
