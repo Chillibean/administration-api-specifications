@@ -36,11 +36,9 @@
       "200": {
         "description": "OK",
         "content": {
-          "application/octet-stream": {
+          "application/json": {
             "schema": {
-              "type": "object",
-              "format": "binary",
-              "example": "data"
+              "$ref": "../components/schemas/FormTemplateDownload.json"
             }
           }
         }

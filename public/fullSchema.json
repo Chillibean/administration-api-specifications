@@ -1221,11 +1221,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "object",
-                  "format": "binary",
-                  "example": "data"
+                  "$ref": "#/components/schemas/FormTemplateDownload"
                 }
               }
             }
@@ -3955,6 +3953,35 @@
           "name",
           "color",
           "position"
+        ]
+      },
+      "FormTemplateDownload": {
+        "type": "object",
+        "description": "Form template download JSON representation",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The title of the form template",
+            "example": "Patient Review Form Template COPY"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the form template",
+            "example": ""
+          },
+          "fields": {
+            "type": "array",
+            "description": "The fields of the form template",
+            "items": {
+              "$ref": "#/components/schemas/FormTemplateVersionField"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description",
+          "fields"
         ]
       },
       "SubjectRequirements": {
