@@ -38,7 +38,9 @@
         "content": {
           "application/octet-stream": {
             "schema": {
-              "$ref": "../components/schemas/FormTemplateDownload.json"
+              "type": "string",
+              "format": "binary",
+              "example": "data"
             }
           }
         }

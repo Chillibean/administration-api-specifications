@@ -1223,7 +1223,9 @@
             "content": {
               "application/octet-stream": {
                 "schema": {
-                  "$ref": "#/components/schemas/FormTemplateDownload"
+                  "type": "string",
+                  "format": "binary",
+                  "example": "data"
                 }
               }
             }
@@ -3954,10 +3956,6 @@
           "color",
           "position"
         ]
-      },
-      "FormTemplateDownload": {
-        "type": "string",
-        "description": "Raw JSON string representation of a form template"
       },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",
