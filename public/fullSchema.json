@@ -1181,6 +1181,76 @@
         }
       }
     },
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
+      "get": {
+        "summary": "Download JSON for form template",
+        "description": "Download JSON representation of the form template",
+        "operationId": "downloadFormTemplateJson",
+        "tags": [
+          "Form Templates"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          },
+          {
+            "name": "form_template_id",
+            "in": "path",
+            "description": "The form template id",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "object",
+                  "format": "binary",
+                  "example": "data"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
     "/accounts/{account_id}/administration/study_protocols": {
       "get": {
         "summary": "Get all study protocols for account",
