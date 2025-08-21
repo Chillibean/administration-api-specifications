@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "5.0.0",
+    "version": "5.1.0",
     "title": "Administration API",
     "description": "This is the api specifications for all things related to account administration.",
     "contact": {
@@ -84,6 +84,9 @@
     },
     "/accounts/{account_id}/administration/form_templates/{form_template_id}/workflow_definitions": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_workflow_definitions.json"
+    },
+    "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_download_json.json"
     },
     "/accounts/{account_id}/administration/study_protocols": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols.json"
