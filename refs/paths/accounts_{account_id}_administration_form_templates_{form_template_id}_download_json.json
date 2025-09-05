@@ -1,0 +1,68 @@
+{
+  "get": {
+    "summary": "Download JSON for form template",
+    "description": "Download JSON representation of the form template",
+    "operationId": "downloadFormTemplateJson",
+    "tags": ["Form Templates"],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      },
+      {
+        "name": "form_template_id",
+        "in": "path",
+        "description": "The form template id",
+        "required": true,
+        "schema": {
+          "example": "1",
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "example": "data"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}
