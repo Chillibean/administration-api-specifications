@@ -1,9 +1,11 @@
 {
-  "delete": {
-    "summary": "Delete a study event procedure for study protocol",
-    "description": "Delete a study event procedure for study protocol",
-    "operationId": "deleteStudyEventProcedure",
-    "tags": ["Study Protocols"],
+  "post": {
+    "summary": "Duplicate a trial configuration for account",
+    "description": "Duplicate a trial configuration for account",
+    "operationId": "duplicateTrialConfiguration",
+    "tags": [
+      "Trial Configurations"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -17,45 +19,31 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1"
+          "example": "1",
+          "type": "string"
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1"
-        }
-      },
-      {
-        "name": "study_event_procedure_id",
-        "in": "path",
-        "description": "The study event procedure id",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "example": "1"
+          "example": "1",
+          "type": "string"
         }
       }
     ],
     "requestBody": {
-      "description": "study event procedure object",
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "study event procedure object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               }
-            },
-            "additionalProperties": false,
-            "required": ["authenticity_token"]
+            }
           }
         }
       }
@@ -66,18 +54,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "description": "Study protocol object",
-              "properties": {
-                "data": {
-                  "$ref": "../components/schemas/StudyProtocol.json"
-                },
-                "id": {
-                  "type": "integer",
-                  "description": "The id of study event procedure",
-                  "example": 1
-                }
-              }
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
