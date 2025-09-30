@@ -1,10 +1,10 @@
 {
   "put": {
-    "summary": "Update sites for study protocol",
-    "description": "Update sites for study protocol",
-    "operationId": "updateStudyProtocolSites",
+    "summary": "Update sites for trial configuration",
+    "description": "Update sites for trial configuration",
+    "operationId": "updateTrialConfigurationSites",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -24,9 +24,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "example": "1",

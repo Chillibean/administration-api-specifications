@@ -1,10 +1,10 @@
 {
   "get": {
-    "summary": "Get a study protocol for account",
-    "description": "Get a study protocol for account",
-    "operationId": "getStudyProtocol",
+    "summary": "Get a trial configuration for account",
+    "description": "Get a trial configuration for account",
+    "operationId": "getTrialConfiguration",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -24,9 +24,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "example": "1",
@@ -40,7 +40,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
@@ -66,11 +66,11 @@
     }
   },
   "put": {
-    "summary": "Update a study protocol for account",
-    "description": "Update a study protocol for account",
-    "operationId": "updateStudyProtocol",
+    "summary": "Update a trial configuration for account",
+    "description": "Update a trial configuration for account",
+    "operationId": "updateTrialConfiguration",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -90,9 +90,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "example": "1",
@@ -111,13 +111,13 @@
               },
               "issue_date": {
                 "type": "string",
-                "description": "The issue date of study protocol",
+                "description": "The issue date of trial configuration",
                 "example": "2024-06-12"
               },
               "name": {
                 "type": "string",
-                "description": "The name of study protocol",
-                "example": "Ghost Protocol"
+                "description": "The name of trial configuration",
+                "example": "Ghost Trial Configuration"
               }
             }
           }
@@ -130,7 +130,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
@@ -156,11 +156,11 @@
     }
   },
   "delete": {
-    "summary": "Delete a study protocol for account",
-    "description": "Delete a study protocol for account",
-    "operationId": "deleteStudyProtocol",
+    "summary": "Delete a trial configuration for account",
+    "description": "Delete a trial configuration for account",
+    "operationId": "deleteTrialConfiguration",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -180,9 +180,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "example": "1",
@@ -196,7 +196,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }

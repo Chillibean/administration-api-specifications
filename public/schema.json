@@ -23,8 +23,8 @@
       "description": "Endpoints for form templates"
     },
     {
-      "name": "Study Protocols",
-      "description": "Endpoints for study protocols"
+      "name": "Trial Configurations",
+      "description": "Endpoints for trial configurations"
     },
     {
       "name": "Trial Containers",
@@ -88,35 +88,35 @@
     "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_download_json.json"
     },
-    "/accounts/{account_id}/administration/study_protocols": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols.json"
+    "/accounts/{account_id}/administration/trial_configurations": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/duplicate": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_duplicate.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/duplicate": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_duplicate.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_definitions.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_study_event_definitions.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions/{study_event_definition_id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_definitions_{study_event_definition_id}.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_definitions/{study_event_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_study_event_definitions_{study_event_definition_id}.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_procedures.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_procedures": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_study_event_procedures.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures/{study_event_procedure_id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_event_procedures_{study_event_procedure_id}.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_procedures/{study_event_procedure_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_study_event_procedures_{study_event_procedure_id}.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_procedure_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_study_procedure_definitions.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_study_procedure_definitions_{study_procedure_definition_id}.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_procedure_definitions/{study_procedure_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_study_procedure_definitions_{study_procedure_definition_id}.json"
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
-      "$ref": "refs/paths/accounts_{account_id}_administration_study_protocols_{study_protocol_id}_update_sites.json"
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/update_sites": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations_{trial_configuration_id}_update_sites.json"
     },
     "/accounts/{account_id}/administration/subject_requirements": {
       "$ref": "refs/paths/accounts_{account_id}_administration_subject_requirements.json"
@@ -201,11 +201,11 @@
       "StudyProcedureTaskDefinition": {
         "$ref": "refs/components/schemas/StudyProcedureTaskDefinition.json"
       },
-      "StudyProtocol": {
-        "$ref": "refs/components/schemas/StudyProtocol.json"
+      "TrialConfiguration": {
+        "$ref": "refs/components/schemas/TrialConfiguration.json"
       },
-      "StudyProtocolShort": {
-        "$ref": "refs/components/schemas/StudyProtocolShort.json"
+      "TrialConfigurationShort": {
+        "$ref": "refs/components/schemas/TrialConfigurationShort.json"
       },
       "Subject": {
         "$ref": "refs/components/schemas/Subject.json"

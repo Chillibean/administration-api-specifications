@@ -1,10 +1,10 @@
 {
   "post": {
-    "summary": "Duplicate a study protocol for account",
-    "description": "Duplicate a study protocol for account",
-    "operationId": "duplicateStudyProtocol",
+    "summary": "Duplicate a trial configuration for account",
+    "description": "Duplicate a trial configuration for account",
+    "operationId": "duplicateTrialConfiguration",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -24,9 +24,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "example": "1",
@@ -54,7 +54,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
