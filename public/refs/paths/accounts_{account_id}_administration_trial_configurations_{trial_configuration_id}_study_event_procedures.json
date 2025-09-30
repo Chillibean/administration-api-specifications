@@ -1,9 +1,9 @@
 {
   "post": {
-    "summary": "Create a study event procedure for study protocol",
-    "description": "Create a study event procedure for study protocol",
+    "summary": "Create a study event procedure for trial configuration",
+    "description": "Create a study event procedure for trial configuration",
     "operationId": "createStudyEventProcedure",
-    "tags": ["Study Protocols"],
+    "tags": ["Trial Configurations"],
     "security": [
       {
         "userSessionKey": [],
@@ -22,9 +22,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "type": "string",
@@ -71,10 +71,10 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "description": "Study protocol object",
+              "description": "Trial configuration object",
               "properties": {
                 "data": {
-                  "$ref": "../components/schemas/StudyProtocol.json"
+                  "$ref": "../components/schemas/TrialConfiguration.json"
                 },
                 "id": {
                   "type": "integer",
