@@ -23,8 +23,8 @@
       "description": "Endpoints for form templates"
     },
     {
-      "name": "Study Protocols",
-      "description": "Endpoints for study protocols"
+      "name": "Trial Configurations",
+      "description": "Endpoints for trial configurations"
     },
     {
       "name": "Trial Containers",
@@ -201,11 +201,11 @@
       "StudyProcedureTaskDefinition": {
         "$ref": "refs/components/schemas/StudyProcedureTaskDefinition.json"
       },
-      "StudyProtocol": {
-        "$ref": "refs/components/schemas/StudyProtocol.json"
+      "TrialConfiguration": {
+        "$ref": "refs/components/schemas/TrialConfiguration.json"
       },
-      "StudyProtocolShort": {
-        "$ref": "refs/components/schemas/StudyProtocolShort.json"
+      "TrialConfigurationShort": {
+        "$ref": "refs/components/schemas/TrialConfigurationShort.json"
       },
       "Subject": {
         "$ref": "refs/components/schemas/Subject.json"

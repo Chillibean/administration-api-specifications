@@ -27,24 +27,24 @@
       "description": "The name of site",
       "example": "Beacon Hill Medical Center"
     },
-    "study_protocol": {
+    "trial_configuration": {
       "type": "object",
-      "description": "The study protocol of site",
+      "description": "The trial configuration of site",
       "properties": {
         "id": {
           "type": "number",
-          "description": "The id of study protocol",
+          "description": "The id of trial configuration",
           "example": 2
         },
         "locked": {
           "type": "boolean",
-          "description": "The locked status of study protocol",
+          "description": "The locked status of trial configuration",
           "example": true
         },
         "name": {
           "type": "string",
-          "description": "The name of study protocol",
-          "example": "Alpha Protocol"
+          "description": "The name of trial configuration",
+          "example": "Alpha Trial Configuration"
         }
       },
       "nullable": true

@@ -1,10 +1,10 @@
 {
   "get": {
-    "summary": "Get all study protocols for account",
-    "description": "Get all study protocols for account",
-    "operationId": "getStudyProtocols",
+    "summary": "Get all trial configurations for account",
+    "description": "Get all trial configurations for account",
+    "operationId": "getTrialConfigurations",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -32,7 +32,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "../components/schemas/StudyProtocol.json"
+                "$ref": "../components/schemas/TrialConfiguration.json"
               }
             }
           }
@@ -59,11 +59,11 @@
     }
   },
   "post": {
-    "summary": "Create a study protocol for account",
-    "description": "Create a study protocol for account",
-    "operationId": "createStudyProtocol",
+    "summary": "Create a trial configuration for account",
+    "description": "Create a trial configuration for account",
+    "operationId": "createTrialConfiguration",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -94,13 +94,13 @@
               },
               "issue_date": {
                 "type": "string",
-                "description": "The issue date of study protocol",
+                "description": "The issue date of trial configuration",
                 "example": "2024-06-12"
               },
               "name": {
                 "type": "string",
-                "description": "The name of study protocol",
-                "example": "Ghost Protocol"
+                "description": "The name of trial configuration",
+                "example": "Ghost Trial Configuration"
               }
             }
           }
@@ -113,7 +113,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
