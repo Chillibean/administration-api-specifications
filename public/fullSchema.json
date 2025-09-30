@@ -1251,7 +1251,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols": {
+    "/accounts/{account_id}/administration/trial_configurations": {
       "get": {
         "summary": "Get all study protocols for account",
         "description": "Get all study protocols for account",
@@ -1392,7 +1392,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}": {
       "get": {
         "summary": "Get a study protocol for account",
         "description": "Get a study protocol for account",
@@ -1616,7 +1616,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/duplicate": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/duplicate": {
       "post": {
         "summary": "Duplicate a study protocol for account",
         "description": "Duplicate a study protocol for account",
@@ -1698,7 +1698,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_definitions": {
       "post": {
         "summary": "Create a study event definition for study protocol",
         "description": "Create a study event definition for study protocol",
@@ -1803,7 +1803,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_definitions/{study_event_definition_id}": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_definitions/{study_event_definition_id}": {
       "put": {
         "summary": "Update a study event definition for study protocol",
         "description": "Update a study event definition for study protocol",
@@ -2020,7 +2020,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_procedures": {
       "post": {
         "summary": "Create a study event procedure for study protocol",
         "description": "Create a study event procedure for study protocol",
@@ -2131,7 +2131,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_event_procedures/{study_event_procedure_id}": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_event_procedures/{study_event_procedure_id}": {
       "delete": {
         "summary": "Delete a study event procedure for study protocol",
         "description": "Delete a study event procedure for study protocol",
@@ -2240,7 +2240,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_procedure_definitions": {
       "post": {
         "summary": "Create a study procedure definition for study protocol",
         "description": "Create a study procedure definition for study protocol",
@@ -2345,7 +2345,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/study_procedure_definitions/{study_procedure_definition_id}": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/study_procedure_definitions/{study_procedure_definition_id}": {
       "put": {
         "summary": "Update a study procedure definition for study protocol",
         "description": "Update a study procedure definition for study protocol",
@@ -2556,7 +2556,7 @@
         }
       }
     },
-    "/accounts/{account_id}/administration/study_protocols/{study_protocol_id}/update_sites": {
+    "/accounts/{account_id}/administration/trial_configurations/{trial_configuration_id}/update_sites": {
       "put": {
         "summary": "Update sites for study protocol",
         "description": "Update sites for study protocol",
