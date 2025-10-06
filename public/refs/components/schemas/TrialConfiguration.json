@@ -65,13 +65,6 @@
         }
       }
     },
-    "study_arms": {
-      "type": "array",
-      "description": "The study arms of trial configuration",
-      "items": {
-        "$ref": "./StudyArm.json"
-      }
-    },
     "study_event_display_name": {
       "type": "object",
       "description": "The study event display name of trial configuration",
