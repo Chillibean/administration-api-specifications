@@ -1,11 +1,9 @@
 {
   "post": {
-    "summary": "Create a study procedure definition for study protocol",
-    "description": "Create a study procedure definition for study protocol",
-    "operationId": "createStudyProcedureDefinition",
-    "tags": [
-      "Study Protocols"
-    ],
+    "summary": "Create a study event procedure for trial configuration",
+    "description": "Create a study event procedure for trial configuration",
+    "operationId": "createStudyEventProcedure",
+    "tags": ["Trial Configurations"],
     "security": [
       {
         "userSessionKey": [],
@@ -24,9 +22,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "type": "string",
@@ -35,37 +33,32 @@
       }
     ],
     "requestBody": {
-      "description": "Study procedure definition object",
+      "description": "study event procedure object",
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "Study procedure definition object",
+            "description": "study event procedure object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               },
-              "display_name": {
+              "study_event_definition_id": {
                 "type": "string",
-                "description": "The display name of study procedure definition",
-                "example": "Study Procedure Definition"
+                "description": "The study event definition id of study event procedure",
+                "example": "1"
               },
-              "identifier": {
+              "study_procedure_definition_id": {
                 "type": "string",
-                "description": "The identifier of study procedure definition",
-                "example": "SPD"
-              },
-              "required_form_templates": {
-                "type": "integer",
-                "description": "The required form templates of study procedure definition",
-                "example": 1
+                "description": "The study procedure definition id of study event procedure",
+                "example": "1"
               }
             },
             "additionalProperties": false,
             "required": [
               "authenticity_token",
-              "display_name",
-              "identifier"
+              "study_event_definition_id",
+              "study_procedure_definition_id"
             ]
           }
         }
@@ -77,7 +70,18 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "type": "object",
+              "description": "Trial configuration object",
+              "properties": {
+                "data": {
+                  "$ref": "../components/schemas/TrialConfiguration.json"
+                },
+                "id": {
+                  "type": "integer",
+                  "description": "The id of study event procedure",
+                  "example": 1
+                }
+              }
             }
           }
         }

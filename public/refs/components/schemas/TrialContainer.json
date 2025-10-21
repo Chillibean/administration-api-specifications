@@ -32,8 +32,8 @@
       "description": "The country of trial container",
       "example": "UK"
     },
-    "study_protocol": {
-      "$ref": "./StudyProtocolShort.json"
+    "trial_configuration": {
+      "$ref": "./TrialConfigurationShort.json"
     }
   },
   "required": ["id", "name", "type", "country"],
