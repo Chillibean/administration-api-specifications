@@ -3792,7 +3792,7 @@
             }
           },
           "study_arm": {
-            "oneOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/StudyArm"
               },

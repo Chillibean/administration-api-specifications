@@ -34,7 +34,7 @@
       }
     },
     "study_arm": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "./StudyArm.json"
         },
