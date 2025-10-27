@@ -1,0 +1,42 @@
+{
+  "description": "A study arm",
+  "allOf": [
+    {
+      "$ref": "./StudyArm.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "trial_configurations": {
+          "type": "array",
+          "description": "The trial configurations associated with study arm",
+          "items": {
+            "type": "object",
+            "description": "The trial configuration",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "The id of trial configuration",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of trial configuration",
+                "example": "My Trial Configuration"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "trial_configurations"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
