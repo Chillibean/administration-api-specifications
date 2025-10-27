@@ -34,8 +34,15 @@
       }
     },
     "study_arm": {
-      "$ref": "./StudyArm.json",
-      "nullable": true
+      "oneOf": [
+        {
+          "$ref": "./StudyArm.json"
+        },
+        {
+          "type": "object",
+          "nullable": true
+        }
+      ]
     }
   }
 }
