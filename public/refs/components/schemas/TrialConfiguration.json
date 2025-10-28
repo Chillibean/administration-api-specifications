@@ -111,13 +111,6 @@
         "$ref": "./StudyProcedureRoleDefinition.json"
       }
     },
-    "study_procedure_task_definitions": {
-      "type": "array",
-      "description": "The study procedure task definitions of trial configuration",
-      "items": {
-        "$ref": "./StudyProcedureTaskDefinition.json"
-      }
-    },
     "study_events_persisted": {
       "type": "boolean",
       "description": "The study events persisted status of trial configuration",

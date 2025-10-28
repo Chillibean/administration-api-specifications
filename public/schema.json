@@ -198,9 +198,6 @@
       "StudyProcedureRoleDefinition": {
         "$ref": "refs/components/schemas/StudyProcedureRoleDefinition.json"
       },
-      "StudyProcedureTaskDefinition": {
-        "$ref": "refs/components/schemas/StudyProcedureTaskDefinition.json"
-      },
       "TrialConfiguration": {
         "$ref": "refs/components/schemas/TrialConfiguration.json"
       },
