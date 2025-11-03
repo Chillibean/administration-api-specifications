@@ -1372,7 +1372,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StudyArm"
+                  "$ref": "#/components/schemas/StudyArmWithTrialConfigurations"
                 }
               }
             }
