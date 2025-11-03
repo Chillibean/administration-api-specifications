@@ -45,6 +45,10 @@
       "description": "Endpoints for form templates"
     },
     {
+      "name": "Study Arms",
+      "description": "Endpoints for study arms"
+    },
+    {
       "name": "Trial Configurations",
       "description": "Endpoints for trial configurations"
     },
@@ -1232,6 +1236,325 @@
           },
           "400": {
             "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_arms": {
+      "get": {
+        "summary": "Get all study arms for account",
+        "description": "Get all study arms for account",
+        "operationId": "getStudyArms",
+        "tags": [
+          "Study Arms"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "Study arms",
+                  "items": {
+                    "$ref": "#/components/schemas/StudyArmWithTrialConfigurations"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a study arm",
+        "description": "Create a study arm",
+        "operationId": "createStudyArm",
+        "tags": [
+          "Study Arms"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Create study arm object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study arm",
+                    "example": "Post-Treatment Monitoring Arm"
+                  }
+                },
+                "required": [
+                  "authenticity_token",
+                  "display_name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyArm"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_arms/{study_arm_id}": {
+      "put": {
+        "summary": "Update a study arm",
+        "description": "Update a study arm",
+        "operationId": "updateStudyArm",
+        "tags": [
+          "Study Arms"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_arm_id",
+            "in": "path",
+            "description": "The study arm id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Update study arm object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study arm",
+                    "example": "Post-Treatment Monitoring Arm"
+                  },
+                  "reason_for_change": {
+                    "type": "string",
+                    "description": "The reason for change of study arm",
+                    "example": "Mistake"
+                  }
+                },
+                "required": [
+                  "authenticity_token",
+                  "display_name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyArmWithTrialConfigurations"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a study arm",
+        "description": "Delete a study arm",
+        "operationId": "deleteStudyArm",
+        "tags": [
+          "Study Arms"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_arm_id",
+            "in": "path",
+            "description": "The study arm id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Delete study arm object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                },
+                "required": [
+                  "authenticity_token"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -3374,39 +3697,74 @@
         "description": "A study arm",
         "type": "object",
         "properties": {
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study arm",
+            "example": "Post-Treatment Monitoring Arm"
+          },
           "id": {
             "type": "number",
             "description": "The id of study arm",
             "example": 1
-          },
-          "display_name": {
-            "type": "string",
-            "description": "The display name of study arm",
-            "example": "Ghost"
-          },
-          "created_at": {
-            "type": "string",
-            "description": "The created at of study arm",
-            "example": "2024-06-12T14:37:37.582Z"
-          },
-          "trial_configuration_id": {
-            "type": "number",
-            "description": "The trial configuration id of study arm",
-            "example": 1
-          },
-          "subjects": {
-            "type": "array",
-            "description": "The subjects of study arm",
-            "items": {
-              "$ref": "#/components/schemas/Subject"
-            }
           }
-        }
+        },
+        "required": [
+          "display_name",
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "StudyArmWithTrialConfigurations": {
+        "description": "A study arm",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StudyArm"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "trial_configurations": {
+                "type": "array",
+                "description": "The trial configurations associated with study arm",
+                "items": {
+                  "type": "object",
+                  "description": "The trial configuration",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "The id of trial configuration",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of trial configuration",
+                      "example": "My Trial Configuration"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "trial_configurations"
+            ],
+            "additionalProperties": false
+          }
+        ]
       },
       "StudyEventDefinition": {
         "description": "A study event definition",
         "type": "object",
         "properties": {
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study event definition",
+            "example": "Day 1"
+          },
           "id": {
             "type": "number",
             "description": "The id of study event definition",
@@ -3416,11 +3774,6 @@
             "type": "string",
             "description": "The identifier of study event definition",
             "example": "DAY1"
-          },
-          "display_name": {
-            "type": "string",
-            "description": "The display name of study event definition",
-            "example": "Day 1"
           },
           "position": {
             "type": "object",
@@ -3437,6 +3790,17 @@
                 "example": "1"
               }
             }
+          },
+          "study_arm": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyArm"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
           }
         }
       },
@@ -3579,75 +3943,30 @@
         "description": "A trial configuration",
         "type": "object",
         "properties": {
+          "created_at": {
+            "type": "string",
+            "description": "The created at of trial configuration",
+            "example": "2024-06-12T14:19:40.127Z"
+          },
           "id": {
             "type": "number",
             "description": "The id of trial configuration",
             "example": 1
-          },
-          "version_number": {
-            "type": "number",
-            "description": "The version number of trial configuration",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of trial configuration",
-            "example": "Ghost Trial Configuration copy (1)"
           },
           "issue_date": {
             "type": "string",
             "description": "The issue date of trial configuration",
             "example": "2024-06-12"
           },
-          "created_at": {
-            "type": "string",
-            "description": "The created at of trial configuration",
-            "example": "2024-06-12T14:19:40.127Z"
-          },
           "locked": {
             "type": "boolean",
             "description": "The locked status of trial configuration",
             "example": false
           },
-          "table": {
-            "type": "object",
-            "properties": {
-              "study_event_definitions": {
-                "type": "array",
-                "description": "The study event definitions of trial configuration",
-                "items": {
-                  "$ref": "#/components/schemas/StudyEventDefinition"
-                }
-              },
-              "study_procedure_definitions": {
-                "type": "array",
-                "description": "The study procedure definitions of trial configuration",
-                "items": {
-                  "$ref": "#/components/schemas/StudyProcedureDefinition"
-                }
-              },
-              "study_event_procedures": {
-                "type": "array",
-                "description": "The study event procedures of trial configuration",
-                "items": {
-                  "$ref": "#/components/schemas/StudyEventProcedure"
-                }
-              },
-              "positions": {
-                "type": "array",
-                "description": "The positions of trial configuration",
-                "items": {
-                  "$ref": "#/components/schemas/Position"
-                }
-              }
-            }
-          },
-          "study_arms": {
-            "type": "array",
-            "description": "The study arms of trial configuration",
-            "items": {
-              "$ref": "#/components/schemas/StudyArm"
-            }
+          "name": {
+            "type": "string",
+            "description": "The name of trial configuration",
+            "example": "Ghost Trial Configuration copy (1)"
           },
           "study_event_display_name": {
             "type": "object",
@@ -3664,6 +3983,11 @@
                 "example": "visits"
               }
             }
+          },
+          "study_events_persisted": {
+            "type": "boolean",
+            "description": "The study events persisted status of trial configuration",
+            "example": false
           },
           "study_procedure_display_name": {
             "type": "object",
@@ -3695,10 +4019,43 @@
               "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
             }
           },
-          "study_events_persisted": {
-            "type": "boolean",
-            "description": "The study events persisted status of trial configuration",
-            "example": false
+          "table": {
+            "type": "object",
+            "properties": {
+              "positions": {
+                "type": "array",
+                "description": "The positions of trial configuration",
+                "items": {
+                  "$ref": "#/components/schemas/Position"
+                }
+              },
+              "study_event_definitions": {
+                "type": "array",
+                "description": "The study event definitions of trial configuration",
+                "items": {
+                  "$ref": "#/components/schemas/StudyEventDefinition"
+                }
+              },
+              "study_event_procedures": {
+                "type": "array",
+                "description": "The study event procedures of trial configuration",
+                "items": {
+                  "$ref": "#/components/schemas/StudyEventProcedure"
+                }
+              },
+              "study_procedure_definitions": {
+                "type": "array",
+                "description": "The study procedure definitions of trial configuration",
+                "items": {
+                  "$ref": "#/components/schemas/StudyProcedureDefinition"
+                }
+              }
+            }
+          },
+          "version_number": {
+            "type": "number",
+            "description": "The version number of trial configuration",
+            "example": 1
           }
         }
       },
@@ -3756,74 +4113,6 @@
           "study_procedure_display_name"
         ],
         "additionalProperties": false
-      },
-      "Subject": {
-        "description": "A subject",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "description": "The id of subject",
-            "example": 1
-          },
-          "number": {
-            "type": "string",
-            "description": "The subject number",
-            "example": "E0001001"
-          },
-          "created_at": {
-            "type": "string",
-            "description": "The created at of subject",
-            "example": "2024-06-12T14:37:37.582Z"
-          },
-          "current_study_event": {
-            "type": "string",
-            "description": "The current study event of subject",
-            "example": "DAY1"
-          },
-          "study_arm": {
-            "type": "string",
-            "description": "The study arm of subject",
-            "example": "A"
-          },
-          "created_by": {
-            "type": "string",
-            "description": "The created by of subject",
-            "example": "Mon Admin1"
-          },
-          "creator": {
-            "type": "object",
-            "description": "The creator of subject",
-            "properties": {
-              "id": {
-                "type": "number",
-                "description": "The id of creator",
-                "example": 1
-              },
-              "email": {
-                "type": "string",
-                "description": "The email of creator",
-                "example": "example@gmail.com",
-                "format": "email"
-              },
-              "uuid": {
-                "type": "string",
-                "description": "The uuid of creator",
-                "example": "8b5dc7c6-a87d-4988-98fb-93213c126d0d"
-              },
-              "first_name": {
-                "type": "string",
-                "description": "The first name of creator",
-                "example": "John"
-              },
-              "last_name": {
-                "type": "string",
-                "description": "The last name of creator",
-                "example": "Doe"
-              }
-            }
-          }
-        }
       },
       "TrialContainer": {
         "description": "A trial container",
