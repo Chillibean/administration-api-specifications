@@ -1,35 +1,35 @@
 {
-  "description": "A study protocol",
+  "description": "A trial configuration",
   "type": "object",
   "properties": {
     "id": {
       "type": "number",
-      "description": "The id of study protocol",
+      "description": "The id of trial configuration",
       "example": 1
     },
     "version_number": {
       "type": "number",
-      "description": "The version number of study protocol",
+      "description": "The version number of trial configuration",
       "example": 1
     },
     "name": {
       "type": "string",
-      "description": "The name of study protocol",
-      "example": "Ghost Protocol copy (1)"
+      "description": "The name of trial configuration",
+      "example": "Ghost Trial Configuration copy (1)"
     },
     "issue_date": {
       "type": "string",
-      "description": "The issue date of study protocol",
+      "description": "The issue date of trial configuration",
       "example": "2024-06-12"
     },
     "created_at": {
       "type": "string",
-      "description": "The created at of study protocol",
+      "description": "The created at of trial configuration",
       "example": "2024-06-12T14:19:40.127Z"
     },
     "locked": {
       "type": "boolean",
-      "description": "The locked status of study protocol",
+      "description": "The locked status of trial configuration",
       "example": false
     },
     "table": {
@@ -37,28 +37,28 @@
       "properties": {
         "study_event_definitions": {
           "type": "array",
-          "description": "The study event definitions of study protocol",
+          "description": "The study event definitions of trial configuration",
           "items": {
             "$ref": "./StudyEventDefinition.json"
           }
         },
         "study_procedure_definitions": {
           "type": "array",
-          "description": "The study procedure definitions of study protocol",
+          "description": "The study procedure definitions of trial configuration",
           "items": {
             "$ref": "./StudyProcedureDefinition.json"
           }
         },
         "study_event_procedures": {
           "type": "array",
-          "description": "The study event procedures of study protocol",
+          "description": "The study event procedures of trial configuration",
           "items": {
             "$ref": "./StudyEventProcedure.json"
           }
         },
         "positions": {
           "type": "array",
-          "description": "The positions of study protocol",
+          "description": "The positions of trial configuration",
           "items": {
             "$ref": "./Position.json"
           }
@@ -67,14 +67,14 @@
     },
     "study_arms": {
       "type": "array",
-      "description": "The study arms of study protocol",
+      "description": "The study arms of trial configuration",
       "items": {
         "$ref": "./StudyArm.json"
       }
     },
     "study_event_display_name": {
       "type": "object",
-      "description": "The study event display name of study protocol",
+      "description": "The study event display name of trial configuration",
       "properties": {
         "singular": {
           "type": "string",
@@ -90,7 +90,7 @@
     },
     "study_procedure_display_name": {
       "type": "object",
-      "description": "The study procedure display name of study protocol",
+      "description": "The study procedure display name of trial configuration",
       "properties": {
         "singular": {
           "type": "string",
@@ -106,21 +106,21 @@
     },
     "study_procedure_role_definitions": {
       "type": "array",
-      "description": "The study procedure role definitions of study protocol",
+      "description": "The study procedure role definitions of trial configuration",
       "items": {
         "$ref": "./StudyProcedureRoleDefinition.json"
       }
     },
     "study_procedure_task_definitions": {
       "type": "array",
-      "description": "The study procedure task definitions of study protocol",
+      "description": "The study procedure task definitions of trial configuration",
       "items": {
         "$ref": "./StudyProcedureTaskDefinition.json"
       }
     },
     "study_events_persisted": {
       "type": "boolean",
-      "description": "The study events persisted status of study protocol",
+      "description": "The study events persisted status of trial configuration",
       "example": false
     }
   }
