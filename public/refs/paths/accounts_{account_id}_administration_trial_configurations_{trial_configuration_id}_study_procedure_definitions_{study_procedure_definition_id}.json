@@ -1,10 +1,10 @@
 {
   "put": {
-    "summary": "Update a study procedure definition for study protocol",
-    "description": "Update a study procedure definition for study protocol",
+    "summary": "Update a study procedure definition for trial configuration",
+    "description": "Update a study procedure definition for trial configuration",
     "operationId": "updateStudyProcedureDefinition",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -24,9 +24,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "type": "string",
@@ -87,7 +87,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
@@ -113,11 +113,11 @@
     }
   },
   "delete": {
-    "summary": "Delete a study procedure definition for study protocol",
-    "description": "Delete a study procedure definition for study protocol",
+    "summary": "Delete a study procedure definition for trial configuration",
+    "description": "Delete a study procedure definition for trial configuration",
     "operationId": "deleteStudyProcedureDefinition",
     "tags": [
-      "Study Protocols"
+      "Trial Configurations"
     ],
     "security": [
       {
@@ -137,9 +137,9 @@
         }
       },
       {
-        "name": "study_protocol_id",
+        "name": "trial_configuration_id",
         "in": "path",
-        "description": "The study protocol id",
+        "description": "The trial configuration id",
         "required": true,
         "schema": {
           "type": "string",
@@ -183,7 +183,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyProtocol.json"
+              "$ref": "../components/schemas/TrialConfiguration.json"
             }
           }
         }
