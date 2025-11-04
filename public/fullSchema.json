@@ -4073,6 +4073,11 @@
             "description": "The name of trial configuration",
             "example": "My Trial Configuration"
           },
+          "number_of_study_procedures": {
+            "type": "number",
+            "description": "The number of study procedures in the trial configuration",
+            "example": 2
+          },
           "study_event_display_name": {
             "type": "object",
             "description": "The study event display name of trial configuration",
