@@ -3678,9 +3678,9 @@
                 "description": "The id of trial configuration",
                 "example": 2
               },
-              "locked": {
+              "published": {
                 "type": "boolean",
-                "description": "The locked status of trial configuration",
+                "description": "The published status of trial configuration",
                 "example": true
               },
               "name": {
@@ -3958,9 +3958,9 @@
             "description": "The issue date of trial configuration",
             "example": "2024-06-12"
           },
-          "locked": {
+          "published": {
             "type": "boolean",
-            "description": "The locked status of trial configuration",
+            "description": "The published status of trial configuration",
             "example": false
           },
           "name": {
@@ -4173,6 +4173,11 @@
             "type": "string",
             "description": "The name of trial container",
             "example": "pre"
+          },
+          "published": {
+            "type": "boolean",
+            "description": "The published status of trial configuration",
+            "example": true
           },
           "type": {
             "type": "string",
