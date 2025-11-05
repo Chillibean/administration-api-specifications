@@ -53,6 +53,7 @@
   "required": [
     "id",
     "name",
+    "number_of_study_procedures",
     "study_event_display_name",
     "study_procedure_display_name"
   ],
