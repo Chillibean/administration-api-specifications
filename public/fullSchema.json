@@ -3678,9 +3678,9 @@
                 "description": "The id of trial configuration",
                 "example": 2
               },
-              "locked": {
+              "published": {
                 "type": "boolean",
-                "description": "The locked status of trial configuration",
+                "description": "The published status of trial configuration",
                 "example": true
               },
               "name": {
@@ -3958,9 +3958,9 @@
             "description": "The issue date of trial configuration",
             "example": "2024-06-12"
           },
-          "locked": {
+          "published": {
             "type": "boolean",
-            "description": "The locked status of trial configuration",
+            "description": "The published status of trial configuration",
             "example": false
           },
           "name": {
@@ -4073,6 +4073,11 @@
             "description": "The name of trial configuration",
             "example": "My Trial Configuration"
           },
+          "number_of_study_procedures": {
+            "type": "number",
+            "description": "The number of study procedures in the trial configuration",
+            "example": 2
+          },
           "study_event_display_name": {
             "type": "object",
             "description": "The study event display name of trial configuration",
@@ -4109,6 +4114,7 @@
         "required": [
           "id",
           "name",
+          "number_of_study_procedures",
           "study_event_display_name",
           "study_procedure_display_name"
         ],
@@ -4174,6 +4180,11 @@
             "description": "The name of trial container",
             "example": "pre"
           },
+          "published": {
+            "type": "boolean",
+            "description": "The published status of trial configuration",
+            "example": true
+          },
           "type": {
             "type": "string",
             "description": "The type of trial container",
@@ -4183,6 +4194,7 @@
         "required": [
           "id",
           "name",
+          "published",
           "type"
         ],
         "additionalProperties": false

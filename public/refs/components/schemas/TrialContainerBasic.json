@@ -12,6 +12,11 @@
       "description": "The name of trial container",
       "example": "pre"
     },
+    "published": {
+      "type": "boolean",
+      "description": "The published status of trial configuration",
+      "example": true
+    },
     "type": {
       "type": "string",
       "description": "The type of trial container",
@@ -21,6 +26,7 @@
   "required": [
     "id",
     "name",
+    "published",
     "type"
   ],
   "additionalProperties": false
