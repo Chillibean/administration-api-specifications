@@ -3915,30 +3915,6 @@
           }
         }
       },
-      "StudyProcedureTaskDefinition": {
-        "description": "A study procedure task definition",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "description": "The id of study procedure task definition",
-            "example": 1
-          },
-          "display_name": {
-            "type": "string",
-            "description": "The display name of study procedure task definition",
-            "example": "Please complete something first"
-          },
-          "role_ids": {
-            "type": "array",
-            "description": "The role ids of study procedure task definition",
-            "items": {
-              "type": "number",
-              "example": 4
-            }
-          }
-        }
-      },
       "TrialConfiguration": {
         "description": "A trial configuration",
         "type": "object",
