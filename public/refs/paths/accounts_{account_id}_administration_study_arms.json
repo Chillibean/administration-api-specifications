@@ -1,0 +1,143 @@
+{
+  "get": {
+    "summary": "Get all study arms for account",
+    "description": "Get all study arms for account",
+    "operationId": "getStudyArms",
+    "tags": [
+      "Study Arms"
+    ],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "Study arms",
+              "items": {
+                "$ref": "../components/schemas/StudyArmWithTrialConfigurations.json"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  },
+  "post": {
+    "summary": "Create a study arm",
+    "description": "Create a study arm",
+    "operationId": "createStudyArm",
+    "tags": [
+      "Study Arms"
+    ],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "description": "Create study arm object",
+            "properties": {
+              "authenticity_token": {
+                "$ref": "../components/schemas/AuthenticityToken.json"
+              },
+              "display_name": {
+                "type": "string",
+                "description": "The display name of study arm",
+                "example": "Post-Treatment Monitoring Arm"
+              }
+            },
+            "required": [
+              "authenticity_token",
+              "display_name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "responses": {
+      "201": {
+        "description": "Created",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/StudyArmWithTrialConfigurations.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}
