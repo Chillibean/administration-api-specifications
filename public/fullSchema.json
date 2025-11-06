@@ -3988,13 +3988,6 @@
               "$ref": "#/components/schemas/StudyProcedureRoleDefinition"
             }
           },
-          "study_procedure_task_definitions": {
-            "type": "array",
-            "description": "The study procedure task definitions of trial configuration",
-            "items": {
-              "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
-            }
-          },
           "table": {
             "type": "object",
             "properties": {
