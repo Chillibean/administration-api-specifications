@@ -1,0 +1,184 @@
+{
+  "put": {
+    "summary": "Update a study procedure task definition",
+    "description": "Update a study procedure task definition",
+    "operationId": "updateStudyProcedureTaskDefinition",
+    "tags": [
+      "Study Procedure Task Definitions"
+    ],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      },
+      {
+        "name": "study_procedure_task_definition_id",
+        "in": "path",
+        "description": "The study procedure task definition id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "description": "Update study procedure task definition object",
+            "properties": {
+              "authenticity_token": {
+                "$ref": "../components/schemas/AuthenticityToken.json"
+              },
+              "display_name": {
+                "type": "string",
+                "description": "The display name of study procedure task definition",
+                "example": "Please complete something first"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "The enable status of study procedure task definition",
+                "example": true
+              },
+              "role_ids": {
+                "type": "array",
+                "description": "The role ids of study procedure task definition",
+                "items": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            },
+            "required": [
+              "authenticity_token",
+              "display_name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/StudyProcedureTaskDefinition.json"
+            }
+          }
+        }
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  },
+  "delete": {
+    "summary": "Delete a study procedure task definition",
+    "description": "Delete a study procedure task definition",
+    "operationId": "deleteStudyProcedureTaskDefinition",
+    "tags": [
+      "Study Procedure Task Definitions"
+    ],
+    "security": [
+      {
+        "userSessionKey": [],
+        "chillipharmSession": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "account_id",
+        "in": "path",
+        "description": "The account id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      },
+      {
+        "name": "study_procedure_task_definition_id",
+        "in": "path",
+        "description": "The study procedure task definition id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "description": "Delete study procedure task definition object",
+            "properties": {
+              "authenticity_token": {
+                "$ref": "../components/schemas/AuthenticityToken.json"
+              }
+            },
+            "required": [
+              "authenticity_token"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "responses": {
+      "204": {
+        "description": "No Content"
+      },
+      "400": {
+        "$ref": "../components/responses/BadRequest.json"
+      },
+      "401": {
+        "$ref": "../components/responses/Unauthorized.json"
+      },
+      "403": {
+        "$ref": "../components/responses/Forbidden.json"
+      },
+      "404": {
+        "$ref": "../components/responses/NotFound.json"
+      },
+      "409": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      },
+      "500": {
+        "$ref": "../components/responses/LegacyBadRequest.json"
+      }
+    }
+  }
+}
