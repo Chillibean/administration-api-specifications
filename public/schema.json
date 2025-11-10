@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "5.2.0",
+    "version": "5.3.0",
     "title": "Administration API",
     "description": "This is the api specifications for all things related to account administration.",
     "contact": {
@@ -21,6 +21,10 @@
     {
       "name": "Form Templates",
       "description": "Endpoints for form templates"
+    },
+    {
+      "name": "Study Arms",
+      "description": "Endpoints for study arms"
     },
     {
       "name": "Trial Configurations",
@@ -87,6 +91,12 @@
     },
     "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_download_json.json"
+    },
+    "/accounts/{account_id}/administration/study_arms": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_arms.json"
+    },
+    "/accounts/{account_id}/administration/study_arms/{study_arm_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_arms_{study_arm_id}.json"
     },
     "/accounts/{account_id}/administration/trial_configurations": {
       "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations.json"
@@ -186,6 +196,9 @@
       "StudyArm": {
         "$ref": "refs/components/schemas/StudyArm.json"
       },
+      "StudyArmWithTrialConfigurations": {
+        "$ref": "refs/components/schemas/StudyArmWithTrialConfigurations.json"
+      },
       "StudyEventDefinition": {
         "$ref": "refs/components/schemas/StudyEventDefinition.json"
       },
@@ -198,17 +211,11 @@
       "StudyProcedureRoleDefinition": {
         "$ref": "refs/components/schemas/StudyProcedureRoleDefinition.json"
       },
-      "StudyProcedureTaskDefinition": {
-        "$ref": "refs/components/schemas/StudyProcedureTaskDefinition.json"
-      },
       "TrialConfiguration": {
         "$ref": "refs/components/schemas/TrialConfiguration.json"
       },
       "TrialConfigurationShort": {
         "$ref": "refs/components/schemas/TrialConfigurationShort.json"
-      },
-      "Subject": {
-        "$ref": "refs/components/schemas/Subject.json"
       },
       "TrialContainer": {
         "$ref": "refs/components/schemas/TrialContainer.json"
