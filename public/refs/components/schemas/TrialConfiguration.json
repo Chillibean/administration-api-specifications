@@ -17,9 +17,9 @@
       "description": "The issue date of trial configuration",
       "example": "2024-06-12"
     },
-    "locked": {
+    "published": {
       "type": "boolean",
-      "description": "The locked status of trial configuration",
+      "description": "The published status of trial configuration",
       "example": false
     },
     "name": {

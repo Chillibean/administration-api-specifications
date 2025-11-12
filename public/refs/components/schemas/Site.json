@@ -36,9 +36,9 @@
           "description": "The id of trial configuration",
           "example": 2
         },
-        "locked": {
+        "published": {
           "type": "boolean",
-          "description": "The locked status of trial configuration",
+          "description": "The published status of trial configuration",
           "example": true
         },
         "name": {
