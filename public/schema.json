@@ -23,6 +23,10 @@
       "description": "Endpoints for form templates"
     },
     {
+      "name": "Roles",
+      "description": "Endpoints for roles"
+    },
+    {
       "name": "Study Arms",
       "description": "Endpoints for study arms"
     },
@@ -95,6 +99,9 @@
     },
     "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_download_json.json"
+    },
+    "/accounts/{account_id}/administration/roles": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_roles.json"
     },
     "/accounts/{account_id}/administration/study_arms": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_arms.json"
@@ -199,6 +206,9 @@
       },
       "Position": {
         "$ref": "refs/components/schemas/Position.json"
+      },
+      "Role": {
+        "$ref": "refs/components/schemas/Role.json"
       },
       "Site": {
         "$ref": "refs/components/schemas/Site.json"

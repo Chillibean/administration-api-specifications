@@ -45,6 +45,10 @@
       "description": "Endpoints for form templates"
     },
     {
+      "name": "Roles",
+      "description": "Endpoints for roles"
+    },
+    {
       "name": "Study Arms",
       "description": "Endpoints for study arms"
     },
@@ -1234,6 +1238,68 @@
                   "type": "string",
                   "format": "binary",
                   "example": "data"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/roles": {
+      "get": {
+        "summary": "Get all roles for account",
+        "description": "Get all roles for account",
+        "operationId": "getRoles",
+        "tags": [
+          "Roles"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "Roles",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
                 }
               }
             }
@@ -3979,6 +4045,27 @@
           }
         }
       },
+      "Role": {
+        "description": "A role",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of role",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of role",
+            "example": "Guest"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
+      },
       "Site": {
         "description": "A site",
         "type": "object",
@@ -4568,27 +4655,6 @@
           "color",
           "position"
         ]
-      },
-      "Role": {
-        "description": "A role",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "description": "The id of role",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of role",
-            "example": "Guest"
-          }
-        },
-        "required": [
-          "id",
-          "name"
-        ],
-        "additionalProperties": false
       },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",
