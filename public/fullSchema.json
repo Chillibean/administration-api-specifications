@@ -49,6 +49,10 @@
       "description": "Endpoints for study arms"
     },
     {
+      "name": "Study Procedure Task Definitions",
+      "description": "Endpoints for study procedure task definitions"
+    },
+    {
       "name": "Trial Configurations",
       "description": "Endpoints for trial configurations"
     },
@@ -1536,6 +1540,341 @@
               "schema": {
                 "type": "object",
                 "description": "Delete study arm object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  }
+                },
+                "required": [
+                  "authenticity_token"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions": {
+      "get": {
+        "summary": "Get all study procedure task definitions",
+        "description": "Get all study procedure task definitions",
+        "operationId": "getStudyProcedureTaskDefinitions",
+        "tags": [
+          "Study Procedure Task Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "Study procedure task definitions",
+                  "items": {
+                    "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a study procedure task definition",
+        "description": "Create a study procedure task definition",
+        "operationId": "createStudyProcedureTaskDefinition",
+        "tags": [
+          "Study Procedure Task Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Create study procedure task definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study procedure task definition",
+                    "example": "Please complete something first"
+                  },
+                  "role_ids": {
+                    "type": "array",
+                    "description": "The role ids of study procedure task definition",
+                    "items": {
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                },
+                "required": [
+                  "authenticity_token",
+                  "display_name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}": {
+      "put": {
+        "summary": "Update a study procedure task definition",
+        "description": "Update a study procedure task definition",
+        "operationId": "updateStudyProcedureTaskDefinition",
+        "tags": [
+          "Study Procedure Task Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_procedure_task_definition_id",
+            "in": "path",
+            "description": "The study procedure task definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Update study procedure task definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name of study procedure task definition",
+                    "example": "Please complete something first"
+                  },
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "The enable status of study procedure task definition",
+                    "example": true
+                  },
+                  "role_ids": {
+                    "type": "array",
+                    "description": "The role ids of study procedure task definition",
+                    "items": {
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                },
+                "required": [
+                  "authenticity_token",
+                  "display_name"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/LegacyBadRequest"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a study procedure task definition",
+        "description": "Delete a study procedure task definition",
+        "operationId": "deleteStudyProcedureTaskDefinition",
+        "tags": [
+          "Study Procedure Task Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_procedure_task_definition_id",
+            "in": "path",
+            "description": "The study procedure task definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Delete study procedure task definition object",
                 "properties": {
                   "authenticity_token": {
                     "$ref": "#/components/schemas/AuthenticityToken"
@@ -3898,22 +4237,37 @@
             "example": false
           },
           "role": {
-            "type": "object",
-            "description": "The role of study procedure role definition",
-            "properties": {
-              "id": {
-                "type": "number",
-                "description": "The id of role",
-                "example": 4
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of role",
-                "example": "Power User"
-              }
-            }
+            "$ref": "#/components/schemas/Role"
           }
         }
+      },
+      "StudyProcedureTaskDefinition": {
+        "description": "A study procedure task definition",
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "description": "The display name of study procedure task definition",
+            "example": "Please complete something first"
+          },
+          "id": {
+            "type": "number",
+            "description": "The id of study procedure task definition",
+            "example": 1
+          },
+          "roles": {
+            "type": "array",
+            "description": "The role ids of study procedure task definition",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          }
+        },
+        "required": [
+          "display_name",
+          "id"
+        ],
+        "additionalProperties": false
       },
       "TrialConfiguration": {
         "description": "A trial configuration",
@@ -4214,6 +4568,27 @@
           "color",
           "position"
         ]
+      },
+      "Role": {
+        "description": "A role",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of role",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of role",
+            "example": "Guest"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
       },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",

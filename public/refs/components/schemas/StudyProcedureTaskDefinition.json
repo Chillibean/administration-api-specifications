@@ -1,0 +1,28 @@
+{
+  "description": "A study procedure task definition",
+  "type": "object",
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "description": "The display name of study procedure task definition",
+      "example": "Please complete something first"
+    },
+    "id": {
+      "type": "number",
+      "description": "The id of study procedure task definition",
+      "example": 1
+    },
+    "roles": {
+      "type": "array",
+      "description": "The role ids of study procedure task definition",
+      "items": {
+        "$ref": "./Role.json"
+      }
+    }
+  },
+  "required": [
+    "display_name",
+    "id"
+  ],
+  "additionalProperties": false
+}
