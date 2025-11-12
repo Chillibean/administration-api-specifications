@@ -4237,20 +4237,7 @@
             "example": false
           },
           "role": {
-            "type": "object",
-            "description": "The role of study procedure role definition",
-            "properties": {
-              "id": {
-                "type": "number",
-                "description": "The id of role",
-                "example": 4
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of role",
-                "example": "Power User"
-              }
-            }
+            "$ref": "#/components/schemas/Role"
           }
         }
       },
@@ -4268,12 +4255,11 @@
             "description": "The id of study procedure task definition",
             "example": 1
           },
-          "role_ids": {
+          "roles": {
             "type": "array",
             "description": "The role ids of study procedure task definition",
             "items": {
-              "type": "number",
-              "example": 1
+              "$ref": "#/components/schemas/Role"
             }
           }
         },
@@ -4582,6 +4568,27 @@
           "color",
           "position"
         ]
+      },
+      "Role": {
+        "description": "A role",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The id of role",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of role",
+            "example": "Guest"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
       },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",

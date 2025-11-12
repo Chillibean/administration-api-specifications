@@ -12,12 +12,11 @@
       "description": "The id of study procedure task definition",
       "example": 1
     },
-    "role_ids": {
+    "roles": {
       "type": "array",
       "description": "The role ids of study procedure task definition",
       "items": {
-        "type": "number",
-        "example": 1
+        "$ref": "./Role.json"
       }
     }
   },
