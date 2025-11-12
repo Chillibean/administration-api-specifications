@@ -23,8 +23,16 @@
       "description": "Endpoints for form templates"
     },
     {
+      "name": "Roles",
+      "description": "Endpoints for roles"
+    },
+    {
       "name": "Study Arms",
       "description": "Endpoints for study arms"
+    },
+    {
+      "name": "Study Procedure Task Definitions",
+      "description": "Endpoints for study procedure task definitions"
     },
     {
       "name": "Trial Configurations",
@@ -92,11 +100,20 @@
     "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_download_json.json"
     },
+    "/accounts/{account_id}/administration/roles": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_roles.json"
+    },
     "/accounts/{account_id}/administration/study_arms": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_arms.json"
     },
     "/accounts/{account_id}/administration/study_arms/{study_arm_id}": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_arms_{study_arm_id}.json"
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions.json"
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions_{study_procedure_task_definition_id}.json"
     },
     "/accounts/{account_id}/administration/trial_configurations": {
       "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations.json"
@@ -190,6 +207,9 @@
       "Position": {
         "$ref": "refs/components/schemas/Position.json"
       },
+      "Role": {
+        "$ref": "refs/components/schemas/Role.json"
+      },
       "Site": {
         "$ref": "refs/components/schemas/Site.json"
       },
@@ -210,6 +230,9 @@
       },
       "StudyProcedureRoleDefinition": {
         "$ref": "refs/components/schemas/StudyProcedureRoleDefinition.json"
+      },
+      "StudyProcedureTaskDefinition": {
+        "$ref": "refs/components/schemas/StudyProcedureTaskDefinition.json"
       },
       "TrialConfiguration": {
         "$ref": "refs/components/schemas/TrialConfiguration.json"
