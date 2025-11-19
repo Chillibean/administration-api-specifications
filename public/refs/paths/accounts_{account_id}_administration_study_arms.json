@@ -115,7 +115,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/StudyArm.json"
+              "$ref": "../components/schemas/StudyArmWithTrialConfigurations.json"
             }
           }
         }

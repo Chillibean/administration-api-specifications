@@ -71,13 +71,6 @@
         "$ref": "./StudyProcedureRoleDefinition.json"
       }
     },
-    "study_procedure_task_definitions": {
-      "type": "array",
-      "description": "The study procedure task definitions of trial configuration",
-      "items": {
-        "$ref": "./StudyProcedureTaskDefinition.json"
-      }
-    },
     "table": {
       "type": "object",
       "properties": {
