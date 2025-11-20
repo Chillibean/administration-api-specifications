@@ -115,6 +115,9 @@
     "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}": {
       "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions_{study_procedure_task_definition_id}.json"
     },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}/enabled": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions_{study_procedure_task_definition_id}_enabled.json"
+    },
     "/accounts/{account_id}/administration/trial_configurations": {
       "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations.json"
     },
