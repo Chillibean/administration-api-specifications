@@ -2,8 +2,10 @@
   "put": {
     "summary": "Update a study event definition for trial configuration",
     "description": "Update a study event definition for trial configuration",
-    "operationId": "updateStudyeventDefinition",
-    "tags": ["Trial Configurations"],
+    "operationId": "updateStudyEventDefinition",
+    "tags": [
+      "Trial Configurations"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -109,18 +111,20 @@
         "$ref": "../components/responses/NotFound.json"
       },
       "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/Conflict.json"
       },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   },
   "delete": {
     "summary": "Delete a study event definition for trial configuration",
     "description": "Delete a study event definition for trial configuration",
-    "operationId": "deleteStudyeventDefinition",
-    "tags": ["Trial Configurations"],
+    "operationId": "deleteStudyEventDefinition",
+    "tags": [
+      "Trial Configurations"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -172,7 +176,9 @@
               }
             },
             "additionalProperties": false,
-            "required": ["authenticity_token"]
+            "required": [
+              "authenticity_token"
+            ]
           }
         }
       }
@@ -200,11 +206,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }

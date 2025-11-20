@@ -119,9 +119,6 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/Conflict"
-          },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
           }
@@ -274,9 +271,6 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "$ref": "#/components/responses/Conflict"
           },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
@@ -459,9 +453,6 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/Conflict"
-          },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
           }
@@ -561,9 +552,6 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/Conflict"
-          },
           "500": {
             "$ref": "#/components/responses/InternalServerError"
           }
@@ -651,11 +639,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -725,10 +710,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -911,11 +896,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -993,11 +975,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1087,11 +1066,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1184,11 +1160,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1254,11 +1227,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1305,7 +1275,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -1316,11 +1286,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1367,7 +1334,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -1378,11 +1345,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -1460,10 +1424,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1558,10 +1522,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -1635,11 +1599,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1686,7 +1647,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -1697,11 +1658,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -1787,10 +1745,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -1846,11 +1804,6 @@
                     "description": "The display name of study procedure task definition",
                     "example": "Please complete something first"
                   },
-                  "enabled": {
-                    "type": "boolean",
-                    "description": "The enable status of study procedure task definition",
-                    "example": true
-                  },
                   "role_ids": {
                     "type": "array",
                     "description": "The role ids of study procedure task definition",
@@ -1862,7 +1815,8 @@
                 },
                 "required": [
                   "authenticity_token",
-                  "display_name"
+                  "display_name",
+                  "role_ids"
                 ],
                 "additionalProperties": false
               }
@@ -1893,10 +1847,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -1970,11 +1924,98 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}/enabled": {
+      "put": {
+        "summary": "Update enable status of a study procedure task definition",
+        "description": "Update enable status of a study procedure task definition",
+        "operationId": "setEnabledStudyProcedureTaskDefinition",
+        "tags": [
+          "Study Procedure Task Definitions"
+        ],
+        "security": [
+          {
+            "userSessionKey": [],
+            "chillipharmSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "The account id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "study_procedure_task_definition_id",
+            "in": "path",
+            "description": "The study procedure task definition id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Update study procedure task definition object",
+                "properties": {
+                  "authenticity_token": {
+                    "$ref": "#/components/schemas/AuthenticityToken"
+                  },
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "The enable status of study procedure task definition",
+                    "example": true
+                  }
+                },
+                "required": [
+                  "authenticity_token",
+                  "enabled"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyProcedureTaskDefinition"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2031,11 +2072,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -2112,10 +2150,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2179,11 +2217,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -2270,10 +2305,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -2335,11 +2370,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2417,11 +2449,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2523,10 +2552,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2535,7 +2564,7 @@
       "put": {
         "summary": "Update a study event definition for trial configuration",
         "description": "Update a study event definition for trial configuration",
-        "operationId": "updateStudyeventDefinition",
+        "operationId": "updateStudyEventDefinition",
         "tags": [
           "Trial Configurations"
         ],
@@ -2644,17 +2673,17 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
       "delete": {
         "summary": "Delete a study event definition for trial configuration",
         "description": "Delete a study event definition for trial configuration",
-        "operationId": "deleteStudyeventDefinition",
+        "operationId": "deleteStudyEventDefinition",
         "tags": [
           "Trial Configurations"
         ],
@@ -2739,11 +2768,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2851,10 +2877,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -2959,11 +2985,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -3065,10 +3088,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -3180,10 +3203,10 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/Conflict"
           },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -3275,11 +3298,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -3367,11 +3387,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -3425,11 +3442,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/BadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       },
@@ -3503,11 +3517,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/BadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -3564,11 +3575,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -3625,11 +3633,8 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
-          "409": {
-            "$ref": "#/components/responses/LegacyBadRequest"
-          },
           "500": {
-            "$ref": "#/components/responses/LegacyBadRequest"
+            "$ref": "#/components/responses/InternalServerError"
           }
         }
       }
@@ -4337,6 +4342,11 @@
             "description": "The display name of study procedure task definition",
             "example": "Please complete something first"
           },
+          "enabled": {
+            "type": "boolean",
+            "description": "The enabled status of study procedure task definition",
+            "example": true
+          },
           "id": {
             "type": "number",
             "description": "The id of study procedure task definition",
@@ -4348,11 +4358,19 @@
             "items": {
               "$ref": "#/components/schemas/Role"
             }
+          },
+          "study_procedure_tasks_exist": {
+            "type": "boolean",
+            "description": "The usage status of study procedure task definition",
+            "example": false
           }
         },
         "required": [
           "display_name",
-          "id"
+          "enabled",
+          "id",
+          "roles",
+          "study_procedure_tasks_exist"
         ],
         "additionalProperties": false
       },
@@ -4719,8 +4737,8 @@
           }
         }
       },
-      "Conflict": {
-        "description": "Conflict. The request could not be completed due to a conflict with the current state of the resource.",
+      "InternalServerError": {
+        "description": "Internal server error. Please contact support.",
         "content": {
           "application/json": {
             "schema": {
@@ -4729,8 +4747,8 @@
           }
         }
       },
-      "InternalServerError": {
-        "description": "Internal server error. Please contact support.",
+      "Conflict": {
+        "description": "Conflict. The request could not be completed due to a conflict with the current state of the resource.",
         "content": {
           "application/json": {
             "schema": {
