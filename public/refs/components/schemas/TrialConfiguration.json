@@ -2,75 +2,30 @@
   "description": "A trial configuration",
   "type": "object",
   "properties": {
+    "created_at": {
+      "type": "string",
+      "description": "The created at of trial configuration",
+      "example": "2024-06-12T14:19:40.127Z"
+    },
     "id": {
       "type": "number",
       "description": "The id of trial configuration",
       "example": 1
-    },
-    "version_number": {
-      "type": "number",
-      "description": "The version number of trial configuration",
-      "example": 1
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of trial configuration",
-      "example": "Ghost Trial Configuration copy (1)"
     },
     "issue_date": {
       "type": "string",
       "description": "The issue date of trial configuration",
       "example": "2024-06-12"
     },
-    "created_at": {
-      "type": "string",
-      "description": "The created at of trial configuration",
-      "example": "2024-06-12T14:19:40.127Z"
-    },
-    "locked": {
+    "published": {
       "type": "boolean",
-      "description": "The locked status of trial configuration",
+      "description": "The published status of trial configuration",
       "example": false
     },
-    "table": {
-      "type": "object",
-      "properties": {
-        "study_event_definitions": {
-          "type": "array",
-          "description": "The study event definitions of trial configuration",
-          "items": {
-            "$ref": "./StudyEventDefinition.json"
-          }
-        },
-        "study_procedure_definitions": {
-          "type": "array",
-          "description": "The study procedure definitions of trial configuration",
-          "items": {
-            "$ref": "./StudyProcedureDefinition.json"
-          }
-        },
-        "study_event_procedures": {
-          "type": "array",
-          "description": "The study event procedures of trial configuration",
-          "items": {
-            "$ref": "./StudyEventProcedure.json"
-          }
-        },
-        "positions": {
-          "type": "array",
-          "description": "The positions of trial configuration",
-          "items": {
-            "$ref": "./Position.json"
-          }
-        }
-      }
-    },
-    "study_arms": {
-      "type": "array",
-      "description": "The study arms of trial configuration",
-      "items": {
-        "$ref": "./StudyArm.json"
-      }
+    "name": {
+      "type": "string",
+      "description": "The name of trial configuration",
+      "example": "Ghost Trial Configuration copy (1)"
     },
     "study_event_display_name": {
       "type": "object",
@@ -87,6 +42,11 @@
           "example": "visits"
         }
       }
+    },
+    "study_events_persisted": {
+      "type": "boolean",
+      "description": "The study events persisted status of trial configuration",
+      "example": false
     },
     "study_procedure_display_name": {
       "type": "object",
@@ -111,17 +71,43 @@
         "$ref": "./StudyProcedureRoleDefinition.json"
       }
     },
-    "study_procedure_task_definitions": {
-      "type": "array",
-      "description": "The study procedure task definitions of trial configuration",
-      "items": {
-        "$ref": "./StudyProcedureTaskDefinition.json"
+    "table": {
+      "type": "object",
+      "properties": {
+        "positions": {
+          "type": "array",
+          "description": "The positions of trial configuration",
+          "items": {
+            "$ref": "./Position.json"
+          }
+        },
+        "study_event_definitions": {
+          "type": "array",
+          "description": "The study event definitions of trial configuration",
+          "items": {
+            "$ref": "./StudyEventDefinition.json"
+          }
+        },
+        "study_event_procedures": {
+          "type": "array",
+          "description": "The study event procedures of trial configuration",
+          "items": {
+            "$ref": "./StudyEventProcedure.json"
+          }
+        },
+        "study_procedure_definitions": {
+          "type": "array",
+          "description": "The study procedure definitions of trial configuration",
+          "items": {
+            "$ref": "./StudyProcedureDefinition.json"
+          }
+        }
       }
     },
-    "study_events_persisted": {
-      "type": "boolean",
-      "description": "The study events persisted status of trial configuration",
-      "example": false
+    "version_number": {
+      "type": "number",
+      "description": "The version number of trial configuration",
+      "example": 1
     }
   }
 }
