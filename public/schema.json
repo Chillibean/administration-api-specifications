@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "5.2.0",
+    "version": "5.3.0",
     "title": "Administration API",
     "description": "This is the api specifications for all things related to account administration.",
     "contact": {
@@ -21,6 +21,18 @@
     {
       "name": "Form Templates",
       "description": "Endpoints for form templates"
+    },
+    {
+      "name": "Roles",
+      "description": "Endpoints for roles"
+    },
+    {
+      "name": "Study Arms",
+      "description": "Endpoints for study arms"
+    },
+    {
+      "name": "Study Procedure Task Definitions",
+      "description": "Endpoints for study procedure task definitions"
     },
     {
       "name": "Trial Configurations",
@@ -87,6 +99,24 @@
     },
     "/accounts/{account_id}/administration/form_templates/{form_template_id}/download_json": {
       "$ref": "refs/paths/accounts_{account_id}_administration_form_templates_{form_template_id}_download_json.json"
+    },
+    "/accounts/{account_id}/administration/roles": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_roles.json"
+    },
+    "/accounts/{account_id}/administration/study_arms": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_arms.json"
+    },
+    "/accounts/{account_id}/administration/study_arms/{study_arm_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_arms_{study_arm_id}.json"
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions.json"
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions_{study_procedure_task_definition_id}.json"
+    },
+    "/accounts/{account_id}/administration/study_procedure_task_definitions/{study_procedure_task_definition_id}/enabled": {
+      "$ref": "refs/paths/accounts_{account_id}_administration_study_procedure_task_definitions_{study_procedure_task_definition_id}_enabled.json"
     },
     "/accounts/{account_id}/administration/trial_configurations": {
       "$ref": "refs/paths/accounts_{account_id}_administration_trial_configurations.json"
@@ -180,11 +210,17 @@
       "Position": {
         "$ref": "refs/components/schemas/Position.json"
       },
+      "Role": {
+        "$ref": "refs/components/schemas/Role.json"
+      },
       "Site": {
         "$ref": "refs/components/schemas/Site.json"
       },
       "StudyArm": {
         "$ref": "refs/components/schemas/StudyArm.json"
+      },
+      "StudyArmWithTrialConfigurations": {
+        "$ref": "refs/components/schemas/StudyArmWithTrialConfigurations.json"
       },
       "StudyEventDefinition": {
         "$ref": "refs/components/schemas/StudyEventDefinition.json"
@@ -206,9 +242,6 @@
       },
       "TrialConfigurationShort": {
         "$ref": "refs/components/schemas/TrialConfigurationShort.json"
-      },
-      "Subject": {
-        "$ref": "refs/components/schemas/Subject.json"
       },
       "TrialContainer": {
         "$ref": "refs/components/schemas/TrialContainer.json"

@@ -3,7 +3,9 @@
     "summary": "Download JSON for form template",
     "description": "Download JSON representation of the form template",
     "operationId": "downloadFormTemplateJson",
-    "tags": ["Form Templates"],
+    "tags": [
+      "Form Templates"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -57,11 +59,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }

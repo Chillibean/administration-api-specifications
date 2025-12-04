@@ -13,20 +13,7 @@
       "example": false
     },
     "role": {
-      "type": "object",
-      "description": "The role of study procedure role definition",
-      "properties": {
-        "id": {
-          "type": "number",
-          "description": "The id of role",
-          "example": 4
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of role",
-          "example": "Power User"
-        }
-      }
+      "$ref": "./Role.json"
     }
   }
 }
