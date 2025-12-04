@@ -95,10 +95,10 @@
         "$ref": "../components/responses/NotFound.json"
       },
       "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/Conflict.json"
       },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }
