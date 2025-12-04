@@ -3,7 +3,9 @@
     "summary": "Delete a study event procedure for trial configuration",
     "description": "Delete a study event procedure for trial configuration",
     "operationId": "deleteStudyEventProcedure",
-    "tags": ["Trial Configurations"],
+    "tags": [
+      "Trial Configurations"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -55,7 +57,9 @@
               }
             },
             "additionalProperties": false,
-            "required": ["authenticity_token"]
+            "required": [
+              "authenticity_token"
+            ]
           }
         }
       }
@@ -94,11 +98,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }
