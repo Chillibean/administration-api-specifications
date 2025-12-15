@@ -2512,6 +2512,11 @@
                     "description": "The identifier of study event definition",
                     "example": "SPD"
                   },
+                  "position": {
+                    "type": "integer",
+                    "description": "The position of study event definition",
+                    "example": 1
+                  },
                   "study_arm_id": {
                     "type": "string",
                     "description": "The study arm id of study event definition",
@@ -2522,7 +2527,8 @@
                 "required": [
                   "authenticity_token",
                   "display_name",
-                  "identifier"
+                  "identifier",
+                  "position"
                 ]
               }
             }
@@ -2627,15 +2633,15 @@
                     "description": "The identifier of study event definition",
                     "example": "SPD"
                   },
-                  "study_arm_id": {
-                    "type": "string",
-                    "description": "The study arm id of study event definition",
-                    "example": "1"
-                  },
                   "position": {
                     "type": "integer",
                     "description": "The position of study event definition",
                     "example": 1
+                  },
+                  "study_arm_id": {
+                    "type": "string",
+                    "description": "The study arm id of study event definition",
+                    "example": "1"
                   }
                 },
                 "additionalProperties": false,
@@ -2962,11 +2968,6 @@
                   "properties": {
                     "data": {
                       "$ref": "#/components/schemas/TrialConfiguration"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "description": "The id of study event procedure",
-                      "example": 1
                     }
                   }
                 }
@@ -3048,6 +3049,11 @@
                     "description": "The identifier of study procedure definition",
                     "example": "SPD"
                   },
+                  "position": {
+                    "type": "integer",
+                    "description": "The position of study procedure definition",
+                    "example": 1
+                  },
                   "required_form_templates": {
                     "type": "integer",
                     "description": "The required form templates of study procedure definition",
@@ -3058,7 +3064,8 @@
                 "required": [
                   "authenticity_token",
                   "display_name",
-                  "identifier"
+                  "identifier",
+                  "position"
                 ]
               }
             }
@@ -3163,6 +3170,11 @@
                     "description": "The identifier of study procedure definition",
                     "example": "SPD"
                   },
+                  "position": {
+                    "type": "integer",
+                    "description": "The position of study procedure definition",
+                    "example": 1
+                  },
                   "required_form_templates": {
                     "type": "integer",
                     "description": "The required form templates of study procedure definition",
@@ -3173,7 +3185,8 @@
                 "required": [
                   "authenticity_token",
                   "display_name",
-                  "identifier"
+                  "identifier",
+                  "position"
                 ]
               }
             }
@@ -4034,22 +4047,6 @@
           "error"
         ]
       },
-      "Position": {
-        "description": "A position",
-        "type": "object",
-        "properties": {
-          "position": {
-            "type": "number",
-            "description": "The position",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "The name",
-            "example": "1"
-          }
-        }
-      },
       "Role": {
         "description": "A role",
         "type": "object",
@@ -4207,20 +4204,9 @@
             "example": "DAY1"
           },
           "position": {
-            "type": "object",
+            "type": "number",
             "description": "The position of study event definition",
-            "properties": {
-              "position": {
-                "type": "number",
-                "description": "The position of study event definition",
-                "example": 1
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of study event definition",
-                "example": "1"
-              }
-            }
+            "example": 1
           },
           "study_arm": {
             "anyOf": [
@@ -4232,8 +4218,21 @@
                 "nullable": true
               }
             ]
+          },
+          "study_events_exist": {
+            "type": "boolean",
+            "description": "The indicator whether study events exist",
+            "example": false
           }
-        }
+        },
+        "additionalProperties": false,
+        "required": [
+          "display_name",
+          "id",
+          "identifier",
+          "position",
+          "study_events_exist"
+        ]
       },
       "StudyEventProcedure": {
         "description": "A study event procedure",
@@ -4260,20 +4259,25 @@
         "description": "A study procedure definition",
         "type": "object",
         "properties": {
-          "id": {
-            "type": "number",
-            "description": "The id of study procedure definition",
-            "example": 1
-          },
           "display_name": {
             "type": "string",
             "description": "The display name of study procedure definition",
             "example": "Six Minute Walk Test"
           },
+          "id": {
+            "type": "number",
+            "description": "The id of study procedure definition",
+            "example": 1
+          },
           "identifier": {
             "type": "string",
             "description": "The identifier of study procedure definition",
             "example": "SIXWALK"
+          },
+          "position": {
+            "type": "number",
+            "description": "The position of study procedure definition",
+            "example": 1
           },
           "required_form_templates": {
             "type": "array",
@@ -4311,8 +4315,21 @@
               ],
               "additionalProperties": false
             }
+          },
+          "study_procedures_exist": {
+            "type": "boolean",
+            "description": "The indicator whether study procedures exist",
+            "example": false
           }
-        }
+        },
+        "additionalProperties": false,
+        "required": [
+          "display_name",
+          "id",
+          "identifier",
+          "position",
+          "study_procedures_exist"
+        ]
       },
       "StudyProcedureRoleDefinition": {
         "description": "A study procedure role definition",
@@ -4393,15 +4410,15 @@
             "description": "The issue date of trial configuration",
             "example": "2024-06-12"
           },
-          "published": {
-            "type": "boolean",
-            "description": "The published status of trial configuration",
-            "example": false
-          },
           "name": {
             "type": "string",
             "description": "The name of trial configuration",
             "example": "Ghost Trial Configuration copy (1)"
+          },
+          "published": {
+            "type": "boolean",
+            "description": "The published status of trial configuration",
+            "example": false
           },
           "study_event_display_name": {
             "type": "object",
@@ -4450,13 +4467,6 @@
           "table": {
             "type": "object",
             "properties": {
-              "positions": {
-                "type": "array",
-                "description": "The positions of trial configuration",
-                "items": {
-                  "$ref": "#/components/schemas/Position"
-                }
-              },
               "study_event_definitions": {
                 "type": "array",
                 "description": "The study event definitions of trial configuration",
