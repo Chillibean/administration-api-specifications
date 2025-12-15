@@ -18,7 +18,9 @@
       "example": "SIXWALK"
     },
     "position": {
-      "$ref": "./Position.json"
+      "type": "number",
+      "description": "The position of study procedure definition",
+      "example": 1
     },
     "required_form_templates": {
       "type": "array",

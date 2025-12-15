@@ -18,7 +18,9 @@
       "example": "DAY1"
     },
     "position": {
-      "$ref": "./Position.json"
+      "type": "number",
+      "description": "The position of study event definition",
+      "example": 1
     },
     "study_arm": {
       "anyOf": [

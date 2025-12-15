@@ -207,9 +207,6 @@
       "LegacyError": {
         "$ref": "refs/components/schemas/LegacyError.json"
       },
-      "Position": {
-        "$ref": "refs/components/schemas/Position.json"
-      },
       "Role": {
         "$ref": "refs/components/schemas/Role.json"
       },

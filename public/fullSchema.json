@@ -4047,22 +4047,6 @@
           "error"
         ]
       },
-      "Position": {
-        "description": "A position",
-        "type": "object",
-        "properties": {
-          "position": {
-            "type": "number",
-            "description": "The position",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "The name",
-            "example": "1"
-          }
-        }
-      },
       "Role": {
         "description": "A role",
         "type": "object",
@@ -4220,7 +4204,9 @@
             "example": "DAY1"
           },
           "position": {
-            "$ref": "#/components/schemas/Position"
+            "type": "number",
+            "description": "The position of study event definition",
+            "example": 1
           },
           "study_arm": {
             "anyOf": [
@@ -4289,7 +4275,9 @@
             "example": "SIXWALK"
           },
           "position": {
-            "$ref": "#/components/schemas/Position"
+            "type": "number",
+            "description": "The position of study procedure definition",
+            "example": 1
           },
           "required_form_templates": {
             "type": "array",
@@ -4422,15 +4410,15 @@
             "description": "The issue date of trial configuration",
             "example": "2024-06-12"
           },
-          "published": {
-            "type": "boolean",
-            "description": "The published status of trial configuration",
-            "example": false
-          },
           "name": {
             "type": "string",
             "description": "The name of trial configuration",
             "example": "Ghost Trial Configuration copy (1)"
+          },
+          "published": {
+            "type": "boolean",
+            "description": "The published status of trial configuration",
+            "example": false
           },
           "study_event_display_name": {
             "type": "object",
@@ -4479,13 +4467,6 @@
           "table": {
             "type": "object",
             "properties": {
-              "positions": {
-                "type": "array",
-                "description": "The positions of trial configuration",
-                "items": {
-                  "$ref": "#/components/schemas/Position"
-                }
-              },
               "study_event_definitions": {
                 "type": "array",
                 "description": "The study event definitions of trial configuration",
