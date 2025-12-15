@@ -55,6 +55,11 @@
                 "description": "The identifier of study procedure definition",
                 "example": "SPD"
               },
+              "position": {
+                "type": "integer",
+                "description": "The position of study procedure definition",
+                "example": 1
+              },
               "required_form_templates": {
                 "type": "integer",
                 "description": "The required form templates of study procedure definition",
@@ -65,7 +70,8 @@
             "required": [
               "authenticity_token",
               "display_name",
-              "identifier"
+              "identifier",
+              "position"
             ]
           }
         }

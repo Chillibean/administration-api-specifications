@@ -65,15 +65,15 @@
                 "description": "The identifier of study event definition",
                 "example": "SPD"
               },
-              "study_arm_id": {
-                "type": "string",
-                "description": "The study arm id of study event definition",
-                "example": "1"
-              },
               "position": {
                 "type": "integer",
                 "description": "The position of study event definition",
                 "example": 1
+              },
+              "study_arm_id": {
+                "type": "string",
+                "description": "The study arm id of study event definition",
+                "example": "1"
               }
             },
             "additionalProperties": false,

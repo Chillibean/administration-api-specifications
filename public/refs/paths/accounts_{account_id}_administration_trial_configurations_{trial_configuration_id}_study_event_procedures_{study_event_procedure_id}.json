@@ -75,11 +75,6 @@
               "properties": {
                 "data": {
                   "$ref": "../components/schemas/TrialConfiguration.json"
-                },
-                "id": {
-                  "type": "integer",
-                  "description": "The id of study event procedure",
-                  "example": 1
                 }
               }
             }
