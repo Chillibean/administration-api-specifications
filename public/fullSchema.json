@@ -2527,8 +2527,7 @@
                 "required": [
                   "authenticity_token",
                   "display_name",
-                  "identifier",
-                  "position"
+                  "identifier"
                 ]
               }
             }
@@ -3064,8 +3063,7 @@
                 "required": [
                   "authenticity_token",
                   "display_name",
-                  "identifier",
-                  "position"
+                  "identifier"
                 ]
               }
             }
