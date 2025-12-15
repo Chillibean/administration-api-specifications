@@ -17,15 +17,15 @@
       "description": "The issue date of trial configuration",
       "example": "2024-06-12"
     },
-    "published": {
-      "type": "boolean",
-      "description": "The published status of trial configuration",
-      "example": false
-    },
     "name": {
       "type": "string",
       "description": "The name of trial configuration",
       "example": "Ghost Trial Configuration copy (1)"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "The published status of trial configuration",
+      "example": false
     },
     "study_event_display_name": {
       "type": "object",
@@ -74,13 +74,6 @@
     "table": {
       "type": "object",
       "properties": {
-        "positions": {
-          "type": "array",
-          "description": "The positions of trial configuration",
-          "items": {
-            "$ref": "./Position.json"
-          }
-        },
         "study_event_definitions": {
           "type": "array",
           "description": "The study event definitions of trial configuration",
