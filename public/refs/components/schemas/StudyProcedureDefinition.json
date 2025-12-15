@@ -2,20 +2,23 @@
   "description": "A study procedure definition",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "number",
-      "description": "The id of study procedure definition",
-      "example": 1
-    },
     "display_name": {
       "type": "string",
       "description": "The display name of study procedure definition",
       "example": "Six Minute Walk Test"
     },
+    "id": {
+      "type": "number",
+      "description": "The id of study procedure definition",
+      "example": 1
+    },
     "identifier": {
       "type": "string",
       "description": "The identifier of study procedure definition",
       "example": "SIXWALK"
+    },
+    "position": {
+      "$ref": "./Position.json"
     },
     "required_form_templates": {
       "type": "array",
@@ -53,6 +56,19 @@
         ],
         "additionalProperties": false
       }
+    },
+    "study_procedures_exist": {
+      "type": "boolean",
+      "description": "The indicator whether study procedures exist",
+      "example": false
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "display_name",
+    "id",
+    "identifier",
+    "position",
+    "study_procedures_exist"
+  ]
 }

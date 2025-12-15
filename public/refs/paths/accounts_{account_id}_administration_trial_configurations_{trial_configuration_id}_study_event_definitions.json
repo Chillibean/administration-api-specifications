@@ -55,6 +55,11 @@
                 "description": "The identifier of study event definition",
                 "example": "SPD"
               },
+              "position": {
+                "type": "integer",
+                "description": "The position of study event definition",
+                "example": 1
+              },
               "study_arm_id": {
                 "type": "string",
                 "description": "The study arm id of study event definition",
@@ -65,7 +70,8 @@
             "required": [
               "authenticity_token",
               "display_name",
-              "identifier"
+              "identifier",
+              "position"
             ]
           }
         }

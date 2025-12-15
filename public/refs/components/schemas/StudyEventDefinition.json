@@ -18,20 +18,7 @@
       "example": "DAY1"
     },
     "position": {
-      "type": "object",
-      "description": "The position of study event definition",
-      "properties": {
-        "position": {
-          "type": "number",
-          "description": "The position of study event definition",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of study event definition",
-          "example": "1"
-        }
-      }
+      "$ref": "./Position.json"
     },
     "study_arm": {
       "anyOf": [
@@ -43,6 +30,19 @@
           "nullable": true
         }
       ]
+    },
+    "study_events_exist": {
+      "type": "boolean",
+      "description": "The indicator whether study events exist",
+      "example": false
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "display_name",
+    "id",
+    "identifier",
+    "position",
+    "study_events_exist"
+  ]
 }
