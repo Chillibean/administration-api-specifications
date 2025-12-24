@@ -2,6 +2,11 @@
   "description": "A study event definition",
   "type": "object",
   "properties": {
+    "display_name": {
+      "type": "string",
+      "description": "The display name of study event definition",
+      "example": "Day 1"
+    },
     "id": {
       "type": "number",
       "description": "The id of study event definition",
@@ -12,26 +17,34 @@
       "description": "The identifier of study event definition",
       "example": "DAY1"
     },
-    "display_name": {
-      "type": "string",
-      "description": "The display name of study event definition",
-      "example": "Day 1"
-    },
     "position": {
-      "type": "object",
+      "type": "number",
       "description": "The position of study event definition",
-      "properties": {
-        "position": {
-          "type": "number",
-          "description": "The position of study event definition",
-          "example": 1
+      "example": 1
+    },
+    "study_arm": {
+      "anyOf": [
+        {
+          "$ref": "./StudyArm.json"
         },
-        "name": {
-          "type": "string",
-          "description": "The name of study event definition",
-          "example": "1"
+        {
+          "type": "object",
+          "nullable": true
         }
-      }
+      ]
+    },
+    "study_events_exist": {
+      "type": "boolean",
+      "description": "The indicator whether study events exist",
+      "example": false
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "display_name",
+    "id",
+    "identifier",
+    "position",
+    "study_events_exist"
+  ]
 }

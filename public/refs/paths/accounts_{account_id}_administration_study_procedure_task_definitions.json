@@ -1,10 +1,10 @@
 {
   "get": {
-    "summary": "Get all trial configurations for account",
-    "description": "Get all trial configurations for account",
-    "operationId": "getTrialConfigurations",
+    "summary": "Get all study procedure task definitions",
+    "description": "Get all study procedure task definitions",
+    "operationId": "getStudyProcedureTaskDefinitions",
     "tags": [
-      "Trial Configurations"
+      "Study Procedure Task Definitions"
     ],
     "security": [
       {
@@ -19,8 +19,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -31,15 +31,16 @@
           "application/json": {
             "schema": {
               "type": "array",
+              "description": "Study procedure task definitions",
               "items": {
-                "$ref": "../components/schemas/TrialConfiguration.json"
+                "$ref": "../components/schemas/StudyProcedureTaskDefinition.json"
               }
             }
           }
         }
       },
       "400": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
         "$ref": "../components/responses/Unauthorized.json"
@@ -56,11 +57,11 @@
     }
   },
   "post": {
-    "summary": "Create a trial configuration for account",
-    "description": "Create a trial configuration for account",
-    "operationId": "createTrialConfiguration",
+    "summary": "Create a study procedure task definition",
+    "description": "Create a study procedure task definition",
+    "operationId": "createStudyProcedureTaskDefinition",
     "tags": [
-      "Trial Configurations"
+      "Study Procedure Task Definitions"
     ],
     "security": [
       {
@@ -75,8 +76,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -85,21 +86,30 @@
         "application/json": {
           "schema": {
             "type": "object",
+            "description": "Create study procedure task definition object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               },
-              "issue_date": {
+              "display_name": {
                 "type": "string",
-                "description": "The issue date of trial configuration",
-                "example": "2024-06-12"
+                "description": "The display name of study procedure task definition",
+                "example": "Please complete something first"
               },
-              "name": {
-                "type": "string",
-                "description": "The name of trial configuration",
-                "example": "Ghost Trial Configuration"
+              "role_ids": {
+                "type": "array",
+                "description": "The role ids of study procedure task definition",
+                "items": {
+                  "type": "number",
+                  "example": 1
+                }
               }
-            }
+            },
+            "required": [
+              "authenticity_token",
+              "display_name"
+            ],
+            "additionalProperties": false
           }
         }
       }
@@ -110,7 +120,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/TrialConfiguration.json"
+              "$ref": "../components/schemas/StudyProcedureTaskDefinition.json"
             }
           }
         }

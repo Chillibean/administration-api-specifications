@@ -3,7 +3,9 @@
     "summary": "Create a study event procedure for trial configuration",
     "description": "Create a study event procedure for trial configuration",
     "operationId": "createStudyEventProcedure",
-    "tags": ["Trial Configurations"],
+    "tags": [
+      "Trial Configurations"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -99,10 +101,10 @@
         "$ref": "../components/responses/NotFound.json"
       },
       "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/Conflict.json"
       },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }
