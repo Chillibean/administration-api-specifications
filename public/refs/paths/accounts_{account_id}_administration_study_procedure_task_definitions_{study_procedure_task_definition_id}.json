@@ -1,10 +1,10 @@
 {
   "put": {
-    "summary": "Update a study event definition for trial configuration",
-    "description": "Update a study event definition for trial configuration",
-    "operationId": "updateStudyEventDefinition",
+    "summary": "Update a study procedure task definition",
+    "description": "Update a study procedure task definition",
+    "operationId": "updateStudyProcedureTaskDefinition",
     "tags": [
-      "Trial Configurations"
+      "Study Procedure Task Definitions"
     ],
     "security": [
       {
@@ -24,19 +24,9 @@
         }
       },
       {
-        "name": "trial_configuration_id",
+        "name": "study_procedure_task_definition_id",
         "in": "path",
-        "description": "The trial configuration id",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "example": "1"
-        }
-      },
-      {
-        "name": "study_event_definition_id",
-        "in": "path",
-        "description": "The study event definition id",
+        "description": "The study procedure task definition id",
         "required": true,
         "schema": {
           "type": "string",
@@ -45,44 +35,35 @@
       }
     ],
     "requestBody": {
-      "description": "Study event definition object",
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "Study event definition object",
+            "description": "Update study procedure task definition object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "display_name": {
                 "type": "string",
-                "description": "The display name of study event definition",
-                "example": "Study event Definition"
+                "description": "The display name of study procedure task definition",
+                "example": "Please complete something first"
               },
-              "identifier": {
-                "type": "string",
-                "description": "The identifier of study event definition",
-                "example": "SPD"
-              },
-              "position": {
-                "type": "integer",
-                "description": "The position of study event definition",
-                "example": 1
-              },
-              "study_arm_id": {
-                "type": "string",
-                "description": "The study arm id of study event definition",
-                "example": "1"
+              "role_ids": {
+                "type": "array",
+                "description": "The role ids of study procedure task definition",
+                "items": {
+                  "type": "number",
+                  "example": 1
+                }
               }
             },
-            "additionalProperties": false,
             "required": [
               "authenticity_token",
               "display_name",
-              "identifier",
-              "position"
-            ]
+              "role_ids"
+            ],
+            "additionalProperties": false
           }
         }
       }
@@ -93,7 +74,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/TrialConfiguration.json"
+              "$ref": "../components/schemas/StudyProcedureTaskDefinition.json"
             }
           }
         }
@@ -119,11 +100,11 @@
     }
   },
   "delete": {
-    "summary": "Delete a study event definition for trial configuration",
-    "description": "Delete a study event definition for trial configuration",
-    "operationId": "deleteStudyEventDefinition",
+    "summary": "Delete a study procedure task definition",
+    "description": "Delete a study procedure task definition",
+    "operationId": "deleteStudyProcedureTaskDefinition",
     "tags": [
-      "Trial Configurations"
+      "Study Procedure Task Definitions"
     ],
     "security": [
       {
@@ -143,19 +124,9 @@
         }
       },
       {
-        "name": "trial_configuration_id",
+        "name": "study_procedure_task_definition_id",
         "in": "path",
-        "description": "The trial configuration id",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "example": "1"
-        }
-      },
-      {
-        "name": "study_event_definition_id",
-        "in": "path",
-        "description": "The study event definition id",
+        "description": "The study procedure task definition id",
         "required": true,
         "schema": {
           "type": "string",
@@ -164,35 +135,27 @@
       }
     ],
     "requestBody": {
-      "description": "Study event definition object",
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "Study event definition object",
+            "description": "Delete study procedure task definition object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               }
             },
-            "additionalProperties": false,
             "required": [
               "authenticity_token"
-            ]
+            ],
+            "additionalProperties": false
           }
         }
       }
     },
     "responses": {
-      "200": {
-        "description": "OK",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "../components/schemas/TrialConfiguration.json"
-            }
-          }
-        }
+      "204": {
+        "description": "No Content"
       },
       "400": {
         "$ref": "../components/responses/BadRequest.json"
