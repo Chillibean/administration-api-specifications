@@ -3,7 +3,9 @@
     "summary": "Create a study event definition for trial configuration",
     "description": "Create a study event definition for trial configuration",
     "operationId": "createStudyEventDefinition",
-    "tags": ["Trial Configurations"],
+    "tags": [
+      "Trial Configurations"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -53,6 +55,11 @@
                 "description": "The identifier of study event definition",
                 "example": "SPD"
               },
+              "position": {
+                "type": "integer",
+                "description": "The position of study event definition",
+                "example": 1
+              },
               "study_arm_id": {
                 "type": "string",
                 "description": "The study arm id of study event definition",
@@ -60,7 +67,11 @@
               }
             },
             "additionalProperties": false,
-            "required": ["authenticity_token", "display_name", "identifier"]
+            "required": [
+              "authenticity_token",
+              "display_name",
+              "identifier"
+            ]
           }
         }
       }
@@ -89,10 +100,10 @@
         "$ref": "../components/responses/NotFound.json"
       },
       "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/Conflict.json"
       },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }

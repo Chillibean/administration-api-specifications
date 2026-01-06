@@ -2,23 +2,40 @@
   "description": "A study procedure task definition",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "number",
-      "description": "The id of study procedure task definition",
-      "example": 1
-    },
     "display_name": {
       "type": "string",
       "description": "The display name of study procedure task definition",
       "example": "Please complete something first"
     },
-    "role_ids": {
+    "enabled": {
+      "type": "boolean",
+      "description": "The enabled status of study procedure task definition",
+      "example": true
+    },
+    "id": {
+      "type": "number",
+      "description": "The id of study procedure task definition",
+      "example": 1
+    },
+    "roles": {
       "type": "array",
       "description": "The role ids of study procedure task definition",
       "items": {
-        "type": "number",
-        "example": 4
+        "$ref": "./Role.json"
       }
+    },
+    "study_procedure_tasks_exist": {
+      "type": "boolean",
+      "description": "The usage status of study procedure task definition",
+      "example": false
     }
-  }
+  },
+  "required": [
+    "display_name",
+    "enabled",
+    "id",
+    "roles",
+    "study_procedure_tasks_exist"
+  ],
+  "additionalProperties": false
 }

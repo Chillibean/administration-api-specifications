@@ -55,6 +55,11 @@
                 "description": "The identifier of study procedure definition",
                 "example": "SPD"
               },
+              "position": {
+                "type": "integer",
+                "description": "The position of study procedure definition",
+                "example": 1
+              },
               "required_form_templates": {
                 "type": "integer",
                 "description": "The required form templates of study procedure definition",
@@ -95,10 +100,10 @@
         "$ref": "../components/responses/NotFound.json"
       },
       "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/Conflict.json"
       },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }
