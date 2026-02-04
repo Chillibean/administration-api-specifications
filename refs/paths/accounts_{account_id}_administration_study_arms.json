@@ -1,10 +1,10 @@
 {
   "get": {
-    "summary": "Get all trial configurations for account",
-    "description": "Get all trial configurations for account",
-    "operationId": "getTrialConfigurations",
+    "summary": "Get all study arms for account",
+    "description": "Get all study arms for account",
+    "operationId": "getStudyArms",
     "tags": [
-      "Trial Configurations"
+      "Study Arms"
     ],
     "security": [
       {
@@ -19,8 +19,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -31,15 +31,16 @@
           "application/json": {
             "schema": {
               "type": "array",
+              "description": "Study arms",
               "items": {
-                "$ref": "../components/schemas/TrialConfiguration.json"
+                "$ref": "../components/schemas/StudyArmWithTrialConfigurations.json"
               }
             }
           }
         }
       },
       "400": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
         "$ref": "../components/responses/Unauthorized.json"
@@ -56,11 +57,11 @@
     }
   },
   "post": {
-    "summary": "Create a trial configuration for account",
-    "description": "Create a trial configuration for account",
-    "operationId": "createTrialConfiguration",
+    "summary": "Create a study arm",
+    "description": "Create a study arm",
+    "operationId": "createStudyArm",
     "tags": [
-      "Trial Configurations"
+      "Study Arms"
     ],
     "security": [
       {
@@ -75,8 +76,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -85,21 +86,22 @@
         "application/json": {
           "schema": {
             "type": "object",
+            "description": "Create study arm object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               },
-              "issue_date": {
+              "display_name": {
                 "type": "string",
-                "description": "The issue date of trial configuration",
-                "example": "2024-06-12"
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of trial configuration",
-                "example": "Ghost Trial Configuration"
+                "description": "The display name of study arm",
+                "example": "Post-Treatment Monitoring Arm"
               }
-            }
+            },
+            "required": [
+              "authenticity_token",
+              "display_name"
+            ],
+            "additionalProperties": false
           }
         }
       }
@@ -110,7 +112,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/TrialConfiguration.json"
+              "$ref": "../components/schemas/StudyArmWithTrialConfigurations.json"
             }
           }
         }

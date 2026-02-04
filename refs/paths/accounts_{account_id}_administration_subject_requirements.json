@@ -3,7 +3,9 @@
     "summary": "Get subject requirements for account",
     "description": "Get subject requirements for account",
     "operationId": "getSubjectRequirements",
-    "tags": ["Subject Requirements"],
+    "tags": [
+      "Subject Requirements"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -45,11 +47,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/BadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/BadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   },
@@ -57,7 +56,9 @@
     "summary": "Update subject requirements for account",
     "description": "Update subject requirements for account",
     "operationId": "updateSubjectRequirements",
-    "tags": ["Subject Requirements"],
+    "tags": [
+      "Subject Requirements"
+    ],
     "security": [
       {
         "userSessionKey": [],
@@ -121,11 +122,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/BadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/BadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }

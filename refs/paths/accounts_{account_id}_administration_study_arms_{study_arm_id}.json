@@ -1,10 +1,10 @@
 {
   "put": {
-    "summary": "Update a study event definition for trial configuration",
-    "description": "Update a study event definition for trial configuration",
-    "operationId": "updateStudyEventDefinition",
+    "summary": "Update a study arm",
+    "description": "Update a study arm",
+    "operationId": "updateStudyArm",
     "tags": [
-      "Trial Configurations"
+      "Study Arms"
     ],
     "security": [
       {
@@ -24,19 +24,9 @@
         }
       },
       {
-        "name": "trial_configuration_id",
+        "name": "study_arm_id",
         "in": "path",
-        "description": "The trial configuration id",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "example": "1"
-        }
-      },
-      {
-        "name": "study_event_definition_id",
-        "in": "path",
-        "description": "The study event definition id",
+        "description": "The study arm id",
         "required": true,
         "schema": {
           "type": "string",
@@ -45,44 +35,31 @@
       }
     ],
     "requestBody": {
-      "description": "Study event definition object",
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "Study event definition object",
+            "description": "Update study arm object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               },
               "display_name": {
                 "type": "string",
-                "description": "The display name of study event definition",
-                "example": "Study event Definition"
+                "description": "The display name of study arm",
+                "example": "Post-Treatment Monitoring Arm"
               },
-              "identifier": {
+              "reason_for_change": {
                 "type": "string",
-                "description": "The identifier of study event definition",
-                "example": "SPD"
-              },
-              "position": {
-                "type": "integer",
-                "description": "The position of study event definition",
-                "example": 1
-              },
-              "study_arm_id": {
-                "type": "string",
-                "description": "The study arm id of study event definition",
-                "example": "1"
+                "description": "The reason for change of study arm",
+                "example": "Mistake"
               }
             },
-            "additionalProperties": false,
             "required": [
               "authenticity_token",
-              "display_name",
-              "identifier",
-              "position"
-            ]
+              "display_name"
+            ],
+            "additionalProperties": false
           }
         }
       }
@@ -93,7 +70,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../components/schemas/TrialConfiguration.json"
+              "$ref": "../components/schemas/StudyArmWithTrialConfigurations.json"
             }
           }
         }
@@ -119,11 +96,11 @@
     }
   },
   "delete": {
-    "summary": "Delete a study event definition for trial configuration",
-    "description": "Delete a study event definition for trial configuration",
-    "operationId": "deleteStudyEventDefinition",
+    "summary": "Delete a study arm",
+    "description": "Delete a study arm",
+    "operationId": "deleteStudyArm",
     "tags": [
-      "Trial Configurations"
+      "Study Arms"
     ],
     "security": [
       {
@@ -143,19 +120,9 @@
         }
       },
       {
-        "name": "trial_configuration_id",
+        "name": "study_arm_id",
         "in": "path",
-        "description": "The trial configuration id",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "example": "1"
-        }
-      },
-      {
-        "name": "study_event_definition_id",
-        "in": "path",
-        "description": "The study event definition id",
+        "description": "The study arm id",
         "required": true,
         "schema": {
           "type": "string",
@@ -164,35 +131,27 @@
       }
     ],
     "requestBody": {
-      "description": "Study event definition object",
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
-            "description": "Study event definition object",
+            "description": "Delete study arm object",
             "properties": {
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"
               }
             },
-            "additionalProperties": false,
             "required": [
               "authenticity_token"
-            ]
+            ],
+            "additionalProperties": false
           }
         }
       }
     },
     "responses": {
-      "200": {
-        "description": "OK",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "../components/schemas/TrialConfiguration.json"
-            }
-          }
-        }
+      "204": {
+        "description": "No Content"
       },
       "400": {
         "$ref": "../components/responses/BadRequest.json"
