@@ -1,10 +1,10 @@
 {
   "get": {
-    "summary": "Get all trial containers for account",
-    "description": "Get all trial containers for account",
-    "operationId": "getTrialContainers",
+    "summary": "Get all roles for account",
+    "description": "Get all roles for account",
+    "operationId": "getRoles",
     "tags": [
-      "Trial Containers"
+      "Roles"
     ],
     "security": [
       {
@@ -19,8 +19,8 @@
         "description": "The account id",
         "required": true,
         "schema": {
-          "example": "1",
-          "type": "string"
+          "type": "string",
+          "example": "1"
         }
       }
     ],
@@ -31,15 +31,16 @@
           "application/json": {
             "schema": {
               "type": "array",
+              "description": "Roles",
               "items": {
-                "$ref": "../components/schemas/TrialContainerBasic.json"
+                "$ref": "../components/schemas/Role.json"
               }
             }
           }
         }
       },
       "400": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/BadRequest.json"
       },
       "401": {
         "$ref": "../components/responses/Unauthorized.json"
