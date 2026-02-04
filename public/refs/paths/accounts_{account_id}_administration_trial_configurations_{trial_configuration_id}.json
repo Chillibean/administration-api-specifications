@@ -57,11 +57,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   },
@@ -148,10 +145,10 @@
         "$ref": "../components/responses/NotFound.json"
       },
       "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/Conflict.json"
       },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   },
@@ -213,11 +210,8 @@
       "404": {
         "$ref": "../components/responses/NotFound.json"
       },
-      "409": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
-      },
       "500": {
-        "$ref": "../components/responses/LegacyBadRequest.json"
+        "$ref": "../components/responses/InternalServerError.json"
       }
     }
   }
