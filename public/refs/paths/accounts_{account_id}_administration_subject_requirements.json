@@ -87,9 +87,9 @@
                 "type": "boolean",
                 "example": true
               },
-              "number_of_characters": {
-                "type": "integer",
-                "example": 6
+              "characters": {
+                "type": "string",
+                "example": "ABC"
               },
               "authenticity_token": {
                 "$ref": "../components/schemas/AuthenticityToken.json"

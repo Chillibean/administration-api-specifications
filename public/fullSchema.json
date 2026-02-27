@@ -3493,9 +3493,9 @@
                     "type": "boolean",
                     "example": true
                   },
-                  "number_of_characters": {
-                    "type": "integer",
-                    "example": 6
+                  "characters": {
+                    "type": "string",
+                    "example": "ABC"
                   },
                   "authenticity_token": {
                     "$ref": "#/components/schemas/AuthenticityToken"
@@ -4697,15 +4697,18 @@
             "description": "Include site prefix",
             "example": true
           },
-          "number_of_characters": {
-            "type": "number",
-            "description": "Number of characters",
-            "example": 1
+          "characters": {
+            "type": "array",
+            "description": "The characters for subject number",
+            "items": {
+              "type": "string",
+              "example": "ABC"
+            }
           }
         },
         "required": [
           "include_site_prefix",
-          "number_of_characters"
+          "characters"
         ],
         "additionalProperties": false
       }
