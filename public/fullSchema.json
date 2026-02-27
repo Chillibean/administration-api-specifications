@@ -4699,7 +4699,7 @@
           },
           "characters": {
             "type": "array",
-            "description": "characters",
+            "description": "The characters for subject number",
             "items": {
               "type": "string",
               "example": "ABC"
