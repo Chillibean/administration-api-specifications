@@ -3496,8 +3496,7 @@
                   "characters": {
                     "type": "array",
                     "items": {
-                      "type": "string",
-                      "example": "ABC"
+                      "$ref": "#/components/schemas/StudySubjectNumberCharacter"
                     }
                   },
                   "authenticity_token": {
@@ -4691,6 +4690,21 @@
           "position"
         ]
       },
+      "StudySubjectNumberCharacter": {
+        "description": "Subject requirements character for an account",
+        "type": "object",
+        "properties": {
+          "character_type": {
+            "type": "string",
+            "description": "Character type",
+            "example": "ABC"
+          }
+        },
+        "required": [
+          "character_type"
+        ],
+        "additionalProperties": false
+      },
       "SubjectRequirements": {
         "description": "Subject requirements for an account",
         "type": "object",
@@ -4704,8 +4718,7 @@
             "type": "array",
             "description": "The characters for subject number",
             "items": {
-              "type": "string",
-              "example": "ABC"
+              "$ref": "#/components/schemas/StudySubjectNumberCharacter"
             }
           }
         },

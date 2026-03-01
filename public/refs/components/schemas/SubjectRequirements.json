@@ -11,8 +11,7 @@
       "type": "array",
       "description": "The characters for subject number",
       "items": {
-        "type": "string",
-        "example": "ABC"
+        "$ref": "./StudySubjectNumberCharacter.json"
       }
     }
   },

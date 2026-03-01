@@ -90,8 +90,7 @@
               "characters": {
                 "type": "array",
                 "items": {
-                  "type": "string",
-                  "example": "ABC"
+                  "$ref": "../components/schemas/StudySubjectNumberCharacter.json"
                 }
               },
               "authenticity_token": {
