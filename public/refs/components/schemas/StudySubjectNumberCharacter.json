@@ -1,0 +1,13 @@
+{
+  "description": "Subject requirements character for an account",
+  "type": "object",
+  "properties": {
+    "character_type": {
+      "type": "string",
+      "description": "Character type",
+      "example": "ABC"
+    }
+  },
+  "required": ["character_type"],
+  "additionalProperties": false
+}
