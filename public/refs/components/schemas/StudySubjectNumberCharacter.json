@@ -5,7 +5,7 @@
     "character_type": {
       "type": "string",
       "description": "Character type",
-      "example": "ABC"
+      "example": "A"
     }
   },
   "required": ["character_type"],
