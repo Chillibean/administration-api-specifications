@@ -7,12 +7,14 @@
       "description": "Include site prefix",
       "example": true
     },
-    "number_of_characters": {
-      "type": "number",
-      "description": "Number of characters",
-      "example": 1
+    "characters": {
+      "type": "array",
+      "description": "The characters for subject number",
+      "items": {
+        "$ref": "./StudySubjectNumberCharacter.json"
+      }
     }
   },
-  "required": ["include_site_prefix", "number_of_characters"],
+  "required": ["include_site_prefix", "characters"],
   "additionalProperties": false
 }
