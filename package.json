@@ -33,5 +33,10 @@
     "gh-pages": "^6.0.0",
     "js-yaml": "4.1.1",
     "vite": "^4.4.5"
+  },
+  "overrides": {
+    "@swagger-api/apidom-reference": {
+      "minimatch": "^11.0.1"
+    }
   }
 }
